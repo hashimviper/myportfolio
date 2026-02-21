@@ -83,6 +83,56 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
+  // ============================================
+  // Banner Image
+  // ============================================
+   // 1. Your "Source" Data
+const myProjects = [
+    {
+        title: "VisoryBI Branding",
+        description: "Official stamp and e-stamp design system.",
+        image: "path-to-your-stamp-image.png",
+        link: "#"
+    },
+    {
+        title: "E-Commerce App",
+        description: "Built with React and Tailwind CSS.",
+        image: "project2.jpg",
+        link: "#"
+    }
+];
+
+let currentIndex = 0;
+
+// 2. Function to build the slider from data
+function initSlider() {
+    const slider = document.getElementById('project-slider');
+    myProjects.forEach((project, index) => {
+        const slideHTML = `
+            <div class="slide ${index === 0 ? 'active' : ''}" style="display: ${index === 0 ? 'block' : 'none'}">
+                <img src="${project.image}" alt="${project.title}">
+                <div class="slide-content">
+                    <h3>${project.title}</h3>
+                    <p>${project.description}</p>
+                    <a href="${project.link}" style="color: #4caf50;">View Project</a>
+                </div>
+            </div>`;
+        slider.innerHTML += slideHTML;
+    });
+}
+
+// 3. Logic to move slides
+function changeSlide(direction) {
+    const slides = document.querySelectorAll('.slide');
+    slides[currentIndex].style.display = 'none';
+    
+    currentIndex = (currentIndex + direction + slides.length) % slides.length;
+    
+    slides[currentIndex].style.display = 'block';
+}
+
+// Run the slider on load
+initSlider();
 
   // ============================================
   // Intersection Observer for Animations
@@ -236,3 +286,4 @@ function throttle(func, limit) {
     }
   };
 }
+
