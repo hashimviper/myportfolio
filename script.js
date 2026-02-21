@@ -91,13 +91,19 @@ const myProjects = [
     {
         title: "VisoryBI — Offline BI Platform",
         description: "Privacy-focused analytics platform enabling interactive dashboards and statistical insights offline.",
-        image: "assets/images/dataimage.png", // Ensure this path is correct
+        image: "assets/images/visorybi-logo.png", // Ensure this path is correct
         link: "#projects"
     },
     {
-        title: "E-Commerce App",
-        description: "Built with React and Tailwind CSS, featuring a fully functional shopping cart.",
-        image: "project2.jpg", // Replace with your second project image
+        title: "HR Analytics Dashboard",
+        description: "Transforming workforce data into actionable talent insights through real-time KPI tracking and predictive people analytics",
+        image: "assets/images/imagedata.png", // Replace with your second project image
+        link: "#"
+    },
+       {
+        title: "Web Scrapping Analytics Dashboard",
+        description: "Automating large-scale data extraction from unstructured web sources to deliver competitive market intelligence and structured datasets.",
+        image: "assets/images/dataimage.png", // Replace with your second project image
         link: "#"
     }
 ];
@@ -284,5 +290,6 @@ function throttle(func, limit) {
     }
   };
 }
+
 
 
