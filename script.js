@@ -83,55 +83,53 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
-  // ============================================
-  // Banner Image
-  // ============================================
-   // 1. Your "Source" Data
+// ============================================
+// Interactive Project Slider Logic
+// ============================================
+
 const myProjects = [
     {
-        title: "VisoryBI Branding",
-        description: "Official stamp and e-stamp design system.",
-        image: "path-to-your-stamp-image.png",
-        link: "#"
+        title: "VisoryBI — Offline BI Platform",
+        description: "Privacy-focused analytics platform enabling interactive dashboards and statistical insights offline.",
+        image: "assets/images/dataimage.png", // Ensure this path is correct
+        link: "#projects"
     },
     {
         title: "E-Commerce App",
-        description: "Built with React and Tailwind CSS.",
-        image: "project2.jpg",
+        description: "Built with React and Tailwind CSS, featuring a fully functional shopping cart.",
+        image: "project2.jpg", // Replace with your second project image
         link: "#"
     }
 ];
 
 let currentIndex = 0;
 
-// 2. Function to build the slider from data
 function initSlider() {
     const slider = document.getElementById('project-slider');
-    myProjects.forEach((project, index) => {
-        const slideHTML = `
-            <div class="slide ${index === 0 ? 'active' : ''}" style="display: ${index === 0 ? 'block' : 'none'}">
-                <img src="${project.image}" alt="${project.title}">
-                <div class="slide-content">
-                    <h3>${project.title}</h3>
-                    <p>${project.description}</p>
-                    <a href="${project.link}" style="color: #4caf50;">View Project</a>
-                </div>
-            </div>`;
-        slider.innerHTML += slideHTML;
-    });
+    if(!slider) return;
+
+    slider.innerHTML = myProjects.map((project, index) => `
+        <div class="slide" style="display: ${index === 0 ? 'block' : 'none'}">
+            <img src="${project.image}" alt="${project.title}">
+            <div class="slide-content">
+                <h3 class="font-mono">${project.title}</h3>
+                <p>${project.description}</p>
+                <a href="${project.link}" class="btn btn-primary btn-small">Learn More</a>
+            </div>
+        </div>
+    `).join('');
 }
 
-// 3. Logic to move slides
 function changeSlide(direction) {
     const slides = document.querySelectorAll('.slide');
+    if (slides.length === 0) return;
+
     slides[currentIndex].style.display = 'none';
-    
     currentIndex = (currentIndex + direction + slides.length) % slides.length;
-    
     slides[currentIndex].style.display = 'block';
 }
 
-// Run the slider on load
+// Call init inside your DOMContentLoaded listener
 initSlider();
 
   // ============================================
@@ -286,4 +284,5 @@ function throttle(func, limit) {
     }
   };
 }
+
 
