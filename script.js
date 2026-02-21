@@ -89,26 +89,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
 const myProjects = [
     {
-        title: "VisoryBI — Offline BI Platform",
-        description: "Privacy-focused analytics platform enabling interactive dashboards and statistical insights offline.",
-        image: "assets/images/visorybi-logo.png", // Ensure this path is correct
+        title: "VisoryBI — The Offline Dashboard Architect",
+        description: "A high-performance offline BI engine featuring 15+ smart templates, drag-and-drop customization, and cross-filtered analytics.",
+        image: "assets/images/visorybi-logo.png", 
         link: "#projects"
     },
     {
         title: "HR Analytics Dashboard",
-        description: "Transforming workforce data into actionable talent insights through real-time KPI tracking and predictive people analytics",
-        image: "assets/images/imagedata.png", // Replace with your second project image
-        link: "#"
+        description: "Transforming workforce data into actionable talent insights through real-time KPI tracking and predictive people analytics.",
+        image: "assets/images/imagedata.png", 
+        link: "#projects"
     },
-       {
-        title: "Web Scrapping Analytics Dashboard",
+    {
+        title: "Web Scraping Analytics Dashboard",
         description: "Automating large-scale data extraction from unstructured web sources to deliver competitive market intelligence and structured datasets.",
-        image: "assets/images/dataimage.png", // Replace with your second project image
-        link: "#"
+        image: "assets/images/dataimage.png", 
+        link: "#projects"
     }
 ];
+
 let currentIndex = 0;
 
+// Use a named function so we can call it safely
 function initSlider() {
     const slider = document.getElementById('project-slider');
     if(!slider) return;
@@ -117,7 +119,7 @@ function initSlider() {
         <div class="slide" style="display: ${index === 0 ? 'block' : 'none'}">
             <img src="${project.image}" alt="${project.title}">
             <div class="slide-content">
-                <h3 class="font-mono">${project.title}</h3>
+                <h3 class="font-mono gradient-text">${project.title}</h3>
                 <p>${project.description}</p>
                 <a href="${project.link}" class="btn btn-primary btn-small">View Project</a>
             </div>
@@ -125,6 +127,7 @@ function initSlider() {
     `).join('');
 }
 
+// Keep this GLOBAL so the HTML buttons can see it
 function changeSlide(direction) {
     const slides = document.querySelectorAll('.slide');
     if (slides.length === 0) return;
@@ -134,8 +137,38 @@ function changeSlide(direction) {
     slides[currentIndex].style.display = 'block';
 }
 
-// Manually trigger init because it's now outside the listener
-window.onload = initSlider;
+// ============================================
+// Initialization & Observers
+// ============================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    // 1. Initialize Slider
+    initSlider();
+
+    // 2. Intersection Observer for Animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-visible');
+
+                // Trigger skill bar animations
+                const skillBars = entry.target.querySelectorAll('.skill-bar-fill');
+                skillBars.forEach(function(bar) {
+                    bar.style.animationPlayState = 'running';
+                });
+            }
+        });
+    }, observerOptions);
+
+    // Observe relevant sections and cards
+    const targets = document.querySelectorAll('section, .skill-card, .project-card');
+    targets.forEach(target => observer.observe(target));
+});
 
   // ============================================
   // Intersection Observer for Animations
@@ -289,6 +322,7 @@ function throttle(func, limit) {
     }
   };
 }
+
 
 
 
