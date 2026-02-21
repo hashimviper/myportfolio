@@ -107,7 +107,6 @@ const myProjects = [
         link: "#"
     }
 ];
-
 let currentIndex = 0;
 
 function initSlider() {
@@ -120,7 +119,7 @@ function initSlider() {
             <div class="slide-content">
                 <h3 class="font-mono">${project.title}</h3>
                 <p>${project.description}</p>
-                <a href="${project.link}" class="btn btn-primary btn-small">Learn More</a>
+                <a href="${project.link}" class="btn btn-primary btn-small">View Project</a>
             </div>
         </div>
     `).join('');
@@ -135,8 +134,8 @@ function changeSlide(direction) {
     slides[currentIndex].style.display = 'block';
 }
 
-// Call init inside your DOMContentLoaded listener
-initSlider();
+// Manually trigger init because it's now outside the listener
+window.onload = initSlider;
 
   // ============================================
   // Intersection Observer for Animations
@@ -290,6 +289,7 @@ function throttle(func, limit) {
     }
   };
 }
+
 
 
 
