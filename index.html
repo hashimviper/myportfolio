@@ -123,17 +123,13 @@
   <!-- Banner Section -->  
 <section class="banner-section">
     <div class="container">
-        <div class="text-center mb-4">
-            <span class="badge-primary">Highlights</span>
-        </div>
-        
         <div class="banner-container animate-fade-up">
-            <div id="project-slider" class="slider-wrapper"></div>
+            <div id="project-slider" class="slider-wrapper">
+                </div>
             
             <div class="slider-controls">
-                <button class="btn btn-secondary btn-nav" onclick="changeSlide(-1)">&#10094;</button>
-                <div id="slide-dots" class="dots-container"></div>
-                <button class="btn btn-secondary btn-nav" onclick="changeSlide(1)">&#10095;</button>
+                <button class="btn btn-secondary" onclick="changeSlide(-1)">&#10094; Prev</button>
+                <button class="btn btn-secondary" onclick="changeSlide(1)">Next &#10095;</button>
             </div>
         </div>
     </div>
@@ -613,6 +609,7 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
