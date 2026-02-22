@@ -91,6 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
    PROJECT SLIDER DATA & LOGIC
    ============================================ */
 
+// Keep the Data and Functions at the top
 const myProjects = [
     {
         title: "VisoryBI — The Offline Dashboard Architect",
@@ -114,14 +115,13 @@ const myProjects = [
 
 let currentIndex = 0;
 
-// 1. Function to build the slider
 function initSlider() {
     const slider = document.getElementById('project-slider');
     if (!slider) return;
 
     slider.innerHTML = myProjects.map((project, index) => `
         <div class="slide" style="display: ${index === 0 ? 'block' : 'none'}">
-            <img src="${project.image}" alt="${project.title}">
+            <img src="${project.image}" alt="${project.title}" onerror="this.src='https://via.placeholder.com/600x300?text=Image+Not+Found'">
             <div class="slide-content">
                 <h3 class="font-mono gradient-text">${project.title}</h3>
                 <p>${project.description}</p>
@@ -131,52 +131,19 @@ function initSlider() {
     `).join('');
 }
 
-// 2. Global function for buttons (MUST be outside DOMContentLoaded)
 function changeSlide(direction) {
     const slides = document.querySelectorAll('.slide');
     if (slides.length === 0) return;
 
-    // Hide current
     slides[currentIndex].style.display = 'none';
-    
-    // Calculate next
     currentIndex = (currentIndex + direction + slides.length) % slides.length;
-    
-    // Show next
     slides[currentIndex].style.display = 'block';
 }
 
-/* ============================================
-   INITIALIZATION & OBSERVERS
-   ============================================ */
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Run the slider builder
+// --- THIS IS THE MISSING PIECE ---
+// This tells the browser to run the code only AFTER the HTML is loaded
+document.addEventListener('DOMContentLoaded', () => {
     initSlider();
-
-    // Intersection Observer for Animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-visible');
-
-                // Trigger skill bar animations if present
-                const skillBars = entry.target.querySelectorAll('.skill-bar-fill');
-                skillBars.forEach(function(bar) {
-                    bar.style.animationPlayState = 'running';
-                });
-            }
-        });
-    }, observerOptions);
-
-    // Observe all sections and cards
-    const targets = document.querySelectorAll('section, .skill-card, .project-card, .banner-container');
-    targets.forEach(target => observer.observe(target));
 });
 // ============================================
 // Initialization & Observers
@@ -363,6 +330,7 @@ function throttle(func, limit) {
     }
   };
 }
+
 
 
 
