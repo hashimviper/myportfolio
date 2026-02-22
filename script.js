@@ -97,50 +97,48 @@ document.addEventListener('DOMContentLoaded', function() {
 const myProjects = [
     {
         title: "VisoryBI — The Offline Dashboard Architect",
-        description: "A high-performance offline BI engine featuring 15+ smart templates, drag-and-drop customization, and cross-filtered analytics.",
-        image: "assets/images/visorybi-logo.png", 
+        description: "A high-performance offline BI engine featuring 15+ smart templates and cross-filtered analytics.",
+        image: "assets/images/visorybi-logo.png",
         link: "#projects"
     },
     {
         title: "HR Analytics Dashboard",
-        description: "Transforming workforce data into actionable talent insights through real-time KPI tracking and predictive people analytics.",
-        image: "assets/images/imagedata.png", 
+        description: "Transforming workforce data into actionable talent insights through real-time KPI tracking.",
+        image: "assets/images/imagedata.png",
         link: "#projects"
     },
     {
         title: "Web Scraping Analytics Dashboard",
-        description: "Automating large-scale data extraction from unstructured web sources to deliver competitive market intelligence.",
-        image: "assets/images/dataimage.png", 
+        description: "Automating large-scale data extraction to deliver competitive market intelligence.",
+        image: "assets/images/dataimage.png",
         link: "#projects"
     }
 ];
 
 let currentIndex = 0;
+let autoSlideTimer;
 
+// Build Slider
 function initSlider() {
     const slider = document.getElementById('project-slider');
-    if (!slider) {
-        console.error("Slider element #project-slider not found!");
-        return;
-    }
+    if (!slider) return;
 
-    // Injecting the HTML with an 'onerror' fallback for images
     slider.innerHTML = myProjects.map((project, index) => `
         <div class="slide" style="display: ${index === 0 ? 'block' : 'none'}">
-            <img src="${project.image}" 
-                 alt="${project.title}" 
-                 onerror="this.src='https://via.placeholder.com/800x400/222/00f2fe?text=Image+Not+Found+at+Path'">
+            <span class="featured-badge">Featured Project</span>
+            <img src="${project.image}" alt="${project.title}" onerror="this.src='https://via.placeholder.com/800x400/222/00f2fe?text=Image+Missing'">
             <div class="slide-content">
-                <h3 class="font-mono">${project.title}</h3>
+                <h3 class="gradient-text font-mono">${project.title}</h3>
                 <p>${project.description}</p>
-                <a href="${project.link}" class="btn btn-primary">View Project</a>
+                <a href="${project.link}" class="btn btn-primary btn-small">View Details</a>
             </div>
         </div>
     `).join('');
-    console.log("Slider successfully initialized with " + myProjects.length + " projects.");
+    
+    startAutoSlide();
 }
 
-// Global Nav Function for HTML buttons
+// Navigation Function (Global Scope)
 window.changeSlide = function(direction) {
     const slides = document.querySelectorAll('.slide');
     if (slides.length === 0) return;
@@ -148,25 +146,20 @@ window.changeSlide = function(direction) {
     slides[currentIndex].style.display = 'none';
     currentIndex = (currentIndex + direction + slides.length) % slides.length;
     slides[currentIndex].style.display = 'block';
+    
+    // Reset timer on manual click so it doesn't jump immediately
+    startAutoSlide();
 };
 
-// Fire the initialization
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initSlider);
-} else {
-    initSlider();
+function startAutoSlide() {
+    clearInterval(autoSlideTimer);
+    autoSlideTimer = setInterval(() => {
+        changeSlide(1);
+    }, 5000); // Change every 5 seconds
 }
-   // This defines the function and runs it immediately in the console
-(function forceSlide() {
-    const slides = document.querySelectorAll('.slide');
-    if (slides.length > 0) {
-        slides.forEach(s => s.style.display = 'none'); // Hide all
-        slides[1].style.display = 'block';            // Show the second one
-        console.log("Forced visibility of Slide 1");
-    } else {
-        console.error("No elements with class '.slide' found in the DOM.");
-    }
-})();
+
+// Initialize when page is ready
+document.addEventListener('DOMContentLoaded', initSlider);
 // ============================================
 // Initialization & Observers
 // ============================================
@@ -352,6 +345,7 @@ function throttle(func, limit) {
     }
   };
 }
+
 
 
 
