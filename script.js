@@ -97,40 +97,41 @@ document.addEventListener('DOMContentLoaded', function() {
 const myProjects = [
     {
         title: "VisoryBI — The Offline Dashboard Architect",
-        description: "A high-performance offline BI engine featuring 15+ smart templates and cross-filtered analytics.",
-        image: "assets/images/visorybi-logo.png",
+        description: "A high-performance offline BI engine featuring 15+ smart templates, drag-and-drop customization, and cross-filtered analytics.",
+        image: "assets/images/visorybi-logo.png", 
         link: "#projects"
     },
     {
         title: "HR Analytics Dashboard",
-        description: "Transforming workforce data into actionable talent insights through real-time KPI tracking.",
-        image: "assets/images/imagedata.png",
+        description: "Transforming workforce data into actionable talent insights through real-time KPI tracking and predictive people analytics.",
+        image: "assets/images/imagedata.png", 
         link: "#projects"
     },
     {
         title: "Web Scraping Analytics Dashboard",
-        description: "Automating large-scale data extraction to deliver competitive market intelligence.",
-        image: "assets/images/dataimage.png",
+        description: "Automating large-scale data extraction from unstructured web sources to deliver competitive market intelligence.",
+        image: "assets/images/dataimage.png", 
         link: "#projects"
     }
 ];
 
 let currentIndex = 0;
-let autoSlideTimer;
+let autoSlideInterval;
 
-// Build Slider
 function initSlider() {
     const slider = document.getElementById('project-slider');
     if (!slider) return;
 
     slider.innerHTML = myProjects.map((project, index) => `
         <div class="slide" style="display: ${index === 0 ? 'block' : 'none'}">
-            <span class="featured-badge">Featured Project</span>
-            <img src="${project.image}" alt="${project.title}" onerror="this.src='https://via.placeholder.com/800x400/222/00f2fe?text=Image+Missing'">
+            <div class="featured-badge">Featured Project</div>
+            <img src="${project.image}" 
+                 alt="${project.title}" 
+                 onerror="this.src='https://via.placeholder.com/800x400/222/00f2fe?text=Image+Not+Found'">
             <div class="slide-content">
-                <h3 class="gradient-text font-mono">${project.title}</h3>
+                <h3 class="font-mono">${project.title}</h3>
                 <p>${project.description}</p>
-                <a href="${project.link}" class="btn btn-primary btn-small">View Details</a>
+                <a href="${project.link}" class="btn btn-primary">View Project</a>
             </div>
         </div>
     `).join('');
@@ -138,7 +139,6 @@ function initSlider() {
     startAutoSlide();
 }
 
-// Navigation Function (Global Scope)
 window.changeSlide = function(direction) {
     const slides = document.querySelectorAll('.slide');
     if (slides.length === 0) return;
@@ -147,52 +147,22 @@ window.changeSlide = function(direction) {
     currentIndex = (currentIndex + direction + slides.length) % slides.length;
     slides[currentIndex].style.display = 'block';
     
-    // Reset timer on manual click so it doesn't jump immediately
+    // Reset timer when user clicks manually
     startAutoSlide();
 };
 
 function startAutoSlide() {
-    clearInterval(autoSlideTimer);
-    autoSlideTimer = setInterval(() => {
+    clearInterval(autoSlideInterval);
+    autoSlideInterval = setInterval(() => {
         changeSlide(1);
-    }, 5000); // Change every 5 seconds
+    }, 5000); // Swaps every 5 seconds
 }
 
-// Initialize when page is ready
-document.addEventListener('DOMContentLoaded', initSlider);
-// ============================================
-// Initialization & Observers
-// ============================================
-
-document.addEventListener('DOMContentLoaded', function() {
-    // 1. Initialize Slider
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSlider);
+} else {
     initSlider();
-
-    // 2. Intersection Observer for Animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-visible');
-
-                // Trigger skill bar animations
-                const skillBars = entry.target.querySelectorAll('.skill-bar-fill');
-                skillBars.forEach(function(bar) {
-                    bar.style.animationPlayState = 'running';
-                });
-            }
-        });
-    }, observerOptions);
-
-    // Observe relevant sections and cards
-    const targets = document.querySelectorAll('section, .skill-card, .project-card');
-    targets.forEach(target => observer.observe(target));
-});
-
+}
   // ============================================
   // Intersection Observer for Animations
   // ============================================
@@ -345,6 +315,7 @@ function throttle(func, limit) {
     }
   };
 }
+
 
 
 
