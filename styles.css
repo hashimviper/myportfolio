@@ -156,40 +156,76 @@ body{font-family:'Space Grotesk',sans-serif;background-color:var(--background);c
    Section Banner
    ============================================ */
 /* Slider specific styling to match your theme */
-.slider-wrapper {
+/* ============================================
+   Project Slider Section
+   ============================================ */
+.banner-section {
+    padding: 2rem 0;
+    width: 100%;
+}
+
+.banner-container {
     max-width: 900px;
     margin: 0 auto;
+    position: relative;
+}
+
+.slider-wrapper {
+    width: 100%;
+    min-height: 450px; /* Crucial: keeps container open while loading */
     border: 1px solid var(--border);
     border-radius: var(--radius-xl);
     background: var(--card);
     overflow: hidden;
     backdrop-filter: blur(12px);
+    display: flex; /* Helps with centering content */
+    flex-direction: column;
 }
 
 .slide {
-    display: none; 
-    padding: 2rem;
+    display: none; /* JS toggles this to 'block' */
+    padding: 3rem 2rem;
     text-align: center;
-    animation: fadeIn var(--transition-normal);
+    width: 100%;
+    animation: fadeUp 0.5s ease forwards;
 }
 
 .slide img {
     width: 100%;
-    max-height: 350px;
+    max-height: 300px;
     object-fit: contain;
     border-radius: var(--radius-md);
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    /* Optional: add a slight glow to project images */
+    filter: drop-shadow(0 0 15px hsla(172,66%,50%,0.1));
 }
 
 .slide-content h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: var(--primary);
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .slide-content p {
     color: var(--muted-foreground);
-    margin-bottom: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+    font-size: 1rem;
+}
+
+.slider-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+/* Ensure buttons match your existing design */
+.slider-controls .btn {
+    padding: 0.6rem 1.2rem;
+    font-family: 'JetBrains Mono', monospace;
 }
 /* ============================================
    Skills Section
@@ -263,5 +299,6 @@ body{font-family:'Space Grotesk',sans-serif;background-color:var(--background);c
 
 /* small accessibility focus styles */
 a:focus,button:focus{outline:2px dashed var(--primary);outline-offset:3px}
+
 
 
