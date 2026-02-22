@@ -156,6 +156,17 @@ if (document.readyState === 'loading') {
 } else {
     initSlider();
 }
+   // This defines the function and runs it immediately in the console
+(function forceSlide() {
+    const slides = document.querySelectorAll('.slide');
+    if (slides.length > 0) {
+        slides.forEach(s => s.style.display = 'none'); // Hide all
+        slides[1].style.display = 'block';            // Show the second one
+        console.log("Forced visibility of Slide 1");
+    } else {
+        console.error("No elements with class '.slide' found in the DOM.");
+    }
+})();
 // ============================================
 // Initialization & Observers
 // ============================================
@@ -341,6 +352,7 @@ function throttle(func, limit) {
     }
   };
 }
+
 
 
 
