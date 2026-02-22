@@ -91,7 +91,9 @@ document.addEventListener('DOMContentLoaded', function() {
    PROJECT SLIDER DATA & LOGIC
    ============================================ */
 
-// Keep the Data and Functions at the top
+/* ============================================
+   INTEGRATED PROJECT SLIDER
+   ============================================ */
 const myProjects = [
     {
         title: "VisoryBI — The Offline Dashboard Architect",
@@ -107,7 +109,7 @@ const myProjects = [
     },
     {
         title: "Web Scraping Analytics Dashboard",
-        description: "Automating large-scale data extraction from unstructured web sources to deliver competitive market intelligence and structured datasets.",
+        description: "Automating large-scale data extraction from unstructured web sources to deliver competitive market intelligence.",
         image: "assets/images/dataimage.png", 
         link: "#projects"
     }
@@ -117,34 +119,43 @@ let currentIndex = 0;
 
 function initSlider() {
     const slider = document.getElementById('project-slider');
-    if (!slider) return;
+    if (!slider) {
+        console.error("Slider element #project-slider not found!");
+        return;
+    }
 
+    // Injecting the HTML with an 'onerror' fallback for images
     slider.innerHTML = myProjects.map((project, index) => `
         <div class="slide" style="display: ${index === 0 ? 'block' : 'none'}">
-            <img src="${project.image}" alt="${project.title}" onerror="this.src='https://via.placeholder.com/600x300?text=Image+Not+Found'">
+            <img src="${project.image}" 
+                 alt="${project.title}" 
+                 onerror="this.src='https://via.placeholder.com/800x400/222/00f2fe?text=Image+Not+Found+at+Path'">
             <div class="slide-content">
-                <h3 class="font-mono gradient-text">${project.title}</h3>
+                <h3 class="font-mono">${project.title}</h3>
                 <p>${project.description}</p>
                 <a href="${project.link}" class="btn btn-primary">View Project</a>
             </div>
         </div>
     `).join('');
+    console.log("Slider successfully initialized with " + myProjects.length + " projects.");
 }
 
-function changeSlide(direction) {
+// Global Nav Function for HTML buttons
+window.changeSlide = function(direction) {
     const slides = document.querySelectorAll('.slide');
     if (slides.length === 0) return;
 
     slides[currentIndex].style.display = 'none';
     currentIndex = (currentIndex + direction + slides.length) % slides.length;
     slides[currentIndex].style.display = 'block';
-}
+};
 
-// --- THIS IS THE MISSING PIECE ---
-// This tells the browser to run the code only AFTER the HTML is loaded
-document.addEventListener('DOMContentLoaded', () => {
+// Fire the initialization
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSlider);
+} else {
     initSlider();
-});
+}
 // ============================================
 // Initialization & Observers
 // ============================================
@@ -330,6 +341,7 @@ function throttle(func, limit) {
     }
   };
 }
+
 
 
 
