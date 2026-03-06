@@ -17,24 +17,18 @@
       <a href="#hero" class="navbar-logo">
         <span class="logo-text">Mohamed Hashim</span>
       </a>
-
-      <!-- Desktop Navigation -->
       <div class="nav-links desktop-nav">
         <a href="#hero" class="nav-link">Home</a>
         <a href="#skills" class="nav-link">Skills</a>
         <a href="#projects" class="nav-link">Projects</a>
         <a href="#contact" class="nav-link">Contact</a>
       </div>
-
-      <!-- Mobile Menu Button -->
       <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
       </button>
     </div>
-
-    <!-- Mobile Navigation -->
     <div id="mobile-nav" class="mobile-nav" aria-hidden="true">
       <a href="#hero" class="mobile-nav-link">Home</a>
       <a href="#skills" class="mobile-nav-link">Skills</a>
@@ -50,52 +44,36 @@
       <div class="hero-glow hero-glow-2"></div>
     </div>
     <div class="grid-pattern"></div>
-
     <div class="hero-container">
       <div class="hero-content">
-        <!-- Badge -->
         <div class="hero-badge animate-fade-up">
           <span class="status-dot"></span>
           <span>Available for opportunities</span>
         </div>
-
-        <!-- Main Heading -->
         <h1 class="hero-title animate-fade-up delay-100">
           Hi, I'm <span class="gradient-text">Mohamed Hashim</span>
         </h1>
-
-        <!-- Subtitle -->
         <p class="hero-subtitle animate-fade-up delay-200">
           Aspiring Data Analyst with a foundation in Excel, SQL, Python, and Power BI.
           Passionate about transforming raw data into actionable insights.
         </p>
-
-        <!-- Education Info -->
         <div class="hero-education animate-fade-up delay-300">
           <div class="education-item">
             <span class="education-icon">🎓</span>
-            <span>B.Tech AI&DS @ MIET Engineering College Trichy</span>
+            <span>B.Tech AI&amp;DS @ MIET Engineering College Trichy</span>
           </div>
           <div class="education-item">
             <span class="education-icon">📊</span>
             <span>CGPA: 8.26</span>
           </div>
         </div>
-
-        <!-- CTA Buttons -->
         <div class="hero-buttons animate-fade-up delay-400">
           <a href="#projects" class="btn btn-primary">
             <span>View My Work</span>
-            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <a href="#contact" class="btn btn-secondary">
-            <span>Get In Touch</span>
-          </a>
+          <a href="#contact" class="btn btn-secondary"><span>Get In Touch</span></a>
         </div>
-
-        <!-- Certifications -->
         <div class="hero-certs animate-fade-up delay-500">
           <span class="certs-label">Completed Courses:</span>
           <div class="certs-list">
@@ -105,146 +83,93 @@
             <span class="cert-tag">Excel</span>
           </div>
         </div>
-
-        <!-- Moved scroll-indicator so it sits below certification tags (prevents overlap with cards) -->
         <div class="scroll-indicator animate-fade-in delay-500" id="hero-scroll-indicator">
-          <div class="scroll-mouse">
-            <div class="scroll-wheel"></div>
-          </div>
+          <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
           <span>Scroll to explore</span>
         </div>
-
       </div>
     </div>
+  </section>
 
-  \</section>
-  
-  
-  <!-- Banner Section -->  
-<section class="banner-section">
+  <!-- Banner / Project Slider Section -->
+  <section class="banner-section">
     <div class="container">
-        <div class="banner-container animate-fade-up">
-            <div id="project-slider" class="slider-wrapper">
-                </div>
-            
-            <div class="slider-controls">
-                <button class="btn btn-secondary" onclick="changeSlide(-1)">&#10094; Prev</button>
-                <button class="btn btn-secondary" onclick="changeSlide(1)">Next &#10095;</button>
-            </div>
+      <div class="banner-container animate-fade-up">
+        <div id="project-slider" class="slider-wrapper"></div>
+        <div class="slider-controls">
+          <button class="btn btn-secondary" onclick="changeSlide(-1)">&#10094; Prev</button>
+          <div class="slider-dots" id="sliderDots"></div>
+          <button class="btn btn-secondary" onclick="changeSlide(1)">Next &#10095;</button>
         </div>
+      </div>
     </div>
-</section>
+  </section>
+
   <!-- Skills Section -->
   <section id="skills" class="skills-section">
     <div class="section-bg-effects">
       <div class="section-glow section-glow-1"></div>
       <div class="section-glow section-glow-2"></div>
     </div>
-
     <div class="container">
       <div class="section-header">
         <span class="section-badge">Technical Expertise</span>
         <h2 class="section-title">My <span class="gradient-text">Skills</span></h2>
         <p class="section-description">Tools and technologies I work with to analyze and visualize data</p>
       </div>
-
       <div class="skills-grid">
-        <!-- Excel -->
         <div class="skill-card">
           <div class="skill-icon-wrapper">
-            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="3" y="3" width="18" height="18" rx="2"/>
-              <path d="M3 9h18M9 3v18"/>
-            </svg>
+            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
           </div>
           <h3 class="skill-name">Excel</h3>
           <p class="skill-description">Advanced formulas, Pivot Tables, Data Analysis</p>
-          <div class="skill-bar">
-            <div class="skill-bar-fill" style="--fill-width: 90%"></div>
-          </div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="--fill-width: 90%"></div></div>
           <span class="skill-level">Advanced</span>
         </div>
-
-        <!-- SQL -->
         <div class="skill-card">
           <div class="skill-icon-wrapper">
-            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <ellipse cx="12" cy="5" rx="9" ry="3"/>
-              <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
-              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
-            </svg>
+            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
           </div>
           <h3 class="skill-name">SQL</h3>
           <p class="skill-description">Complex queries, Database design, Optimization</p>
-          <div class="skill-bar">
-            <div class="skill-bar-fill" style="--fill-width: 85%"></div>
-          </div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="--fill-width: 85%"></div></div>
           <span class="skill-level">Advanced</span>
         </div>
-
-        <!-- Python -->
         <div class="skill-card">
           <div class="skill-icon-wrapper">
-            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="16 18 22 12 16 6"/>
-              <polyline points="8 6 2 12 8 18"/>
-            </svg>
+            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
           </div>
           <h3 class="skill-name">Python</h3>
           <p class="skill-description">Pandas, NumPy, Data manipulation</p>
-          <div class="skill-bar">
-            <div class="skill-bar-fill" style="--fill-width: 80%"></div>
-          </div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="--fill-width: 80%"></div></div>
           <span class="skill-level">Intermediate</span>
         </div>
-
-        <!-- Power BI -->
         <div class="skill-card">
           <div class="skill-icon-wrapper">
-            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="18" y1="20" x2="18" y2="10"/>
-              <line x1="12" y1="20" x2="12" y2="4"/>
-              <line x1="6" y1="20" x2="6" y2="14"/>
-            </svg>
+            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
           </div>
           <h3 class="skill-name">Power BI</h3>
           <p class="skill-description">Interactive dashboards, DAX, Data modeling</p>
-          <div class="skill-bar">
-            <div class="skill-bar-fill" style="--fill-width: 85%"></div>
-          </div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="--fill-width: 85%"></div></div>
           <span class="skill-level">Advanced</span>
         </div>
-
-        <!-- HTML/CSS -->
         <div class="skill-card">
           <div class="skill-icon-wrapper">
-            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polygon points="12 2 2 7 12 12 22 7 12 2"/>
-              <polyline points="2 17 12 22 22 17"/>
-              <polyline points="2 12 12 17 22 12"/>
-            </svg>
+            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
           </div>
           <h3 class="skill-name">HTML/CSS</h3>
           <p class="skill-description">Responsive design, Modern layouts</p>
-          <div class="skill-bar">
-            <div class="skill-bar-fill" style="--fill-width: 75%"></div>
-          </div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="--fill-width: 75%"></div></div>
           <span class="skill-level">Intermediate</span>
         </div>
-
-        <!-- Data Visualization -->
         <div class="skill-card">
           <div class="skill-icon-wrapper">
-            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21.21 15.89A10 10 0 1 1 8 2.83"/>
-              <path d="M22 12A10 10 0 0 0 12 2v10z"/>
-            </svg>
+            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
           </div>
           <h3 class="skill-name">Data Visualization</h3>
           <p class="skill-description">Charts, Graphs, Storytelling with data</p>
-          <div class="skill-bar">
-            <div class="skill-bar-fill" style="--fill-width: 88%"></div>
-          </div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="--fill-width: 88%"></div></div>
           <span class="skill-level">Advanced</span>
         </div>
       </div>
@@ -258,7 +183,6 @@
       <div class="section-glow section-glow-1"></div>
       <div class="section-glow section-glow-2"></div>
     </div>
-
     <div class="container">
       <div class="section-header">
         <span class="section-badge">Featured Work</span>
@@ -266,77 +190,42 @@
         <p class="section-description">Real-world data projects showcasing end-to-end analytics workflows</p>
       </div>
 
-      <!-- Project 1: Web Scraping -->
+      <!-- ══ PROJECT 1: Web Scraping ══ -->
       <div class="project-card">
         <div class="project-image-wrapper">
-         <img src=assets\images\dataimage.png alt="Data Analytics Dashboard showing charts, graphs and KPI metrics" class="project-image">" alt="Project Banner">
+          <img src="assets/images/dataimage.png" alt="Data Analytics Dashboard showing charts, graphs and KPI metrics" class="project-image"/>
           <div class="project-image-overlay"></div>
           <div class="project-badges">
             <span class="project-badge badge-primary">Featured Project</span>
-            <span class="project-badge badge-accent">Web Scraping & Analysis</span>
+            <span class="project-badge badge-accent">Web Scraping &amp; Analysis</span>
           </div>
         </div>
-
         <div class="project-content">
-          <h3 class="project-title">Web Scraping & Data Analysis Pipeline</h3>
-          <p class="project-description">
-            Built an end-to-end data pipeline that scrapes web data using Python,
-            processes and cleans it in Excel, and creates interactive visualizations
-            in Power BI to derive actionable business insights.
-          </p>
-
+          <h3 class="project-title">Web Scraping &amp; Data Analysis Pipeline</h3>
+          <p class="project-description">Built an end-to-end data pipeline that scrapes web data using Python, processes and cleans it in Excel, and creates interactive visualizations in Power BI to derive actionable business insights.</p>
           <div class="tech-stack">
-            <div class="tech-tag tech-primary">
-              <svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
-              </svg>
-              <span>Python</span>
-            </div>
-            <div class="tech-tag tech-primary">
-              <svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
-              </svg>
-              <span>Excel</span>
-            </div>
-            <div class="tech-tag tech-accent">
-              <svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
-              </svg>
-              <span>Power BI</span>
-            </div>
+            <div class="tech-tag tech-primary"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg><span>Python</span></div>
+            <div class="tech-tag tech-primary"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg><span>Excel</span></div>
+            <div class="tech-tag tech-accent"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg><span>Power BI</span></div>
           </div>
-
           <div class="project-stats">
-            <div class="stat-item">
-              <span class="stat-value gradient-text">500+</span>
-              <span class="stat-label">Data Points Collected</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-value gradient-text">3</span>
-              <span class="stat-label">Visualization Dashboards</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-value gradient-text">100%</span>
-              <span class="stat-label">Automated Pipeline</span>
-            </div>
+            <div class="stat-item"><span class="stat-value gradient-text">500+</span><span class="stat-label">Data Points Collected</span></div>
+            <div class="stat-item"><span class="stat-value gradient-text">3</span><span class="stat-label">Visualization Dashboards</span></div>
+            <div class="stat-item"><span class="stat-value gradient-text">100%</span><span class="stat-label">Automated Pipeline</span></div>
           </div>
-
           <div class="project-workflow">
             <h4 class="workflow-title">Project Workflow</h4>
             <div class="workflow-steps">
-              <span class="workflow-step">Web Scraping</span>
-              <span class="workflow-arrow">→</span>
-              <span class="workflow-step">Data Cleaning</span>
-              <span class="workflow-arrow">→</span>
-              <span class="workflow-step">Analysis</span>
-              <span class="workflow-arrow">→</span>
+              <span class="workflow-step">Web Scraping</span><span class="workflow-arrow">→</span>
+              <span class="workflow-step">Data Cleaning</span><span class="workflow-arrow">→</span>
+              <span class="workflow-step">Analysis</span><span class="workflow-arrow">→</span>
               <span class="workflow-step">Visualization</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Project 2: HR Analytics -->
+      <!-- ══ PROJECT 2: HR Analytics ══ -->
       <div class="project-card">
         <div class="project-image-wrapper">
           <img src="assets/images/imagedata.png" alt="HR Analytics Dashboard showing employee statistics, performance charts and metrics" class="project-image"/>
@@ -346,174 +235,184 @@
             <span class="project-badge badge-primary">HR Analytics</span>
           </div>
         </div>
-
         <div class="project-content">
           <h3 class="project-title">HR Analytics Dashboard</h3>
-          <p class="project-description">
-            Built a complete HR Analytics Dashboard with 60-employee synthetic dataset featuring
-            realistic data including departments, roles, salaries, performance scores, and attendance
-            metrics for actionable workforce insights.
-          </p>
-
+          <p class="project-description">Built a complete HR Analytics Dashboard with 60-employee synthetic dataset featuring realistic data including departments, roles, salaries, performance scores, and attendance metrics for actionable workforce insights.</p>
           <div class="tech-stack">
-            <div class="tech-tag tech-primary">
-              <svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
-              </svg>
-              <span>Python</span>
-            </div>
-            <div class="tech-tag tech-accent">
-              <svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
-              </svg>
-              <span>Excel</span>
-            </div>
-            <div class="tech-tag tech-primary">
-              <svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
-              </svg>
-              <span>Power BI</span>
-            </div>
+            <div class="tech-tag tech-primary"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg><span>Python</span></div>
+            <div class="tech-tag tech-accent"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg><span>Excel</span></div>
+            <div class="tech-tag tech-primary"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg><span>Power BI</span></div>
           </div>
-
           <div class="project-features">
-            <div class="feature-item">
-              <span class="feature-bullet">•</span>
-              <span>4 KPI stat cards - Total employees, avg performance, attendance, salary</span>
-            </div>
-            <div class="feature-item">
-              <span class="feature-bullet">•</span>
-              <span>Department performance bar charts & attendance scatter plot</span>
-            </div>
-            <div class="feature-item">
-              <span class="feature-bullet">•</span>
-              <span>Performance distribution pie chart & tenure area chart</span>
-            </div>
-            <div class="feature-item">
-              <span class="feature-bullet">•</span>
-              <span>Top performers table with rankings and status badges</span>
-            </div>
+            <div class="feature-item"><span class="feature-bullet">•</span><span>4 KPI stat cards — Total employees, avg performance, attendance, salary</span></div>
+            <div class="feature-item"><span class="feature-bullet">•</span><span>Department performance bar charts &amp; attendance scatter plot</span></div>
+            <div class="feature-item"><span class="feature-bullet">•</span><span>Performance distribution pie chart &amp; tenure area chart</span></div>
+            <div class="feature-item"><span class="feature-bullet">•</span><span>Top performers table with rankings and status badges</span></div>
           </div>
-
           <div class="project-stats">
-            <div class="stat-item">
-              <span class="stat-value gradient-text">60+</span>
-              <span class="stat-label">Employee Records</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-value gradient-text">6</span>
-              <span class="stat-label">Interactive Charts</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-value gradient-text">4</span>
-              <span class="stat-label">KPI Dashboards</span>
-            </div>
+            <div class="stat-item"><span class="stat-value gradient-text">60+</span><span class="stat-label">Employee Records</span></div>
+            <div class="stat-item"><span class="stat-value gradient-text">6</span><span class="stat-label">Interactive Charts</span></div>
+            <div class="stat-item"><span class="stat-value gradient-text">4</span><span class="stat-label">KPI Dashboards</span></div>
           </div>
-
           <div class="project-workflow">
             <h4 class="workflow-title">Dashboard Components</h4>
             <div class="workflow-steps">
-              <span class="workflow-step">KPI Cards</span>
-              <span class="workflow-arrow accent">→</span>
-              <span class="workflow-step">Bar Charts</span>
-              <span class="workflow-arrow accent">→</span>
-              <span class="workflow-step">Scatter Plot</span>
-              <span class="workflow-arrow accent">→</span>
-              <span class="workflow-step">Pie Chart</span>
-              <span class="workflow-arrow accent">→</span>
+              <span class="workflow-step">KPI Cards</span><span class="workflow-arrow accent">→</span>
+              <span class="workflow-step">Bar Charts</span><span class="workflow-arrow accent">→</span>
+              <span class="workflow-step">Scatter Plot</span><span class="workflow-arrow accent">→</span>
+              <span class="workflow-step">Pie Chart</span><span class="workflow-arrow accent">→</span>
               <span class="workflow-step">Data Table</span>
             </div>
           </div>
         </div>
       </div>
-     <!-- Project 3: VisoryBI Business Intelligence Platform -->
-<div class="project-card">
-  <div class="project-image-wrapper">
-     <img src=assets/images/visorybi-logo.png " alt="HR Analytics Dashboard showing employee statistics, performance charts and metrics" class="project-image"/>
-         alt="VisoryBI Business Intelligence Dashboard showing analytics charts, KPIs, and data insights" 
-         class="project-image">
-    <div class="project-image-overlay"></div>
 
-    <div class="project-badges">
-      <span class="project-badge badge-primary">Featured Project</span>
-      <span class="project-badge badge-accent">Business Intelligence & Analytics</span>
-    </div>
-  </div>
-
-  <div class="project-content">
-    <h3 class="project-title">VisoryBI — Offline And Template Based Business Intelligence Dashboard Platform</h3>
-
-    <p class="project-description">
-      Developed a privacy-focused offline business intelligence analytics platform that enables users to upload datasets, build interactive dashboards using blank or pre defined templates, perform cross-filter analysis, and generate statistical insights without relying on cloud-based services.
-    </p>
-
-    <div class="tech-stack">
-
-      <div class="tech-tag tech-primary">
-        <svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
-        </svg>
-        <span>React / JavaScript</span>
+      <!-- ══ PROJECT 3: VisoryBI ══ -->
+      <div class="project-card">
+        <div class="project-image-wrapper">
+          <img src="assets/images/visorybi-logo.png" alt="VisoryBI Business Intelligence Dashboard" class="project-image"/>
+          <div class="project-image-overlay"></div>
+          <div class="project-badges">
+            <span class="project-badge badge-primary">Featured Project</span>
+            <span class="project-badge badge-accent">Business Intelligence &amp; Analytics</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">VisoryBI — Offline &amp; Template-Based Business Intelligence Platform</h3>
+          <p class="project-description">Developed a privacy-focused offline business intelligence analytics platform that enables users to upload datasets, build interactive dashboards using blank or pre-defined templates, perform cross-filter analysis, and generate statistical insights without relying on cloud-based services.</p>
+          <div class="tech-stack">
+            <div class="tech-tag tech-primary"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg><span>React / JavaScript</span></div>
+            <div class="tech-tag tech-primary"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg><span>IndexedDB Storage</span></div>
+            <div class="tech-tag tech-accent"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg><span>Chart.js / Visualization</span></div>
+          </div>
+          <div class="project-stats">
+            <div class="stat-item"><span class="stat-value gradient-text">1000+</span><span class="stat-label">Dataset Rows Supported</span></div>
+            <div class="stat-item"><span class="stat-value gradient-text">15+</span><span class="stat-label">Visualization Types</span></div>
+            <div class="stat-item"><span class="stat-value gradient-text">18+</span><span class="stat-label">Dashboard Templates</span></div>
+            <div class="stat-item"><span class="stat-value gradient-text">100%</span><span class="stat-label">Offline Privacy</span></div>
+          </div>
+          <div class="project-workflow">
+            <h4 class="workflow-title">System Workflow</h4>
+            <div class="workflow-steps">
+              <span class="workflow-step">Dataset Upload</span><span class="workflow-arrow">→</span>
+              <span class="workflow-step">Local Processing</span><span class="workflow-arrow">→</span>
+              <span class="workflow-step">Dashboard Analytics</span><span class="workflow-arrow">→</span>
+              <span class="workflow-step">Insight &amp; Export</span>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="tech-tag tech-primary">
-        <svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <ellipse cx="12" cy="5" rx="9" ry="3"/>
-          <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
-          <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
-        </svg>
-        <span>IndexedDB Storage</span>
+      <!-- ══ PROJECT 4: CIRCULAR AI NODE — DATA CENTRE ANALYSIS ══ -->
+      <div class="project-card project-card--featured">
+        <div class="project-image-wrapper">
+          <img src="circular-ai-node-banner.svg" alt="Circular AI Node — Data Centre Energy and Water Circular Loop Architecture" class="project-image project-image--contain"/>
+          <div class="project-image-overlay"></div>
+          <div class="project-badges">
+            <span class="project-badge badge-primary">Featured Project</span>
+            <span class="project-badge badge-teal">Infrastructure Analysis</span>
+            <span class="project-badge badge-gold">Google Proposal</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Circular AI Node — Data Centre Sustainability &amp; Investment Analysis</h3>
+          <p class="project-description">
+            Conducted a comprehensive infrastructure investment analysis proposing a Circular AI Energy &amp; Water Plant to Google Inc. — addressing their critical water consumption crisis (8.1 billion gallons in 2024) and escalating carbon emissions. The project models a closed-loop system that captures waste heat via an ORC turbine to generate electricity, recycles cooling water through Zero Liquid Discharge technology, and quantifies the community and financial returns at scale.
+          </p>
+
+          <div class="tech-stack">
+            <div class="tech-tag tech-primary"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg><span>Excel Financial Model</span></div>
+            <div class="tech-tag tech-accent"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg><span>Power BI Dashboard</span></div>
+            <div class="tech-tag tech-primary"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><span>Investment Report (Word)</span></div>
+            <div class="tech-tag tech-teal"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span>Market Research</span></div>
+          </div>
+
+          <!-- Key findings -->
+          <div class="project-findings">
+            <h4 class="findings-title">Key Analysis Findings</h4>
+            <div class="findings-grid">
+              <div class="finding-card finding-red">
+                <div class="finding-icon">⚠️</div>
+                <div class="finding-label">Google Water Crisis</div>
+                <div class="finding-value">8.1B gallons / yr</div>
+                <div class="finding-sub">2024 consumption — up 33% in one year</div>
+              </div>
+              <div class="finding-card finding-red">
+                <div class="finding-icon">📈</div>
+                <div class="finding-label">Emissions Growth</div>
+                <div class="finding-value">+51% since 2019</div>
+                <div class="finding-sub">Net-zero 2030 target now a "moonshot"</div>
+              </div>
+              <div class="finding-card finding-teal">
+                <div class="finding-icon">💧</div>
+                <div class="finding-label">Circular Node: Water</div>
+                <div class="finding-value">Zero Net Consumption</div>
+                <div class="finding-sub">ZLD closed-loop — 30M gal saved / yr</div>
+              </div>
+              <div class="finding-card finding-green">
+                <div class="finding-icon">⚡</div>
+                <div class="finding-label">ORC Electricity Revenue</div>
+                <div class="finding-value">Rs. 7.68 L / yr</div>
+                <div class="finding-sub">657,000 kWh returned to the grid</div>
+              </div>
+              <div class="finding-card finding-gold">
+                <div class="finding-icon">📊</div>
+                <div class="finding-label">OPEX Reduction</div>
+                <div class="finding-value">−67% per year</div>
+                <div class="finding-sub">Rs. 34.57 L annual saving vs traditional</div>
+              </div>
+              <div class="finding-card finding-green">
+                <div class="finding-icon">🔄</div>
+                <div class="finding-label">Payback Period</div>
+                <div class="finding-value">5.4 Years</div>
+                <div class="finding-sub">On Rs. 18.79 Cr CAPEX premium</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-stats">
+            <div class="stat-item"><span class="stat-value gradient-text">Rs. 51.77 Cr</span><span class="stat-label">15-Year NPV</span></div>
+            <div class="stat-item"><span class="stat-value gradient-text">283t</span><span class="stat-label">CO₂ Avoided / Year</span></div>
+            <div class="stat-item"><span class="stat-value gradient-text">Rs. 21.97 L</span><span class="stat-label">Community Value / Year</span></div>
+            <div class="stat-item"><span class="stat-value gradient-text">4</span><span class="stat-label">Deliverable Documents</span></div>
+          </div>
+
+          <!-- Document links -->
+          <div class="project-docs">
+            <h4 class="docs-title">Project Deliverables</h4>
+            <div class="docs-links">
+              <a href="circular_ai_plant_proposal.docx" download class="doc-link doc-link--word">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Full Investment Proposal
+              </a>
+              <a href="comparison_report.docx" download class="doc-link doc-link--word">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Comparison Report
+              </a>
+              <a href="circular_ai_budget_report.xlsx" download class="doc-link doc-link--excel">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
+                Live Financial Model
+              </a>
+              <a href="analytics_dashboard.html" target="_blank" class="doc-link doc-link--dash">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                Analytics Dashboard ↗
+              </a>
+            </div>
+          </div>
+
+          <div class="project-workflow">
+            <h4 class="workflow-title">Analysis Workflow</h4>
+            <div class="workflow-steps">
+              <span class="workflow-step">Google DC Research</span><span class="workflow-arrow">→</span>
+              <span class="workflow-step">Problem Identification</span><span class="workflow-arrow">→</span>
+              <span class="workflow-step">Financial Modelling</span><span class="workflow-arrow">→</span>
+              <span class="workflow-step">Impact Quantification</span><span class="workflow-arrow">→</span>
+              <span class="workflow-step">Investor Proposal</span>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="tech-tag tech-accent">
-        <svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <rect x="3" y="3" width="18" height="18" rx="2"/>
-          <path d="M3 9h18"/>
-          <path d="M9 21V9"/>
-        </svg>
-        <span>Chart.js / Visualization</span>
-      </div>
-
-    </div>
-
-    <div class="project-stats">
-      <div class="stat-item">
-        <span class="stat-value gradient-text">1000+</span>
-        <span class="stat-label">Dataset Rows Supported</span>
-      </div>
-
-      <div class="stat-item">
-        <span class="stat-value gradient-text">15+</span>
-        <span class="stat-label">Visualization Types</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-value gradient-text">18+</span>
-        <span class="stat-label">Dashboard Templates</span>
-      </div>
-
-      <div class="stat-item">
-        <span class="stat-value gradient-text">100%</span>
-        <span class="stat-label">Offline Privacy Architecture</span>
-      </div>
-    </div>
-
-    <div class="project-workflow">
-      <h4 class="workflow-title">System Workflow</h4>
-
-      <div class="workflow-steps">
-        <span class="workflow-step">Dataset Upload</span>
-        <span class="workflow-arrow">→</span>
-        <span class="workflow-step">Local Processing</span>
-        <span class="workflow-arrow">→</span>
-        <span class="workflow-step">Dashboard Analytics</span>
-        <span class="workflow-arrow">→</span>
-        <span class="workflow-step">Insight & Export</span>
-      </div>
-    </div>
-
-  </div>
-</div>
-      <!-- More Projects Coming -->
       <div class="projects-footer">
         <p>More projects coming soon...</p>
         <div class="projects-status">
@@ -530,100 +429,170 @@
       <div class="section-glow section-glow-1"></div>
       <div class="section-glow section-glow-2"></div>
     </div>
-
     <div class="container">
       <div class="section-header">
         <span class="section-badge">Get In Touch</span>
         <h2 class="section-title">Let's <span class="gradient-text">Connect</span></h2>
-        <p class="section-description">
-          I'm actively seeking data analyst opportunities. Feel free to reach out!
-        </p>
+        <p class="section-description">I'm actively seeking data analyst opportunities. Feel free to reach out!</p>
       </div>
-
       <div class="contact-grid">
-        <!-- Email -->
-        <a href="mailto:your.email@example.com" class="contact-card">
-          <div class="contact-icon-wrapper">
-            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-              <polyline points="22,6 12,13 2,6"/>
-            </svg>
-          </div>
+        <a href="mailto:hashimcomcod@gmail.com" class="contact-card">
+          <div class="contact-icon-wrapper"><svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
           <h3 class="contact-title">Email</h3>
           <p class="contact-value">hashimcomcod@gmail.com</p>
         </a>
-
-        <!-- Phone -->
         <a href="tel:+919944404775" class="contact-card">
-          <div class="contact-icon-wrapper">
-            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-            </svg>
-          </div>
+          <div class="contact-icon-wrapper"><svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
           <h3 class="contact-title">Phone</h3>
           <p class="contact-value">+91 99444 04775</p>
         </a>
-
-        <!-- LinkedIn -->
         <a href="https://www.linkedin.com/in/mohamed-hashim-19bb74337/" target="_blank" rel="noopener noreferrer" class="contact-card">
-          <div class="contact-icon-wrapper">
-            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-              <rect x="2" y="9" width="4" height="12"/>
-              <circle cx="4" cy="4" r="2"/>
-            </svg>
-          </div>
+          <div class="contact-icon-wrapper"><svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
           <h3 class="contact-title">LinkedIn</h3>
           <p class="contact-value">Connect with me</p>
         </a>
-
-        <!-- GitHub -->
         <a href="https://github.com/hashimviper?tab=repositories" target="_blank" rel="noopener noreferrer" class="contact-card">
-          <div class="contact-icon-wrapper">
-            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-            </svg>
-          </div>
+          <div class="contact-icon-wrapper"><svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></div>
           <h3 class="contact-title">GitHub</h3>
           <p class="contact-value">View my code</p>
         </a>
       </div>
-
-      <!-- Resume Download -->
       <div class="resume-section">
         <a href="assets/Mohamed Hashim Data Analyst Resume.pdf" download class="btn btn-primary btn-large">
-          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-            <polyline points="7 10 12 15 17 10"/>
-            <line x1="12" y1="15" x2="12" y2="3"/>
-          </svg>
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           <span>Download Resume</span>
         </a>
       </div>
-
-      <!-- Footer -->
       <p class="footer-text">Built with passion by Mohamed Hashim</p>
     </div>
   </section>
 
-  <script src="script.js"></script>
+  <script>
+  // ── Navbar scroll ──────────────────────────────────────────
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // ── Mobile menu ────────────────────────────────────────────
+  const mobileBtn = document.getElementById('mobile-menu-btn');
+  const mobileNav = document.getElementById('mobile-nav');
+  mobileBtn.addEventListener('click', () => {
+    const isOpen = mobileNav.classList.toggle('active');
+    mobileBtn.classList.toggle('active', isOpen);
+    mobileBtn.setAttribute('aria-expanded', isOpen);
+    mobileNav.setAttribute('aria-hidden', !isOpen);
+  });
+  document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileNav.classList.remove('active');
+      mobileBtn.classList.remove('active');
+      mobileBtn.setAttribute('aria-expanded', false);
+      mobileNav.setAttribute('aria-hidden', true);
+    });
+  });
+
+  // ── Smooth scroll for nav links ────────────────────────────
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', e => {
+      const target = document.querySelector(anchor.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+
+  // ── Project Slider ─────────────────────────────────────────
+  const slides = [
+    {
+      title: 'Web Scraping & Data Analysis Pipeline',
+      description: 'End-to-end automated pipeline — scrapes, cleans and visualises web data using Python, Excel & Power BI.',
+      image: 'assets/images/dataimage.png',
+      badge: 'Web Scraping & Analysis',
+      tags: ['Python', 'Excel', 'Power BI'],
+      stats: ['500+ Data Points', '3 Dashboards', '100% Automated'],
+      color: 'var(--primary)'
+    },
+    {
+      title: 'HR Analytics Dashboard',
+      description: '60-employee synthetic dataset with KPI cards, department charts, scatter plots and top-performer rankings.',
+      image: 'assets/images/imagedata.png',
+      badge: 'HR Analytics',
+      tags: ['Python', 'Excel', 'Power BI'],
+      stats: ['60+ Records', '6 Charts', '4 KPI Cards'],
+      color: 'var(--accent)'
+    },
+    {
+      title: 'VisoryBI — Offline BI Platform',
+      description: 'Privacy-first offline business intelligence platform with 18+ dashboard templates and cross-filter analysis.',
+      image: 'assets/images/visorybi-logo.png',
+      badge: 'Business Intelligence',
+      tags: ['React', 'IndexedDB', 'Chart.js'],
+      stats: ['1000+ Rows', '15+ Chart Types', '18+ Templates'],
+      color: 'var(--accent)'
+    },
+    {
+      title: 'Circular AI Node — Data Centre Analysis',
+      description: 'Full investment proposal to Google Inc. — Circular AI data centre eliminating water waste, recovering heat as electricity and quantifying Rs. 21.97 L/yr in community returns.',
+      image: 'circular-ai-node-banner.svg',
+      badge: 'Google Proposal · Infrastructure Analysis',
+      tags: ['Excel Model', 'Power BI', 'Investment Report', 'Market Research'],
+      stats: ['Rs. 51.77 Cr NPV', '5.4-yr Payback', '−67% OPEX', '283t CO₂/yr'],
+      color: '#14A9A8',
+      highlight: true
+    }
+  ];
+
+  let currentSlide = 0;
+  let autoTimer = null;
+
+  function renderSlider() {
+    const container = document.getElementById('project-slider');
+    const dotsContainer = document.getElementById('sliderDots');
+    const s = slides[currentSlide];
+
+    // Slide HTML
+    container.innerHTML = `
+      <div class="slide${s.highlight ? ' slide--highlight' : ''}">
+        ${s.highlight ? '<div class="slide-glow"></div>' : ''}
+        <div class="featured-badge">${s.badge}</div>
+        <img src="${s.image}" alt="${s.title}" onerror="this.style.display='none'"/>
+        <div class="slide-content">
+          <h3>${s.title}</h3>
+          <p>${s.description}</p>
+          <div class="slide-tags">
+            ${s.tags.map(t => `<span class="slide-tag" style="border-color:${s.color};color:${s.color}">${t}</span>`).join('')}
+          </div>
+          <div class="slide-stats">
+            ${s.stats.map(st => `<div class="slide-stat">${st}</div>`).join('')}
+          </div>
+        </div>
+      </div>`;
+
+    // Dots
+    dotsContainer.innerHTML = slides.map((_, i) =>
+      `<button class="slider-dot${i === currentSlide ? ' active' : ''}" onclick="goToSlide(${i})" aria-label="Slide ${i+1}"></button>`
+    ).join('');
+  }
+
+  function changeSlide(dir) {
+    currentSlide = (currentSlide + dir + slides.length) % slides.length;
+    renderSlider();
+    resetAutoPlay();
+  }
+
+  function goToSlide(idx) {
+    currentSlide = idx;
+    renderSlider();
+    resetAutoPlay();
+  }
+
+  function resetAutoPlay() {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(() => changeSlide(1), 5000);
+  }
+
+  // Init
+  renderSlider();
+  resetAutoPlay();
+  </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
