@@ -267,3 +267,12 @@ body{font-family:'Space Grotesk',sans-serif;background-color:var(--background);c
 /* ── ACCESSIBILITY ────────────────────────────────────────── */
 a:focus,button:focus{outline:2px dashed var(--primary);outline-offset:3px}
 .skill-card,.project-card,.contact-card{will-change:transform}
+
+/* Slider CTA button */
+.slide-cta-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:8px 18px;border-radius:6px;font-size:0.8rem;font-weight:600;
+  background:rgba(20,169,168,0.12);border:1px solid rgba(20,169,168,0.4);
+  color:#14A9A8;text-decoration:none;transition:background 0.2s,transform 0.2s;
+}
+.slide-cta-btn:hover{transform:translateY(-2px);}
