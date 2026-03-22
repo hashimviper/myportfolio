@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio Admin — Mohamed Hashim</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: hsl(222,47%,6%);
+      --fg: hsl(210,40%,98%);
+      --card: hsl(222,47%,8%);
+      --primary: hsl(172,66%,50%);
+      --primary-dim: hsla(172,66%,50%,0.15);
+      --accent: hsl(262,83%,68%);
+      --accent-dim: hsla(262,83%,68%,0.15);
+      --secondary: hsl(222,30%,14%);
+      --border: hsl(222,30%,18%);
+      --muted: hsl(215,20%,55%);
+      --danger: hsl(0,70%,60%);
+      --danger-dim: hsla(0,70%,60%,0.12);
+      --gold: hsl(43,87%,50%);
+      --teal: hsl(180,78%,36%);
+      --green: hsl(150,60%,45%);
+      --r-sm: 0.5rem; --r-md: 0.75rem; --r-lg: 1rem; --r-xl: 1.5rem; --r-full: 9999px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--fg);min-height:100vh;overflow-x:hidden}
+
+    /* ── GRID BG ── */
+    body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(hsla(172,66%,50%,0.025) 1px,transparent 1px),linear-gradient(90deg,hsla(172,66%,50%,0.025) 1px,transparent 1px);background-size:50px 50px;pointer-events:none;z-index:0}
+
+    /* ── TOP BAR ── */
+    .topbar{position:sticky;top:0;z-index:100;background:hsla(222,47%,6%,0.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 1.5rem;height:60px;display:flex;align-items:center;justify-content:space-between}
+    .topbar-left{display:flex;align-items:center;gap:1rem}
+    .topbar-logo{font-family:'JetBrains Mono',monospace;font-size:0.95rem;font-weight:600;color:var(--primary);display:flex;align-items:center;gap:0.5rem}
+    .topbar-logo span.dot{width:8px;height:8px;background:var(--primary);border-radius:50%;display:inline-block;animation:pulse 2s infinite}
+    .topbar-badge{padding:2px 10px;background:var(--primary-dim);border:1px solid hsla(172,66%,50%,0.25);border-radius:var(--r-full);font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--primary)}
+    .topbar-right{display:flex;align-items:center;gap:0.75rem}
+    .btn-preview{padding:6px 14px;border-radius:var(--r-md);background:var(--secondary);border:1px solid var(--border);color:var(--fg);font-size:0.8rem;cursor:pointer;transition:0.2s;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+    .btn-preview:hover{border-color:var(--primary);color:var(--primary)}
+    .save-status{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--muted);transition:0.3s}
+    .save-status.saved{color:var(--green)}
+
+    /* ── LAYOUT ── */
+    .admin-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 60px);position:relative;z-index:1}
+    @media(max-width:900px){.admin-layout{grid-template-columns:1fr}}
+
+    /* ── SIDEBAR ── */
+    .sidebar{background:hsla(222,47%,7%,0.8);border-right:1px solid var(--border);padding:1.5rem 1rem;display:flex;flex-direction:column;gap:0.5rem;position:sticky;top:60px;height:calc(100vh - 60px);overflow-y:auto}
+    @media(max-width:900px){.sidebar{display:none}}
+    .sidebar-section-label{font-family:'JetBrains Mono',monospace;font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);padding:0.5rem 0.5rem 0.25rem;margin-top:0.75rem}
+    .sidebar-item{display:flex;align-items:center;gap:0.6rem;padding:0.6rem 0.75rem;border-radius:var(--r-md);cursor:pointer;font-size:0.875rem;color:var(--muted);transition:0.2s;border:1px solid transparent}
+    .sidebar-item:hover{color:var(--fg);background:var(--secondary)}
+    .sidebar-item.active{color:var(--primary);background:var(--primary-dim);border-color:hsla(172,66%,50%,0.2)}
+    .sidebar-item svg{width:16px;height:16px;flex-shrink:0;stroke:currentColor}
+    .sidebar-count{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:0.65rem;padding:1px 7px;background:var(--secondary);border-radius:var(--r-full);color:var(--muted)}
+
+    /* ── MAIN CONTENT ── */
+    .main{padding:2rem 2.5rem;overflow-y:auto}
+    @media(max-width:768px){.main{padding:1.25rem}}
+
+    /* ── PAGE SECTIONS ── */
+    .page-section{display:none}
+    .page-section.active{display:block}
+
+    /* ── PAGE HEADER ── */
+    .page-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem;flex-wrap:wrap;gap:1rem}
+    .page-title{font-size:1.5rem;font-weight:700}
+    .page-subtitle{color:var(--muted);font-size:0.875rem;margin-top:0.25rem}
+
+    /* ── STATS ROW (Dashboard) ── */
+    .stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin-bottom:2rem}
+    .stat-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.25rem;display:flex;flex-direction:column;gap:0.5rem;transition:0.2s}
+    .stat-card:hover{border-color:hsla(172,66%,50%,0.25);transform:translateY(-2px)}
+    .stat-card-label{font-size:0.75rem;letter-spacing:1px;text-transform:uppercase;color:var(--muted);font-family:'JetBrains Mono',monospace}
+    .stat-card-value{font-size:2rem;font-weight:700;font-family:'JetBrains Mono',monospace;background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .stat-card-sub{font-size:0.78rem;color:var(--muted)}
+
+    /* ── PROJECT LIST ── */
+    .project-list{display:flex;flex-direction:column;gap:1rem;margin-bottom:2rem}
+    .project-list-item{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1.25rem;cursor:pointer;transition:0.2s;position:relative}
+    .project-list-item:hover{border-color:hsla(172,66%,50%,0.3);transform:translateX(3px)}
+    .project-list-item.featured{border-left:3px solid var(--teal)}
+    .proj-thumb{width:64px;height:64px;border-radius:var(--r-md);object-fit:cover;background:var(--secondary);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.5rem;overflow:hidden}
+    .proj-thumb img{width:100%;height:100%;object-fit:cover}
+    .proj-info{flex:1;min-width:0}
+    .proj-name{font-weight:600;font-size:1rem;margin-bottom:0.25rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .proj-meta{display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap}
+    .proj-badge{padding:2px 8px;border-radius:var(--r-full);font-size:0.68rem;font-weight:600;font-family:'JetBrains Mono',monospace}
+    .proj-badge.web{background:hsla(172,66%,50%,0.15);color:var(--primary);border:1px solid hsla(172,66%,50%,0.25)}
+    .proj-badge.bi{background:hsla(262,83%,68%,0.15);color:var(--accent);border:1px solid hsla(262,83%,68%,0.25)}
+    .proj-badge.infra{background:hsla(180,78%,36%,0.15);color:var(--teal);border:1px solid hsla(180,78%,36%,0.25)}
+    .proj-badge.hr{background:hsla(43,87%,50%,0.15);color:var(--gold);border:1px solid hsla(43,87%,50%,0.25)}
+    .proj-badge.custom{background:hsla(150,60%,30%,0.15);color:var(--green);border:1px solid hsla(150,60%,30%,0.25)}
+    .proj-tools{font-size:0.78rem;color:var(--muted);margin-top:2px}
+    .proj-actions{display:flex;gap:0.5rem;flex-shrink:0}
+    .icon-btn{width:34px;height:34px;border-radius:var(--r-md);border:1px solid var(--border);background:var(--secondary);color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:0.2s}
+    .icon-btn:hover{border-color:var(--primary);color:var(--primary)}
+    .icon-btn.danger:hover{border-color:var(--danger);color:var(--danger)}
+    .icon-btn svg{width:15px;height:15px;stroke:currentColor}
+    .add-project-btn{display:flex;align-items:center;justify-content:center;gap:0.75rem;padding:1rem;background:var(--primary-dim);border:2px dashed hsla(172,66%,50%,0.35);border-radius:var(--r-lg);color:var(--primary);cursor:pointer;font-size:0.9rem;font-weight:500;transition:0.2s}
+    .add-project-btn:hover{background:hsla(172,66%,50%,0.2);border-color:hsla(172,66%,50%,0.6)}
+
+    /* ── MODAL / DRAWER ── */
+    .modal-overlay{position:fixed;inset:0;background:hsla(222,47%,3%,0.85);backdrop-filter:blur(6px);z-index:500;display:none;align-items:center;justify-content:center;padding:1rem}
+    .modal-overlay.open{display:flex}
+    .modal{background:hsl(222,47%,9%);border:1px solid var(--border);border-radius:var(--r-xl);width:100%;max-width:760px;max-height:92vh;overflow-y:auto;position:relative;animation:modalIn 0.25s ease}
+    @keyframes modalIn{from{opacity:0;transform:scale(0.96) translateY(10px)}to{opacity:1;transform:scale(1) translateY(0)}}
+    .modal-header{padding:1.5rem 2rem 1rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:hsl(222,47%,9%);z-index:10}
+    .modal-title{font-size:1.2rem;font-weight:700}
+    .modal-close{width:32px;height:32px;border-radius:var(--r-md);border:1px solid var(--border);background:var(--secondary);color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:0.2s}
+    .modal-close:hover{border-color:var(--danger);color:var(--danger)}
+    .modal-body{padding:1.5rem 2rem}
+    .modal-footer{padding:1rem 2rem 1.5rem;border-top:1px solid var(--border);display:flex;justify-content:flex-end;gap:0.75rem;position:sticky;bottom:0;background:hsl(222,47%,9%)}
+
+    /* ── FORM ── */
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+    @media(max-width:600px){.form-grid{grid-template-columns:1fr}}
+    .form-full{grid-column:1/-1}
+    .form-group{display:flex;flex-direction:column;gap:0.5rem}
+    .form-label{font-size:0.8rem;font-weight:600;letter-spacing:0.5px;color:var(--muted);font-family:'JetBrains Mono',monospace;text-transform:uppercase}
+    .form-label span.req{color:var(--danger)}
+    .form-input,.form-textarea,.form-select{background:var(--secondary);border:1px solid var(--border);border-radius:var(--r-md);padding:0.625rem 0.875rem;color:var(--fg);font-family:'Space Grotesk',sans-serif;font-size:0.9rem;width:100%;transition:0.2s;outline:none}
+    .form-input:focus,.form-textarea:focus,.form-select:focus{border-color:var(--primary);box-shadow:0 0 0 3px hsla(172,66%,50%,0.08)}
+    .form-textarea{resize:vertical;min-height:90px;line-height:1.6}
+    .form-select option{background:hsl(222,47%,12%)}
+    .form-hint{font-size:0.75rem;color:var(--muted);margin-top:2px}
+
+    /* Tags input */
+    .tags-input-wrap{background:var(--secondary);border:1px solid var(--border);border-radius:var(--r-md);padding:0.5rem 0.75rem;display:flex;flex-wrap:wrap;gap:0.4rem;cursor:text;transition:0.2s;min-height:44px;align-items:center}
+    .tags-input-wrap:focus-within{border-color:var(--primary)}
+    .tag-chip{display:flex;align-items:center;gap:4px;padding:3px 8px;border-radius:var(--r-full);font-size:0.75rem;font-weight:500;white-space:nowrap}
+    .tag-chip.tool{background:hsla(172,66%,50%,0.12);border:1px solid hsla(172,66%,50%,0.2);color:var(--primary)}
+    .tag-chip.feat{background:hsla(262,83%,68%,0.12);border:1px solid hsla(262,83%,68%,0.2);color:var(--accent)}
+    .tag-chip.stat{background:hsla(180,78%,36%,0.12);border:1px solid hsla(180,78%,36%,0.2);color:var(--teal)}
+    .tag-chip-del{background:none;border:none;color:inherit;cursor:pointer;padding:0;line-height:1;font-size:0.85rem;opacity:0.7}
+    .tag-chip-del:hover{opacity:1}
+    .tags-real-input{background:none;border:none;outline:none;color:var(--fg);font-size:0.875rem;min-width:120px;flex:1}
+
+    /* Color badges row */
+    .badge-type-row{display:flex;flex-wrap:wrap;gap:0.5rem}
+    .badge-type-option{padding:5px 14px;border-radius:var(--r-full);font-size:0.75rem;font-weight:600;font-family:'JetBrains Mono',monospace;cursor:pointer;border:2px solid transparent;transition:0.2s;background:var(--secondary);color:var(--muted)}
+    .badge-type-option:hover{transform:translateY(-1px)}
+    .badge-type-option.sel{border-color:currentColor!important;background:hsla(172,66%,50%,0.1)!important}
+    .badge-web{color:var(--primary)}
+    .badge-bi{color:var(--accent)}
+    .badge-infra{color:var(--teal)}
+    .badge-hr{color:var(--gold)}
+    .badge-custom-type{color:var(--green)}
+
+    /* Video preview */
+    .yt-preview{margin-top:0.5rem;border-radius:var(--r-md);overflow:hidden;aspect-ratio:16/9;background:#000;display:none}
+    .yt-preview iframe{width:100%;height:100%;border:none}
+    .yt-preview.visible{display:block}
+
+    /* Image upload area */
+    .upload-area{border:2px dashed var(--border);border-radius:var(--r-md);padding:1.5rem;text-align:center;cursor:pointer;transition:0.2s;position:relative}
+    .upload-area:hover,.upload-area.dragover{border-color:var(--primary);background:var(--primary-dim)}
+    .upload-area input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer}
+    .upload-area-text{color:var(--muted);font-size:0.875rem}
+    .upload-area-text strong{color:var(--primary)}
+    .img-preview{width:100%;max-height:160px;object-fit:cover;border-radius:var(--r-md);margin-top:0.75rem;display:none}
+    .img-preview.visible{display:block}
+
+    /* Stats items list */
+    .items-list{display:flex;flex-direction:column;gap:0.5rem}
+    .items-list-row{display:flex;gap:0.5rem;align-items:center}
+    .items-list-row .form-input{flex:1}
+    .add-item-btn{padding:6px 12px;background:var(--secondary);border:1px solid var(--border);border-radius:var(--r-md);color:var(--primary);cursor:pointer;font-size:0.78rem;transition:0.2s;white-space:nowrap}
+    .add-item-btn:hover{background:var(--primary-dim);border-color:var(--primary)}
+    .remove-item-btn{width:30px;height:30px;border-radius:var(--r-md);border:1px solid var(--border);background:var(--secondary);color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:0.2s}
+    .remove-item-btn:hover{border-color:var(--danger);color:var(--danger)}
+    .remove-item-btn svg{width:13px;height:13px;stroke:currentColor}
+
+    /* Buttons */
+    .btn{padding:0.65rem 1.4rem;border-radius:var(--r-md);font-size:0.875rem;font-weight:600;cursor:pointer;border:none;transition:0.2s;display:inline-flex;align-items:center;gap:0.5rem}
+    .btn-primary{background:var(--primary);color:hsl(222,47%,6%)}
+    .btn-primary:hover{background:hsl(172,66%,44%);transform:translateY(-1px)}
+    .btn-secondary{background:var(--secondary);color:var(--fg);border:1px solid var(--border)}
+    .btn-secondary:hover{border-color:var(--primary)}
+    .btn-danger{background:var(--danger-dim);color:var(--danger);border:1px solid hsla(0,70%,60%,0.3)}
+    .btn-danger:hover{background:hsla(0,70%,60%,0.2)}
+    .btn svg{width:16px;height:16px;stroke:currentColor}
+
+    /* ── SECTION DIVIDER ── */
+    .section-divider{height:1px;background:var(--border);margin:1.5rem 0}
+    .section-sub-title{font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-bottom:0.875rem;display:flex;align-items:center;gap:0.5rem}
+    .section-sub-title::after{content:'';flex:1;height:1px;background:var(--border)}
+
+    /* ── PREVIEW PANE ── */
+    .preview-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--r-xl);overflow:hidden;margin-top:2rem}
+    .preview-panel-header{padding:1rem 1.5rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:0.75rem}
+    .preview-panel-title{font-size:0.8rem;font-family:'JetBrains Mono',monospace;color:var(--muted);letter-spacing:1px;text-transform:uppercase}
+    .preview-dot{width:8px;height:8px;border-radius:50%;background:var(--primary);animation:pulse 2s infinite}
+
+    /* ── RENDERED PROJECT CARD PREVIEW ── */
+    .proj-preview-card{background:hsla(222,47%,8%,0.5);border:1px solid var(--border);border-radius:var(--r-xl);overflow:hidden;transition:0.3s}
+    .proj-preview-img{width:100%;height:200px;object-fit:cover;background:#0D1B2A;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:0.875rem;position:relative}
+    .proj-preview-img img{width:100%;height:100%;object-fit:cover}
+    .proj-preview-img-contain img{object-fit:contain!important;padding:1rem}
+    .proj-preview-badges{position:absolute;top:0.75rem;left:0.75rem;display:flex;gap:0.4rem;flex-wrap:wrap}
+    .proj-preview-content{padding:1.5rem}
+    .proj-preview-title{font-size:1.25rem;font-weight:700;margin-bottom:0.75rem}
+    .proj-preview-desc{color:var(--muted);font-size:0.9rem;line-height:1.7;margin-bottom:1rem}
+    .proj-preview-tech{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1rem}
+    .proj-preview-tech-tag{padding:4px 12px;border-radius:var(--r-md);font-size:0.78rem;background:var(--primary-dim);border:1px solid hsla(172,66%,50%,0.2);color:var(--primary);font-family:'JetBrains Mono',monospace}
+    .proj-preview-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:0.75rem;padding:1rem;background:hsla(222,30%,10%,0.5);border-radius:var(--r-lg);border:1px solid var(--border);margin-bottom:1rem}
+    .proj-preview-stat{text-align:center}
+    .proj-preview-stat-value{display:block;font-weight:700;font-size:1.1rem;background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .proj-preview-stat-label{font-size:0.7rem;color:var(--muted)}
+    .proj-preview-features{display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1rem}
+    .proj-preview-feature{padding:0.6rem 0.75rem;background:hsla(222,30%,14%,0.5);border-radius:var(--r-md);font-size:0.85rem;display:flex;gap:0.5rem}
+    .proj-preview-feature::before{content:'•';color:var(--primary);font-weight:700}
+    .proj-preview-workflow{padding:1rem;background:hsla(222,30%,10%,0.4);border-radius:var(--r-md);border:1px solid var(--border)}
+    .proj-preview-workflow-label{font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-bottom:0.6rem}
+    .proj-preview-workflow-steps{display:flex;flex-wrap:wrap;gap:0.4rem;align-items:center}
+    .proj-preview-workflow-step{padding:4px 10px;background:var(--secondary);border:1px solid var(--border);border-radius:var(--r-sm);font-size:0.72rem;font-family:'JetBrains Mono',monospace}
+    .proj-preview-arrow{color:var(--primary);font-weight:700}
+    .proj-preview-yt{margin-top:1rem;border-radius:var(--r-md);overflow:hidden;aspect-ratio:16/9}
+    .proj-preview-yt iframe{width:100%;height:100%;border:none;display:block}
+
+    /* ── TOAST ── */
+    .toast-container{position:fixed;bottom:1.5rem;right:1.5rem;z-index:9999;display:flex;flex-direction:column;gap:0.5rem;pointer-events:none}
+    .toast{padding:0.75rem 1.25rem;border-radius:var(--r-md);font-size:0.875rem;font-weight:500;backdrop-filter:blur(12px);animation:toastIn 0.3s ease;pointer-events:auto;display:flex;align-items:center;gap:0.5rem;max-width:340px;border:1px solid}
+    .toast.success{background:hsla(150,60%,10%,0.95);color:var(--green);border-color:hsla(150,60%,30%,0.4)}
+    .toast.error{background:hsla(0,70%,10%,0.95);color:var(--danger);border-color:hsla(0,70%,40%,0.4)}
+    .toast.info{background:hsla(222,47%,12%,0.95);color:var(--primary);border-color:hsla(172,66%,50%,0.3)}
+    @keyframes toastIn{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:translateX(0)}}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
+
+    /* ── CONFIRM DIALOG ── */
+    .confirm-overlay{position:fixed;inset:0;background:hsla(222,47%,3%,0.9);backdrop-filter:blur(6px);z-index:600;display:none;align-items:center;justify-content:center}
+    .confirm-overlay.open{display:flex}
+    .confirm-box{background:hsl(222,47%,9%);border:1px solid var(--border);border-radius:var(--r-xl);padding:2rem;max-width:380px;width:100%;text-align:center;animation:modalIn 0.2s ease}
+    .confirm-icon{font-size:2.5rem;margin-bottom:1rem}
+    .confirm-title{font-size:1.1rem;font-weight:700;margin-bottom:0.5rem}
+    .confirm-msg{color:var(--muted);font-size:0.875rem;margin-bottom:1.5rem;line-height:1.6}
+    .confirm-actions{display:flex;gap:0.75rem;justify-content:center}
+
+    /* ── DRAG HANDLE ── */
+    .drag-handle{cursor:grab;color:var(--muted);padding:4px;opacity:0.5;transition:0.2s;flex-shrink:0}
+    .drag-handle:hover{opacity:1}
+    .drag-handle svg{width:16px;height:16px;stroke:currentColor}
+    .project-list-item.dragging{opacity:0.4;border-style:dashed}
+    .project-list-item.drag-over{border-color:var(--primary);background:var(--primary-dim)}
+
+    /* ── EMPTY STATE ── */
+    .empty-state{text-align:center;padding:3rem 1rem;color:var(--muted)}
+    .empty-state-icon{font-size:3rem;margin-bottom:1rem}
+    .empty-state-text{font-size:1rem;margin-bottom:0.5rem;color:var(--fg)}
+    .empty-state-sub{font-size:0.875rem}
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar{width:6px}
+    ::-webkit-scrollbar-track{background:transparent}
+    ::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+    ::-webkit-scrollbar-thumb:hover{background:var(--muted)}
+
+    /* ── WORKFLOW BUILDER ── */
+    .workflow-chips{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.5rem}
+    .workflow-chip{display:flex;align-items:center;gap:4px;padding:4px 10px;background:var(--secondary);border:1px solid var(--border);border-radius:var(--r-sm);font-size:0.75rem;font-family:'JetBrains Mono',monospace}
+    .workflow-chip-del{background:none;border:none;color:var(--muted);cursor:pointer;padding:0;font-size:0.8rem;line-height:1;transition:0.1s}
+    .workflow-chip-del:hover{color:var(--danger)}
+
+    /* switch toggle */
+    .toggle-wrap{display:flex;align-items:center;gap:0.75rem}
+    .toggle-label{font-size:0.875rem;color:var(--muted)}
+    .toggle{width:42px;height:24px;background:var(--secondary);border-radius:12px;position:relative;cursor:pointer;border:1px solid var(--border);transition:0.2s;flex-shrink:0}
+    .toggle.on{background:var(--primary);border-color:var(--primary)}
+    .toggle::after{content:'';width:18px;height:18px;background:var(--fg);border-radius:50%;position:absolute;top:2px;left:2px;transition:0.2s}
+    .toggle.on::after{left:20px}
+
+    /* ── FULL PAGE PREVIEW ── */
+    #full-preview-iframe{width:100%;height:calc(100vh - 60px);border:none}
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <div class="topbar-logo">
+      <span class="dot"></span>
+      PORTFOLIO ADMIN
+    </div>
+    <span class="topbar-badge">Mohamed Hashim</span>
+  </div>
+  <div class="topbar-right">
+    <span class="save-status" id="saveStatus">All changes saved</span>
+    <a href="index.html" target="_blank" class="btn-preview">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      View Portfolio
+    </a>
+  </div>
+</div>
+
+<!-- LAYOUT -->
+<div class="admin-layout">
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar">
+    <div class="sidebar-section-label">Navigation</div>
+    <div class="sidebar-item active" data-page="dashboard" onclick="switchPage('dashboard')">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      Dashboard
+    </div>
+    <div class="sidebar-section-label">Content</div>
+    <div class="sidebar-item" data-page="projects" onclick="switchPage('projects')">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+      Projects
+      <span class="sidebar-count" id="projCountBadge">0</span>
+    </div>
+    <div class="sidebar-item" data-page="skills" onclick="switchPage('skills')">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      Skills
+    </div>
+    <div class="sidebar-item" data-page="hero" onclick="switchPage('hero')">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      Hero Section
+    </div>
+    <div class="sidebar-item" data-page="contact" onclick="switchPage('contact')">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      Contact Info
+    </div>
+    <div class="sidebar-section-label">Tools</div>
+    <div class="sidebar-item" data-page="export" onclick="switchPage('export')">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Export / Embed Code
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- DASHBOARD -->
+    <section class="page-section active" id="page-dashboard">
+      <div class="page-header">
+        <div>
+          <div class="page-title">Dashboard</div>
+          <div class="page-subtitle">Overview of your portfolio content</div>
+        </div>
+      </div>
+      <div class="stats-row" id="dashStats"></div>
+      <div class="section-sub-title">Recent Projects</div>
+      <div id="dashRecentProjects" class="project-list"></div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="page-section" id="page-projects">
+      <div class="page-header">
+        <div>
+          <div class="page-title">Projects</div>
+          <div class="page-subtitle">Manage all portfolio projects — drag to reorder</div>
+        </div>
+        <button class="btn btn-primary" onclick="openProjectModal()">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Add Project
+        </button>
+      </div>
+      <div class="project-list" id="projectList"></div>
+      <div class="add-project-btn" onclick="openProjectModal()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        Add New Project
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="page-section" id="page-skills">
+      <div class="page-header">
+        <div>
+          <div class="page-title">Skills</div>
+          <div class="page-subtitle">Update your skill set and proficiency levels</div>
+        </div>
+        <button class="btn btn-primary" onclick="addSkillRow()">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Add Skill
+        </button>
+      </div>
+      <div id="skillsList" class="project-list"></div>
+      <div style="margin-top:1.5rem">
+        <button class="btn btn-primary" onclick="saveSkills()">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+          Save Skills
+        </button>
+      </div>
+    </section>
+
+    <!-- HERO -->
+    <section class="page-section" id="page-hero">
+      <div class="page-header">
+        <div>
+          <div class="page-title">Hero Section</div>
+          <div class="page-subtitle">Edit your name, tagline and hero content</div>
+        </div>
+      </div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label">Full Name <span class="req">*</span></label>
+          <input class="form-input" id="heroName" placeholder="Mohamed Hashim"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Availability Badge</label>
+          <input class="form-input" id="heroBadge" placeholder="Available for opportunities"/>
+        </div>
+        <div class="form-group form-full">
+          <label class="form-label">Subtitle / Tagline</label>
+          <textarea class="form-textarea" id="heroSubtitle" rows="2" placeholder="Aspiring Data Analyst..."></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Education</label>
+          <input class="form-input" id="heroEducation" placeholder="B.Tech AI&DS @ MIET..."/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">CGPA</label>
+          <input class="form-input" id="heroCGPA" placeholder="8.26"/>
+        </div>
+        <div class="form-group form-full">
+          <label class="form-label">Completed Courses (comma separated)</label>
+          <input class="form-input" id="heroCerts" placeholder="SQL, Python, Data Analytics, Excel"/>
+        </div>
+      </div>
+      <div style="margin-top:1.5rem">
+        <button class="btn btn-primary" onclick="saveHero()">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+          Save Hero
+        </button>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="page-section" id="page-contact">
+      <div class="page-header">
+        <div>
+          <div class="page-title">Contact Info</div>
+          <div class="page-subtitle">Update your contact details and social links</div>
+        </div>
+      </div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input class="form-input" id="contactEmail" placeholder="hashimcomcod@gmail.com"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone</label>
+          <input class="form-input" id="contactPhone" placeholder="+91 99444 04775"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">LinkedIn URL</label>
+          <input class="form-input" id="contactLinkedin" placeholder="https://linkedin.com/in/..."/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">GitHub URL</label>
+          <input class="form-input" id="contactGithub" placeholder="https://github.com/..."/>
+        </div>
+        <div class="form-group form-full">
+          <label class="form-label">Resume File Name</label>
+          <input class="form-input" id="contactResume" placeholder="assets/Mohamed Hashim Data Analyst.docx"/>
+        </div>
+      </div>
+      <div style="margin-top:1.5rem">
+        <button class="btn btn-primary" onclick="saveContact()">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+          Save Contact
+        </button>
+      </div>
+    </section>
+
+    <!-- EXPORT -->
+    <section class="page-section" id="page-export">
+      <div class="page-header">
+        <div>
+          <div class="page-title">Export / Embed</div>
+          <div class="page-subtitle">Download portfolio data or copy embed scripts</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1rem;max-width:600px">
+        <div class="stat-card">
+          <div class="stat-card-label">Export All Data</div>
+          <div style="font-size:0.875rem;color:var(--muted);margin-bottom:1rem">Download a JSON file with all your portfolio content — projects, skills, hero, contact.</div>
+          <button class="btn btn-primary" onclick="exportData()">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Export JSON
+          </button>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">Import Data</div>
+          <div style="font-size:0.875rem;color:var(--muted);margin-bottom:1rem">Import a previously exported JSON file to restore your portfolio data.</div>
+          <label class="btn btn-secondary" style="cursor:pointer">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Import JSON
+            <input type="file" accept=".json" style="display:none" onchange="importData(event)"/>
+          </label>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">Copy Portfolio Script Tag</div>
+          <div style="font-size:0.875rem;color:var(--muted);margin-bottom:1rem">Add this script tag before closing &lt;/body&gt; to dynamically inject admin-managed content into your main portfolio page.</div>
+          <pre id="embedCode" style="background:var(--secondary);padding:1rem;border-radius:var(--r-md);font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--primary);white-space:pre-wrap;word-break:break-all;margin-bottom:0.75rem">&lt;script&gt;
+// Paste portfolio-data.js in same folder
+// It auto-injects managed content
+&lt;/script&gt;</pre>
+          <button class="btn btn-secondary" onclick="copyEmbed()">Copy Script Tag</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- ═══════════════════ PROJECT MODAL ═══════════════════ -->
+<div class="modal-overlay" id="projectModal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title" id="modalTitle">Add New Project</div>
+      <button class="modal-close" onclick="closeProjectModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-grid">
+
+        <!-- Name -->
+        <div class="form-group form-full">
+          <label class="form-label">Project Title <span class="req">*</span></label>
+          <input class="form-input" id="pTitle" placeholder="e.g. Web Scraping & Data Analysis Pipeline"/>
+        </div>
+
+        <!-- Description -->
+        <div class="form-group form-full">
+          <label class="form-label">Description <span class="req">*</span></label>
+          <textarea class="form-textarea" id="pDesc" rows="3" placeholder="Describe what this project does and its impact..."></textarea>
+        </div>
+
+        <!-- Badge Type -->
+        <div class="form-group form-full">
+          <label class="form-label">Project Category Badge</label>
+          <div class="badge-type-row" id="badgeTypeRow">
+            <div class="badge-type-option badge-web sel" data-type="web" onclick="selectBadge(this)">Web Scraping & Analysis</div>
+            <div class="badge-type-option badge-bi" data-type="bi" onclick="selectBadge(this)">Business Intelligence</div>
+            <div class="badge-type-option badge-infra" data-type="infra" onclick="selectBadge(this)">Infrastructure Analysis</div>
+            <div class="badge-type-option badge-hr" data-type="hr" onclick="selectBadge(this)">HR Analytics</div>
+            <div class="badge-type-option badge-custom-type" data-type="custom" onclick="selectBadge(this)">Full Stack Dev</div>
+            <div class="badge-type-option badge-bi" data-type="ds" onclick="selectBadge(this)">Data Science</div>
+          </div>
+          <div class="form-hint">Custom badge label:</div>
+          <input class="form-input" id="pBadgeLabel" placeholder="e.g. Machine Learning, NLP, etc." style="margin-top:0.4rem"/>
+        </div>
+
+        <!-- Featured toggle -->
+        <div class="form-group">
+          <label class="form-label">Featured Project</label>
+          <div class="toggle-wrap">
+            <div class="toggle on" id="pFeaturedToggle" onclick="toggleFeatured()"></div>
+            <span class="toggle-label" id="pFeaturedLabel">Yes — highlight this project</span>
+          </div>
+        </div>
+
+        <!-- Image -->
+        <div class="form-group">
+          <label class="form-label">Project Image / URL</label>
+          <input class="form-input" id="pImgUrl" placeholder="assets/images/myproject.png" oninput="updateImgPreview()"/>
+          <div class="form-hint">Or paste a full URL</div>
+          <img class="img-preview" id="pImgPreview" src="" alt="Preview"/>
+        </div>
+
+        <div class="section-divider form-full"></div>
+
+        <!-- Tools Used -->
+        <div class="form-group form-full">
+          <label class="form-label">Tools Used</label>
+          <div class="tags-input-wrap" id="toolsWrap" onclick="focusTagInput('toolsInput')">
+            <!-- chips added here -->
+            <input class="tags-real-input" id="toolsInput" placeholder="Type tool then Enter (e.g. Python)" onkeydown="tagKeydown(event,'tools')"/>
+          </div>
+          <div class="form-hint">Press Enter or comma to add each tool</div>
+        </div>
+
+        <!-- Features -->
+        <div class="form-group form-full">
+          <label class="form-label">Key Features / Bullet Points</label>
+          <div id="featuresList" class="items-list"></div>
+          <button class="add-item-btn" style="margin-top:0.5rem" onclick="addFeature()">+ Add Feature</button>
+        </div>
+
+        <!-- Stats -->
+        <div class="form-group form-full">
+          <label class="form-label">Stats (Value | Label)</label>
+          <div id="statsList" class="items-list"></div>
+          <button class="add-item-btn" style="margin-top:0.5rem" onclick="addStat()">+ Add Stat</button>
+        </div>
+
+        <!-- Workflow Steps -->
+        <div class="form-group form-full">
+          <label class="form-label">Workflow Steps</label>
+          <div style="display:flex;gap:0.5rem">
+            <input class="form-input" id="workflowInput" placeholder="e.g. Data Cleaning" style="flex:1" onkeydown="if(event.key==='Enter'){addWorkflowStep();event.preventDefault()}"/>
+            <button class="add-item-btn" onclick="addWorkflowStep()">+ Add</button>
+          </div>
+          <div class="workflow-chips" id="workflowChips"></div>
+        </div>
+
+        <!-- YouTube Video -->
+        <div class="form-group form-full">
+          <label class="form-label">YouTube Demo Video</label>
+          <input class="form-input" id="pYtUrl" placeholder="https://www.youtube.com/watch?v=XXXXXXXXXXX" oninput="updateYtPreview()"/>
+          <div class="form-hint">Paste any YouTube link — it'll be embedded as a demo below the project</div>
+          <div class="yt-preview" id="ytPreview"><iframe id="ytFrame" src="" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+        </div>
+
+        <!-- Document Links -->
+        <div class="form-group form-full">
+          <label class="form-label">Downloadable Documents / Links</label>
+          <div id="docsList" class="items-list"></div>
+          <button class="add-item-btn" style="margin-top:0.5rem" onclick="addDoc()">+ Add Document Link</button>
+          <div class="form-hint">Each entry: Label | URL/filename | type (word/excel/dash)</div>
+        </div>
+
+      </div>
+
+      <!-- LIVE PREVIEW -->
+      <div class="section-divider"></div>
+      <div class="section-sub-title">Live Preview</div>
+      <div id="livePreviewCard"></div>
+
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeProjectModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="saveProject()">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+        Save Project
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ CONFIRM DIALOG ═══════════════════ -->
+<div class="confirm-overlay" id="confirmOverlay">
+  <div class="confirm-box">
+    <div class="confirm-icon">🗑️</div>
+    <div class="confirm-title">Delete Project?</div>
+    <div class="confirm-msg" id="confirmMsg">This action cannot be undone.</div>
+    <div class="confirm-actions">
+      <button class="btn btn-secondary" onclick="closeConfirm()">Cancel</button>
+      <button class="btn btn-danger" id="confirmYes">Delete</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST CONTAINER -->
+<div class="toast-container" id="toastContainer"></div>
+
+<script>
+/* ═══════════════════════════════════════════
+   DATA LAYER — localStorage
+═══════════════════════════════════════════ */
+
+const KEY = 'portfolioAdminData_v2';
+
+const DEFAULT_DATA = {
+  hero: {
+    name: 'Mohamed Hashim',
+    badge: 'Available for opportunities',
+    subtitle: 'Aspiring Data Analyst with a foundation in Excel, SQL, Python, and Power BI. Passionate about transforming raw data into actionable insights.',
+    education: 'B.Tech AI&DS @ MIET Engineering College Trichy',
+    cgpa: '8.26',
+    certs: 'SQL,Python,Data Analytics,Excel'
+  },
+  contact: {
+    email: 'hashimcomcod@gmail.com',
+    phone: '+91 99444 04775',
+    linkedin: 'https://www.linkedin.com/in/mohamed-hashim-19bb74337/',
+    github: 'https://github.com/hashimviper?tab=repositories',
+    resume: 'assets/Mohamed Hashim Data Analyst.docx'
+  },
+  skills: [
+    {name:'Excel',desc:'Advanced formulas, Pivot Tables, Data Analysis',level:'Advanced',pct:90},
+    {name:'SQL',desc:'Complex queries, Database design, Optimization',level:'Advanced',pct:85},
+    {name:'Python',desc:'Pandas, NumPy, Data manipulation',level:'Intermediate',pct:80},
+    {name:'Power BI',desc:'Interactive dashboards, DAX, Data modeling',level:'Advanced',pct:85},
+    {name:'HTML/CSS',desc:'Responsive design, Modern layouts',level:'Intermediate',pct:75},
+    {name:'Data Visualization',desc:'Charts, Graphs, Storytelling with data',level:'Advanced',pct:88}
+  ],
+  projects: [
+    {
+      id:'p1', title:'Web Scraping & Data Analysis Pipeline',
+      desc:'Built an end-to-end data pipeline that scrapes web data using Python, processes and cleans it in Excel, and creates interactive visualizations in Power BI to derive actionable business insights.',
+      badgeType:'web', badgeLabel:'Web Scraping & Analysis', featured:true,
+      imgUrl:'assets/images/dataimage.png',
+      tools:['Python','Excel','Power BI'],
+      features:['Automated scraping of 500+ data points','Data cleaning and normalization in Excel','3 interactive Power BI dashboards','100% automated pipeline'],
+      stats:[{val:'500+',label:'Data Points'},{val:'3',label:'Dashboards'},{val:'100%',label:'Automated'}],
+      workflow:['Web Scraping','Data Cleaning','Analysis','Visualization'],
+      ytUrl:'', docs:[]
+    },
+    {
+      id:'p2', title:'HR Analytics Dashboard',
+      desc:'Built a complete HR Analytics Dashboard with 60-employee synthetic dataset featuring realistic data including departments, roles, salaries, performance scores, and attendance metrics for actionable workforce insights.',
+      badgeType:'hr', badgeLabel:'HR Analytics', featured:true,
+      imgUrl:'assets/images/imagedata.png',
+      tools:['Python','Excel','Power BI'],
+      features:['4 KPI stat cards — Total employees, avg performance, attendance, salary','Department performance bar charts & attendance scatter plot','Performance distribution pie chart & tenure area chart','Top performers table with rankings and status badges'],
+      stats:[{val:'60+',label:'Employee Records'},{val:'6',label:'Charts'},{val:'4',label:'KPI Cards'}],
+      workflow:['KPI Cards','Bar Charts','Scatter Plot','Pie Chart','Data Table'],
+      ytUrl:'', docs:[]
+    },
+    {
+      id:'p3', title:'VisoryBI — Offline & Template-Based Business Intelligence Platform',
+      desc:'Developed a privacy-focused offline business intelligence analytics platform that enables users to upload datasets, build interactive dashboards using blank or pre-defined templates, perform cross-filter analysis, and generate statistical insights without relying on cloud-based services.',
+      badgeType:'bi', badgeLabel:'Business Intelligence', featured:true,
+      imgUrl:'assets/images/visorybi-logo.png',
+      tools:['React / JavaScript','IndexedDB Storage','Chart.js / Visualization'],
+      features:['18+ pre-built dashboard templates','15+ chart visualization types','100% offline — zero cloud dependency','Cross-filter analysis across datasets'],
+      stats:[{val:'1000+',label:'Dataset Rows'},{val:'15+',label:'Chart Types'},{val:'18+',label:'Templates'},{val:'100%',label:'Offline'}],
+      workflow:['Dataset Upload','Local Processing','Dashboard Analytics','Insight & Export'],
+      ytUrl:'', docs:[]
+    },
+    {
+      id:'p4', title:'Cyclosys Simulation — Sustainable Data Centre Study',
+      desc:'Conducted a comprehensive infrastructure simulation analysis proposing a Cyclosys Energy & Water System to a major hyperscale cloud provider — addressing critical water consumption challenges and escalating carbon emissions seen across the hyperscale industry.',
+      badgeType:'infra', badgeLabel:'Infrastructure Analysis', featured:true,
+      imgUrl:'',
+      tools:['Excel Financial Model','Power BI Dashboard','Study Report (Word)','Market Research'],
+      features:['Waste heat captured via ORC turbine to generate electricity','Zero Liquid Discharge closed-loop water recycling','Rs.51.77 Cr 15-year NPV projection','283t CO₂ avoided per year'],
+      stats:[{val:'Rs.51.77 Cr',label:'15-Year NPV'},{val:'283t',label:'CO₂ / Year'},{val:'5.4 Yrs',label:'Payback'},{val:'-67%',label:'OPEX Saving'}],
+      workflow:['Industry Research','Problem Identification','Financial Modelling','Impact Quantification','Stakeholder Proposal'],
+      ytUrl:'',
+      docs:[
+        {label:'Full Simulation Study',url:'circular_ai_plant_proposal.docx',type:'word'},
+        {label:'Comparison Report',url:'comparison_report.docx',type:'word'},
+        {label:'Live Financial Model',url:'circular_ai_budget_report.xlsx',type:'excel'},
+        {label:'Analytics Dashboard ↗',url:'analytics_dashboard.html',type:'dash'}
+      ]
+    }
+  ]
+};
+
+function loadData(){ try{return JSON.parse(localStorage.getItem(KEY))||DEFAULT_DATA}catch{return DEFAULT_DATA} }
+function saveData(d){
+  localStorage.setItem(KEY,JSON.stringify(d));
+  const s=document.getElementById('saveStatus');
+  s.textContent='Saving...';s.className='save-status';
+  setTimeout(()=>{s.textContent='All changes saved ✓';s.className='save-status saved'},600);
+}
+
+let DATA = loadData();
+
+/* ═══════════════════════════════════════════
+   PAGE SWITCHING
+═══════════════════════════════════════════ */
+function switchPage(name){
+  document.querySelectorAll('.page-section').forEach(s=>s.classList.remove('active'));
+  document.getElementById('page-'+name).classList.add('active');
+  document.querySelectorAll('.sidebar-item').forEach(i=>{
+    i.classList.toggle('active',i.dataset.page===name);
+  });
+  if(name==='dashboard') renderDashboard();
+  if(name==='projects') renderProjectList();
+  if(name==='skills') renderSkills();
+  if(name==='hero') loadHeroForm();
+  if(name==='contact') loadContactForm();
+}
+
+/* ═══════════════════════════════════════════
+   DASHBOARD
+═══════════════════════════════════════════ */
+function renderDashboard(){
+  const stats=document.getElementById('dashStats');
+  const p=DATA.projects||[];
+  const featured=p.filter(x=>x.featured).length;
+  const totalTools=[...new Set(p.flatMap(x=>x.tools||[]))].length;
+  stats.innerHTML=`
+    <div class="stat-card"><div class="stat-card-label">Total Projects</div><div class="stat-card-value">${p.length}</div><div class="stat-card-sub">Portfolio items</div></div>
+    <div class="stat-card"><div class="stat-card-label">Featured</div><div class="stat-card-value">${featured}</div><div class="stat-card-sub">Highlighted projects</div></div>
+    <div class="stat-card"><div class="stat-card-label">Unique Tools</div><div class="stat-card-value">${totalTools}</div><div class="stat-card-sub">Technologies used</div></div>
+    <div class="stat-card"><div class="stat-card-label">Skills Listed</div><div class="stat-card-value">${(DATA.skills||[]).length}</div><div class="stat-card-sub">Technical skills</div></div>
+  `;
+  document.getElementById('projCountBadge').textContent=p.length;
+  const rp=document.getElementById('dashRecentProjects');
+  rp.innerHTML=p.slice(0,3).map(proj=>projectListItemHTML(proj)).join('');
+}
+
+/* ═══════════════════════════════════════════
+   PROJECTS LIST
+═══════════════════════════════════════════ */
+function getBadgeClass(type){
+  return {web:'web',bi:'bi',infra:'infra',hr:'hr',custom:'custom',ds:'bi'}[type]||'web';
+}
+
+function projectListItemHTML(proj){
+  const bc=getBadgeClass(proj.badgeType);
+  const tools=(proj.tools||[]).slice(0,3).join(', ');
+  const hasYt=proj.ytUrl&&proj.ytUrl.trim();
+  return `
+  <div class="project-list-item${proj.featured?' featured':''}" data-id="${proj.id}">
+    <div class="drag-handle">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="9" cy="5" r="1"/><circle cx="9" cy="12" r="1"/><circle cx="9" cy="19" r="1"/><circle cx="15" cy="5" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="19" r="1"/></svg>
+    </div>
+    <div class="proj-thumb">
+      ${proj.imgUrl?`<img src="${escHtml(proj.imgUrl)}" alt=""/>`:proj.title.charAt(0)}
+    </div>
+    <div class="proj-info">
+      <div class="proj-name">${escHtml(proj.title)}</div>
+      <div class="proj-meta">
+        <span class="proj-badge ${bc}">${escHtml(proj.badgeLabel||proj.badgeType)}</span>
+        ${proj.featured?'<span class="proj-badge web">⭐ Featured</span>':''}
+        ${hasYt?'<span class="proj-badge infra">▶ Video</span>':''}
+      </div>
+      <div class="proj-tools">${tools||'No tools specified'}</div>
+    </div>
+    <div class="proj-actions">
+      <button class="icon-btn" title="Edit" onclick="editProject('${proj.id}')">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+      </button>
+      <button class="icon-btn danger" title="Delete" onclick="confirmDelete('${proj.id}')">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/></svg>
+      </button>
+    </div>
+  </div>`;
+}
+
+function renderProjectList(){
+  const list=document.getElementById('projectList');
+  if(!DATA.projects||!DATA.projects.length){
+    list.innerHTML=`<div class="empty-state"><div class="empty-state-icon">📁</div><div class="empty-state-text">No projects yet</div><div class="empty-state-sub">Click "Add Project" to get started</div></div>`;
+    return;
+  }
+  list.innerHTML=DATA.projects.map(p=>projectListItemHTML(p)).join('');
+  document.getElementById('projCountBadge').textContent=DATA.projects.length;
+  initDrag();
+}
+
+/* ═══════════════════════════════════════════
+   DRAG & DROP REORDER
+═══════════════════════════════════════════ */
+let dragSrc=null;
+function initDrag(){
+  const items=document.querySelectorAll('#projectList .project-list-item');
+  items.forEach(item=>{
+    item.setAttribute('draggable','true');
+    item.addEventListener('dragstart',e=>{dragSrc=item;item.classList.add('dragging');e.dataTransfer.effectAllowed='move'});
+    item.addEventListener('dragend',()=>{item.classList.remove('dragging');document.querySelectorAll('.project-list-item').forEach(i=>i.classList.remove('drag-over'))});
+    item.addEventListener('dragover',e=>{e.preventDefault();if(item!==dragSrc){document.querySelectorAll('.project-list-item').forEach(i=>i.classList.remove('drag-over'));item.classList.add('drag-over')}});
+    item.addEventListener('drop',e=>{
+      e.preventDefault();
+      if(dragSrc&&item!==dragSrc){
+        const ids=[...document.querySelectorAll('#projectList .project-list-item')].map(i=>i.dataset.id);
+        const si=ids.indexOf(dragSrc.dataset.id),ti=ids.indexOf(item.dataset.id);
+        const proj=[...DATA.projects];
+        proj.splice(ti,0,proj.splice(si,1)[0]);
+        DATA.projects=proj;saveData(DATA);renderProjectList();
+      }
+    });
+  });
+}
+
+/* ═══════════════════════════════════════════
+   PROJECT MODAL
+═══════════════════════════════════════════ */
+let editingId=null;
+let selectedBadgeType='web';
+let featuredOn=true;
+let modalTools=[],modalWorkflow=[],modalStats=[],modalFeatures=[],modalDocs=[];
+
+function openProjectModal(id){
+  editingId=id||null;
+  const modal=document.getElementById('projectModal');
+  modal.classList.add('open');
+  document.getElementById('modalTitle').textContent=id?'Edit Project':'Add New Project';
+  resetModalForm();
+  if(id){
+    const p=DATA.projects.find(x=>x.id===id);
+    if(!p)return;
+    document.getElementById('pTitle').value=p.title||'';
+    document.getElementById('pDesc').value=p.desc||'';
+    document.getElementById('pBadgeLabel').value=p.badgeLabel||'';
+    document.getElementById('pImgUrl').value=p.imgUrl||'';
+    document.getElementById('pYtUrl').value=p.ytUrl||'';
+    selectedBadgeType=p.badgeType||'web';
+    featuredOn=p.featured!==false;
+    modalTools=[...(p.tools||[])];
+    modalWorkflow=[...(p.workflow||[])];
+    modalFeatures=[...(p.features||[])];
+    modalStats=[...(p.stats||[])];
+    modalDocs=[...(p.docs||[])];
+    renderBadgeTypeRow();
+    updateFeaturedToggle();
+    renderToolChips();
+    renderWorkflowChips();
+    renderFeaturesList();
+    renderStatsList();
+    renderDocsList();
+    updateImgPreview();
+    updateYtPreview();
+  }
+  updateLivePreview();
+  // Live preview debounce
+  ['pTitle','pDesc','pImgUrl','pBadgeLabel'].forEach(id=>{
+    document.getElementById(id).addEventListener('input',debounce(updateLivePreview,300));
+  });
+}
+
+function closeProjectModal(){
+  document.getElementById('projectModal').classList.remove('open');
+  editingId=null;
+}
+
+function resetModalForm(){
+  ['pTitle','pDesc','pBadgeLabel','pImgUrl','pYtUrl'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('pImgPreview').classList.remove('visible');
+  document.getElementById('ytPreview').classList.remove('visible');
+  selectedBadgeType='web'; featuredOn=true;
+  modalTools=[]; modalWorkflow=[]; modalFeatures=[]; modalStats=[]; modalDocs=[];
+  renderBadgeTypeRow(); updateFeaturedToggle();
+  renderToolChips(); renderWorkflowChips(); renderFeaturesList(); renderStatsList(); renderDocsList();
+}
+
+function generateId(){return 'p'+Date.now()+Math.random().toString(36).slice(2,7)}
+
+function saveProject(){
+  const title=document.getElementById('pTitle').value.trim();
+  const desc=document.getElementById('pDesc').value.trim();
+  if(!title){toast('Project title is required','error');return}
+  const proj={
+    id:editingId||generateId(),
+    title, desc,
+    badgeType:selectedBadgeType,
+    badgeLabel:document.getElementById('pBadgeLabel').value.trim()||badgeLabelFromType(selectedBadgeType),
+    featured:featuredOn,
+    imgUrl:document.getElementById('pImgUrl').value.trim(),
+    tools:[...modalTools],
+    features:[...modalFeatures],
+    stats:[...modalStats],
+    workflow:[...modalWorkflow],
+    ytUrl:document.getElementById('pYtUrl').value.trim(),
+    docs:[...modalDocs]
+  };
+  if(editingId){
+    const idx=DATA.projects.findIndex(x=>x.id===editingId);
+    if(idx>-1) DATA.projects[idx]=proj;
+  } else {
+    DATA.projects.push(proj);
+  }
+  saveData(DATA);
+  renderProjectList();
+  closeProjectModal();
+  toast(editingId?'Project updated!':'Project added!','success');
+}
+
+function editProject(id){openProjectModal(id)}
+
+/* DELETE */
+let deleteTargetId=null;
+function confirmDelete(id){
+  deleteTargetId=id;
+  const p=DATA.projects.find(x=>x.id===id);
+  document.getElementById('confirmMsg').textContent=`Delete "${p?p.title:'this project'}"? This cannot be undone.`;
+  document.getElementById('confirmYes').onclick=()=>doDelete();
+  document.getElementById('confirmOverlay').classList.add('open');
+}
+function doDelete(){
+  DATA.projects=DATA.projects.filter(x=>x.id!==deleteTargetId);
+  saveData(DATA); renderProjectList(); closeConfirm();
+  toast('Project deleted','info');
+}
+function closeConfirm(){document.getElementById('confirmOverlay').classList.remove('open')}
+
+/* ═══════════════════════════════════════════
+   BADGE TYPES
+═══════════════════════════════════════════ */
+function badgeLabelFromType(t){
+  return {web:'Web Scraping & Analysis',bi:'Business Intelligence',infra:'Infrastructure Analysis',hr:'HR Analytics',custom:'Full Stack Dev',ds:'Data Science'}[t]||'Project';
+}
+function selectBadge(el){
+  selectedBadgeType=el.dataset.type;
+  renderBadgeTypeRow();
+  if(!document.getElementById('pBadgeLabel').value.trim()){
+    document.getElementById('pBadgeLabel').value=badgeLabelFromType(selectedBadgeType);
+  }
+  updateLivePreview();
+}
+function renderBadgeTypeRow(){
+  document.querySelectorAll('.badge-type-option').forEach(el=>{
+    el.classList.toggle('sel',el.dataset.type===selectedBadgeType);
+  });
+}
+
+/* ═══════════════════════════════════════════
+   FEATURED TOGGLE
+═══════════════════════════════════════════ */
+function toggleFeatured(){featuredOn=!featuredOn;updateFeaturedToggle();updateLivePreview()}
+function updateFeaturedToggle(){
+  const tog=document.getElementById('pFeaturedToggle');
+  const lbl=document.getElementById('pFeaturedLabel');
+  tog.classList.toggle('on',featuredOn);
+  lbl.textContent=featuredOn?'Yes — highlight this project':'No';
+}
+
+/* ═══════════════════════════════════════════
+   TOOLS CHIPS
+═══════════════════════════════════════════ */
+function renderToolChips(){
+  const wrap=document.getElementById('toolsWrap');
+  const input=document.getElementById('toolsInput');
+  wrap.innerHTML='';
+  modalTools.forEach((t,i)=>{
+    const chip=document.createElement('div');
+    chip.className='tag-chip tool';
+    chip.innerHTML=`${escHtml(t)}<button class="tag-chip-del" onclick="removeTool(${i})">✕</button>`;
+    wrap.appendChild(chip);
+  });
+  wrap.appendChild(input);
+}
+function tagKeydown(e,type){
+  if(e.key==='Enter'||e.key===','){
+    e.preventDefault();
+    const v=e.target.value.replace(',','').trim();
+    if(v){modalTools.push(v);e.target.value='';renderToolChips();updateLivePreview()}
+  }
+}
+function removeTool(i){modalTools.splice(i,1);renderToolChips();updateLivePreview()}
+function focusTagInput(id){document.getElementById(id).focus()}
+
+/* ═══════════════════════════════════════════
+   WORKFLOW CHIPS
+═══════════════════════════════════════════ */
+function renderWorkflowChips(){
+  const wrap=document.getElementById('workflowChips');
+  wrap.innerHTML=modalWorkflow.map((s,i)=>
+    `<div class="workflow-chip">${escHtml(s)}<button class="workflow-chip-del" onclick="removeWorkflow(${i})">✕</button></div>`
+    +(i<modalWorkflow.length-1?'<span style="color:var(--primary);font-weight:700;align-self:center">→</span>':'')
+  ).join('');
+}
+function addWorkflowStep(){
+  const inp=document.getElementById('workflowInput');
+  const v=inp.value.trim();
+  if(v){modalWorkflow.push(v);inp.value='';renderWorkflowChips();updateLivePreview()}
+}
+function removeWorkflow(i){modalWorkflow.splice(i,1);renderWorkflowChips();updateLivePreview()}
+
+/* ═══════════════════════════════════════════
+   FEATURES LIST
+═══════════════════════════════════════════ */
+function renderFeaturesList(){
+  const list=document.getElementById('featuresList');
+  list.innerHTML=modalFeatures.map((f,i)=>`
+    <div class="items-list-row">
+      <input class="form-input" value="${escAttr(f)}" onchange="modalFeatures[${i}]=this.value;updateLivePreview()" placeholder="Feature description"/>
+      <button class="remove-item-btn" onclick="removeFeature(${i})"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    </div>`).join('');
+}
+function addFeature(){modalFeatures.push('');renderFeaturesList();updateLivePreview()}
+function removeFeature(i){modalFeatures.splice(i,1);renderFeaturesList();updateLivePreview()}
+
+/* ═══════════════════════════════════════════
+   STATS LIST
+═══════════════════════════════════════════ */
+function renderStatsList(){
+  const list=document.getElementById('statsList');
+  list.innerHTML=modalStats.map((s,i)=>`
+    <div class="items-list-row">
+      <input class="form-input" value="${escAttr(s.val||'')}" onchange="modalStats[${i}].val=this.value;updateLivePreview()" placeholder="Value (e.g. 500+)"/>
+      <input class="form-input" value="${escAttr(s.label||'')}" onchange="modalStats[${i}].label=this.value;updateLivePreview()" placeholder="Label (e.g. Data Points)"/>
+      <button class="remove-item-btn" onclick="removeStat(${i})"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    </div>`).join('');
+}
+function addStat(){modalStats.push({val:'',label:''});renderStatsList();updateLivePreview()}
+function removeStat(i){modalStats.splice(i,1);renderStatsList();updateLivePreview()}
+
+/* ═══════════════════════════════════════════
+   DOCS LIST
+═══════════════════════════════════════════ */
+function renderDocsList(){
+  const list=document.getElementById('docsList');
+  list.innerHTML=modalDocs.map((d,i)=>`
+    <div class="items-list-row" style="flex-wrap:wrap;gap:0.4rem">
+      <input class="form-input" value="${escAttr(d.label||'')}" onchange="modalDocs[${i}].label=this.value" placeholder="Label"/>
+      <input class="form-input" value="${escAttr(d.url||'')}" onchange="modalDocs[${i}].url=this.value" placeholder="URL or filename"/>
+      <select class="form-select" style="flex:0 0 100px" onchange="modalDocs[${i}].type=this.value">
+        <option value="word"${d.type==='word'?' selected':''}>Word</option>
+        <option value="excel"${d.type==='excel'?' selected':''}>Excel</option>
+        <option value="dash"${d.type==='dash'?' selected':''}>Dashboard</option>
+        <option value="pdf"${d.type==='pdf'?' selected':''}>PDF</option>
+      </select>
+      <button class="remove-item-btn" onclick="removeDoc(${i})"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    </div>`).join('');
+}
+function addDoc(){modalDocs.push({label:'',url:'',type:'word'});renderDocsList()}
+function removeDoc(i){modalDocs.splice(i,1);renderDocsList()}
+
+/* ═══════════════════════════════════════════
+   IMAGE PREVIEW
+═══════════════════════════════════════════ */
+function updateImgPreview(){
+  const url=document.getElementById('pImgUrl').value.trim();
+  const img=document.getElementById('pImgPreview');
+  if(url){img.src=url;img.classList.add('visible')}else{img.classList.remove('visible')}
+  updateLivePreview();
+}
+
+/* ═══════════════════════════════════════════
+   YOUTUBE PREVIEW
+═══════════════════════════════════════════ */
+function extractYtId(url){
+  if(!url)return null;
+  const m=url.match(/(?:v=|youtu\.be\/|embed\/|shorts\/)([a-zA-Z0-9_-]{11})/);
+  return m?m[1]:null;
+}
+function updateYtPreview(){
+  const url=document.getElementById('pYtUrl').value.trim();
+  const id=extractYtId(url);
+  const preview=document.getElementById('ytPreview');
+  const frame=document.getElementById('ytFrame');
+  if(id){
+    frame.src=`https://www.youtube.com/embed/${id}`;
+    preview.classList.add('visible');
+  } else {
+    frame.src='';
+    preview.classList.remove('visible');
+  }
+  updateLivePreview();
+}
+
+/* ═══════════════════════════════════════════
+   LIVE PREVIEW CARD
+═══════════════════════════════════════════ */
+const debounce=(fn,ms)=>{let t;return(...a)=>{clearTimeout(t);t=setTimeout(()=>fn(...a),ms)}};
+
+function updateLivePreview(){
+  const title=document.getElementById('pTitle').value.trim()||'Project Title';
+  const desc=document.getElementById('pDesc').value.trim()||'Project description will appear here.';
+  const imgUrl=document.getElementById('pImgUrl').value.trim();
+  const ytUrl=document.getElementById('pYtUrl').value.trim();
+  const badgeLabel=document.getElementById('pBadgeLabel').value.trim()||badgeLabelFromType(selectedBadgeType);
+  const bc=getBadgeClass(selectedBadgeType);
+  const ytId=extractYtId(ytUrl);
+
+  const toolsHTML=modalTools.map(t=>`<span class="proj-preview-tech-tag">${escHtml(t)}</span>`).join('');
+  const statsHTML=modalStats.map(s=>`<div class="proj-preview-stat"><span class="proj-preview-stat-value">${escHtml(s.val)}</span><span class="proj-preview-stat-label">${escHtml(s.label)}</span></div>`).join('');
+  const featuresHTML=modalFeatures.filter(f=>f).map(f=>`<div class="proj-preview-feature">${escHtml(f)}</div>`).join('');
+  const workflowHTML=modalWorkflow.map((s,i)=>`<span class="proj-preview-workflow-step">${escHtml(s)}</span>${i<modalWorkflow.length-1?'<span class="proj-preview-arrow">→</span>':''}`).join('');
+  const docsHTML=modalDocs.filter(d=>d.label).map(d=>{
+    const cls={word:'doc-link--word',excel:'doc-link--excel',dash:'doc-link--dash',pdf:'doc-link--word'}[d.type]||'doc-link--word';
+    return `<a href="${escAttr(d.url)}" class="doc-link ${cls}" style="font-size:0.8rem;padding:5px 12px;border-radius:6px;border:1px solid;text-decoration:none;display:inline-flex;align-items:center;gap:6px">${escHtml(d.label)}</a>`;
+  }).join('');
+
+  document.getElementById('livePreviewCard').innerHTML=`
+  <div class="proj-preview-card">
+    <div class="proj-preview-img${!imgUrl?' proj-preview-img-contain':''}">
+      ${imgUrl?`<img src="${escHtml(imgUrl)}" alt=""/>`:
+        `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#0D1B2A;color:var(--muted);font-size:0.875rem">No image set</div>`}
+      <div class="proj-preview-badges" style="position:absolute;top:0.75rem;left:0.75rem">
+        <span class="proj-badge ${bc}" style="backdrop-filter:blur(8px)">${escHtml(badgeLabel)}</span>
+        ${featuredOn?'<span class="proj-badge web" style="backdrop-filter:blur(8px)">⭐ Featured</span>':''}
+      </div>
+    </div>
+    <div class="proj-preview-content">
+      <div class="proj-preview-title">${escHtml(title)}</div>
+      <div class="proj-preview-desc">${escHtml(desc)}</div>
+      ${toolsHTML?`<div class="proj-preview-tech">${toolsHTML}</div>`:''}
+      ${featuresHTML?`<div class="proj-preview-features">${featuresHTML}</div>`:''}
+      ${statsHTML?`<div class="proj-preview-stats">${statsHTML}</div>`:''}
+      ${workflowHTML?`<div class="proj-preview-workflow"><div class="proj-preview-workflow-label">Workflow</div><div class="proj-preview-workflow-steps">${workflowHTML}</div></div>`:''}
+      ${docsHTML?`<div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1rem">${docsHTML}</div>`:''}
+      ${ytId?`<div class="proj-preview-yt"><iframe src="https://www.youtube.com/embed/${ytId}" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></div>`:''}
+    </div>
+  </div>`;
+}
+
+/* ═══════════════════════════════════════════
+   SKILLS
+═══════════════════════════════════════════ */
+function renderSkills(){
+  const list=document.getElementById('skillsList');
+  list.innerHTML=(DATA.skills||[]).map((s,i)=>`
+    <div class="project-list-item" style="flex-wrap:wrap;gap:0.75rem;cursor:default">
+      <div style="flex:1;min-width:160px">
+        <input class="form-input" value="${escAttr(s.name)}" onchange="DATA.skills[${i}].name=this.value" placeholder="Skill name" style="margin-bottom:0.4rem"/>
+        <input class="form-input" value="${escAttr(s.desc)}" onchange="DATA.skills[${i}].desc=this.value" placeholder="Description"/>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:0.4rem;min-width:160px">
+        <select class="form-select" onchange="DATA.skills[${i}].level=this.value">
+          <option${s.level==='Beginner'?' selected':''}>Beginner</option>
+          <option${s.level==='Intermediate'?' selected':''}>Intermediate</option>
+          <option${s.level==='Advanced'?' selected':''}>Advanced</option>
+        </select>
+        <div style="display:flex;align-items:center;gap:0.5rem">
+          <input type="range" min="0" max="100" value="${s.pct||80}" onchange="DATA.skills[${i}].pct=+this.value;this.nextSibling.textContent=this.value+'%'" style="flex:1;accent-color:var(--primary)"/>
+          <span style="font-family:monospace;font-size:0.75rem;color:var(--primary);min-width:36px">${s.pct||80}%</span>
+        </div>
+      </div>
+      <div class="proj-actions">
+        <button class="icon-btn danger" onclick="removeSkill(${i})"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg></button>
+      </div>
+    </div>`).join('');
+}
+function addSkillRow(){
+  DATA.skills.push({name:'',desc:'',level:'Intermediate',pct:75});
+  renderSkills();
+}
+function removeSkill(i){DATA.skills.splice(i,1);renderSkills()}
+function saveSkills(){saveData(DATA);toast('Skills saved!','success')}
+
+/* ═══════════════════════════════════════════
+   HERO FORM
+═══════════════════════════════════════════ */
+function loadHeroForm(){
+  const h=DATA.hero||{};
+  document.getElementById('heroName').value=h.name||'';
+  document.getElementById('heroBadge').value=h.badge||'';
+  document.getElementById('heroSubtitle').value=h.subtitle||'';
+  document.getElementById('heroEducation').value=h.education||'';
+  document.getElementById('heroCGPA').value=h.cgpa||'';
+  document.getElementById('heroCerts').value=h.certs||'';
+}
+function saveHero(){
+  DATA.hero={
+    name:document.getElementById('heroName').value.trim(),
+    badge:document.getElementById('heroBadge').value.trim(),
+    subtitle:document.getElementById('heroSubtitle').value.trim(),
+    education:document.getElementById('heroEducation').value.trim(),
+    cgpa:document.getElementById('heroCGPA').value.trim(),
+    certs:document.getElementById('heroCerts').value.trim()
+  };
+  saveData(DATA);toast('Hero section saved!','success');
+}
+
+/* ═══════════════════════════════════════════
+   CONTACT FORM
+═══════════════════════════════════════════ */
+function loadContactForm(){
+  const c=DATA.contact||{};
+  document.getElementById('contactEmail').value=c.email||'';
+  document.getElementById('contactPhone').value=c.phone||'';
+  document.getElementById('contactLinkedin').value=c.linkedin||'';
+  document.getElementById('contactGithub').value=c.github||'';
+  document.getElementById('contactResume').value=c.resume||'';
+}
+function saveContact(){
+  DATA.contact={
+    email:document.getElementById('contactEmail').value.trim(),
+    phone:document.getElementById('contactPhone').value.trim(),
+    linkedin:document.getElementById('contactLinkedin').value.trim(),
+    github:document.getElementById('contactGithub').value.trim(),
+    resume:document.getElementById('contactResume').value.trim()
+  };
+  saveData(DATA);toast('Contact info saved!','success');
+}
+
+/* ═══════════════════════════════════════════
+   EXPORT / IMPORT
+═══════════════════════════════════════════ */
+function exportData(){
+  const blob=new Blob([JSON.stringify(DATA,null,2)],{type:'application/json'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');a.href=url;a.download='portfolio-data.json';a.click();
+  URL.revokeObjectURL(url);toast('Data exported!','success');
+}
+function importData(e){
+  const file=e.target.files[0];if(!file)return;
+  const reader=new FileReader();
+  reader.onload=ev=>{
+    try{
+      const d=JSON.parse(ev.target.result);
+      DATA=d;saveData(DATA);renderDashboard();
+      toast('Data imported successfully!','success');
+    }catch{toast('Invalid JSON file','error')}
+  };
+  reader.readAsText(file);
+}
+function copyEmbed(){
+  const code=`<script src="portfolio-data.js"><\/script>`;
+  navigator.clipboard.writeText(code).then(()=>toast('Copied!','success')).catch(()=>toast('Copy failed','error'));
+}
+
+/* ═══════════════════════════════════════════
+   TOAST
+═══════════════════════════════════════════ */
+function toast(msg,type='info'){
+  const c=document.getElementById('toastContainer');
+  const t=document.createElement('div');
+  t.className=`toast ${type}`;
+  const icons={success:'✓',error:'✗',info:'ℹ'};
+  t.innerHTML=`<span>${icons[type]||'•'}</span><span>${msg}</span>`;
+  c.appendChild(t);
+  setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(20px)';t.style.transition='0.3s';setTimeout(()=>t.remove(),300)},3000);
+}
+
+/* ═══════════════════════════════════════════
+   HELPERS
+═══════════════════════════════════════════ */
+function escHtml(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function escAttr(s){return String(s||'').replace(/"/g,'&quot;').replace(/'/g,'&#39;')}
+
+/* Close modals on overlay click */
+document.getElementById('projectModal').addEventListener('click',e=>{if(e.target===e.currentTarget)closeProjectModal()});
+document.getElementById('confirmOverlay').addEventListener('click',e=>{if(e.target===e.currentTarget)closeConfirm()});
+
+/* ═══════════════════════════════════════════
+   INIT
+═══════════════════════════════════════════ */
+document.addEventListener('DOMContentLoaded',()=>{
+  renderDashboard();
+});
+</script>
+</body>
+</html>
