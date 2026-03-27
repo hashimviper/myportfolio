@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Mohamed Hashim - Data Analyst Portfolio showcasing Excel, SQL, Python, Power BI skills and data analysis projects" />
+  <title>Mohamed Hashim | Data Analyst Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav id="navbar" class="navbar">
+    <div class="navbar-container">
+      <a href="#hero" class="navbar-logo">
+        <span class="logo-text">Mohamed Hashim</span>
+      </a>
+      <div class="nav-links desktop-nav">
+        <a href="#hero" class="nav-link">Home</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+      <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+    <div id="mobile-nav" class="mobile-nav" aria-hidden="true">
+      <a href="#hero" class="mobile-nav-link">Home</a>
+      <a href="#skills" class="mobile-nav-link">Skills</a>
+      <a href="#projects" class="mobile-nav-link">Projects</a>
+      <a href="#contact" class="mobile-nav-link">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="hero-bg-effects">
+      <div class="hero-glow hero-glow-1"></div>
+      <div class="hero-glow hero-glow-2"></div>
+    </div>
+    <div class="grid-pattern"></div>
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="hero-badge animate-fade-up">
+          <span class="status-dot"></span>
+          <span>Available for opportunities</span>
+        </div>
+        <h1 class="hero-title animate-fade-up delay-100">
+          Hi, I'm <span class="gradient-text">Mohamed Hashim</span>
+        </h1>
+        <p class="hero-subtitle animate-fade-up delay-200">
+          Aspiring Data Analyst with a foundation in Excel, SQL, Python, and Power BI.
+          Passionate about transforming raw data into actionable insights.
+        </p>
+        <div class="hero-education animate-fade-up delay-300">
+          <div class="education-item">
+            <span class="education-icon">🎓</span>
+            <span>B.Tech AI&amp;DS @ MIET Engineering College Trichy</span>
+          </div>
+          <div class="education-item">
+            <span class="education-icon">📊</span>
+            <span>CGPA: 8.00</span>
+          </div>
+        </div>
+        <div class="hero-buttons animate-fade-up delay-400">
+          <a href="#projects" class="btn btn-primary">
+            <span>View My Work</span>
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#contact" class="btn btn-secondary"><span>Get In Touch</span></a>
+        </div>
+        <div class="hero-certs animate-fade-up delay-500">
+          <span class="certs-label">Completed Courses:</span>
+          <div class="certs-list">
+            <span class="cert-tag">SQL</span>
+            <span class="cert-tag">Python</span>
+            <span class="cert-tag">Data Analytics</span>
+            <span class="cert-tag">Excel</span>
+          </div>
+        </div>
+        <div class="scroll-indicator animate-fade-in delay-500" id="hero-scroll-indicator">
+          <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+          <span>Scroll to explore</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Banner / Project Slider Section -->
+  <section class="banner-section">
+    <div class="container">
+      <div class="banner-container">
+        <div class="slider-outer">
+
+          <!-- ── SLIDE 1: Web Scraping ── -->
+          <div class="slide-item active" data-slide="0">
+            <div class="slide-badge" style="background:#29d9b8;color:#0a1628">Web Scraping &amp; Analysis</div>
+            <div class="slide-img-col">
+              <img src="assets/images/dataimage.png" alt="Web Scraping Project" class="slide-img" onerror="this.style.display='none'"/>
+            </div>
+            <div class="slide-body">
+              <h3 class="slide-title" style="color:#29d9b8">Web Scraping &amp; Data Analysis Pipeline</h3>
+              <p class="slide-desc">End-to-end automated pipeline that scrapes, cleans and visualises web data using Python, Excel &amp; Power BI.</p>
+              <div class="slide-tags">
+                <span class="slide-tag" style="color:#29d9b8;border-color:#29d9b8">Python</span>
+                <span class="slide-tag" style="color:#29d9b8;border-color:#29d9b8">Excel</span>
+                <span class="slide-tag" style="color:#29d9b8;border-color:#29d9b8">Power BI</span>
+              </div>
+              <div class="slide-stats">
+                <span class="slide-stat">500+ Data Points</span>
+                <span class="slide-stat">3 Dashboards</span>
+                <span class="slide-stat">100% Automated</span>
+              </div>
+              <a href="#projects" class="slide-cta-btn">View Full Project &#8595;</a>
+            </div>
+          </div>
+
+          <!-- ── SLIDE 2: HR Analytics ── -->
+          <div class="slide-item" data-slide="1">
+            <div class="slide-badge" style="background:#a78bfa;color:#0a1628">HR Analytics</div>
+            <div class="slide-img-col">
+              <img src="assets/images/imagedata.png" alt="HR Analytics Dashboard" class="slide-img" onerror="this.style.display='none'"/>
+            </div>
+            <div class="slide-body">
+              <h3 class="slide-title" style="color:#a78bfa">HR Analytics Dashboard</h3>
+              <p class="slide-desc">60-employee synthetic dataset with KPI cards, department charts, scatter plots and top-performer rankings.</p>
+              <div class="slide-tags">
+                <span class="slide-tag" style="color:#a78bfa;border-color:#a78bfa">Python</span>
+                <span class="slide-tag" style="color:#a78bfa;border-color:#a78bfa">Excel</span>
+                <span class="slide-tag" style="color:#a78bfa;border-color:#a78bfa">Power BI</span>
+              </div>
+              <div class="slide-stats">
+                <span class="slide-stat">60+ Records</span>
+                <span class="slide-stat">6 Charts</span>
+                <span class="slide-stat">4 KPI Cards</span>
+              </div>
+              <a href="#projects" class="slide-cta-btn">View Full Project &#8595;</a>
+            </div>
+          </div>
+
+          <!-- ── SLIDE 3: VisoryBI ── -->
+          <div class="slide-item" data-slide="2">
+            <div class="slide-badge" style="background:#a78bfa;color:#0a1628">Business Intelligence</div>
+            <div class="slide-img-col">
+              <img src="assets/images/visorybi-logo.png" alt="VisoryBI Platform" class="slide-img" onerror="this.style.display='none'"/>
+            </div>
+            <div class="slide-body">
+              <h3 class="slide-title" style="color:#a78bfa">VisoryBI — Offline BI Platform</h3>
+              <p class="slide-desc">Privacy-first offline BI platform with 18+ templates, 15+ chart types and 100% local data processing. No cloud dependency.</p>
+              <div class="slide-tags">
+                <span class="slide-tag" style="color:#a78bfa;border-color:#a78bfa">React</span>
+                <span class="slide-tag" style="color:#a78bfa;border-color:#a78bfa">IndexedDB</span>
+                <span class="slide-tag" style="color:#a78bfa;border-color:#a78bfa">Chart.js</span>
+              </div>
+              <div class="slide-stats">
+                <span class="slide-stat">1000+ Rows</span>
+                <span class="slide-stat">15+ Charts</span>
+                <span class="slide-stat">18+ Templates</span>
+              </div>
+              <a href="#projects" class="slide-cta-btn">View Full Project &#8595;</a>
+            </div>
+          </div>
+
+          <!-- ── SLIDE 4: DevTrustProtocol ── -->
+          <div class="slide-item slide-item--highlight" data-slide="3">
+            <div class="slide-glow" style="background:radial-gradient(circle,rgba(20,169,168,0.15),transparent 70%)"></div>
+            <div class="slide-badge" style="background:#14A9A8;color:#fff">DevTrustProtocol &middot; AI Validation Engine</div>
+            <div class="slide-img-col">
+              <!-- Generated SVG image for DevTrustProtocol -->
+              <svg viewBox="0 0 480 280" xmlns="http://www.w3.org/2000/svg" class="slide-img" style="background:#060E18;border-radius:8px">
+                <defs>
+                  <linearGradient id="dtGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#0A1E2E"/>
+                    <stop offset="100%" style="stop-color:#071220"/>
+                  </linearGradient>
+                  <radialGradient id="dtGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" style="stop-color:#14A9A8;stop-opacity:0.2"/>
+                    <stop offset="100%" style="stop-color:#14A9A8;stop-opacity:0"/>
+                  </radialGradient>
+                  <filter id="dtBlur">
+                    <feGaussianBlur stdDeviation="3" result="blur"/>
+                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                  </filter>
+                </defs>
+                <rect width="480" height="280" fill="url(#dtGrad)"/>
+                <!-- Grid -->
+                <g opacity="0.04" stroke="#14A9A8" stroke-width="0.5">
+                  <line x1="0" y1="40" x2="480" y2="40"/><line x1="0" y1="80" x2="480" y2="80"/>
+                  <line x1="0" y1="120" x2="480" y2="120"/><line x1="0" y1="160" x2="480" y2="160"/>
+                  <line x1="0" y1="200" x2="480" y2="200"/><line x1="0" y1="240" x2="480" y2="240"/>
+                  <line x1="60" y1="0" x2="60" y2="280"/><line x1="120" y1="0" x2="120" y2="280"/>
+                  <line x1="180" y1="0" x2="180" y2="280"/><line x1="240" y1="0" x2="240" y2="280"/>
+                  <line x1="300" y1="0" x2="300" y2="280"/><line x1="360" y1="0" x2="360" y2="280"/>
+                  <line x1="420" y1="0" x2="420" y2="280"/>
+                </g>
+                <!-- Glow blob -->
+                <ellipse cx="240" cy="140" rx="160" ry="120" fill="url(#dtGlow)"/>
+                <!-- Central shield -->
+                <path d="M240 55 L290 78 L290 128 Q290 168 240 190 Q190 168 190 128 L190 78 Z" fill="none" stroke="#14A9A8" stroke-width="2" opacity="0.9" filter="url(#dtBlur)"/>
+                <path d="M240 70 L278 89 L278 128 Q278 160 240 178 Q202 160 202 128 L202 89 Z" fill="hsla(180,78%,8%,0.7)" stroke="#14A9A8" stroke-width="1.5" opacity="0.8"/>
+                <!-- Checkmark inside shield -->
+                <polyline points="222,127 234,140 258,112" fill="none" stroke="#14A9A8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#dtBlur)"/>
+                <!-- Trust score ring -->
+                <circle cx="240" cy="124" r="52" fill="none" stroke="#14A9A8" stroke-width="1" stroke-dasharray="4 3" opacity="0.2"/>
+                <!-- Score arcs (92%) -->
+                <circle cx="240" cy="124" r="66" fill="none" stroke="#1E3A52" stroke-width="6"/>
+                <circle cx="240" cy="124" r="66" fill="none" stroke="#14A9A8" stroke-width="6" stroke-dasharray="380 414" stroke-dashoffset="0" stroke-linecap="round" opacity="0.85" filter="url(#dtBlur)"/>
+                <!-- Score label -->
+                <text x="240" y="215" text-anchor="middle" font-family="monospace" font-size="11" font-weight="700" fill="#14A9A8" letter-spacing="2">TRUST SCORE</text>
+                <text x="240" y="232" text-anchor="middle" font-family="monospace" font-size="22" font-weight="700" fill="#E8EEF7">92%</text>
+                <!-- Left column: audit items -->
+                <rect x="18" y="60" width="140" height="22" rx="4" fill="#0D2640" stroke="#1A3A55" stroke-width="1"/>
+                <circle cx="32" cy="71" r="4" fill="#22C06B"/>
+                <text x="44" y="75" font-family="monospace" font-size="9" fill="#7A96B8">Code Originality</text>
+                <text x="140" y="75" font-family="monospace" font-size="9" fill="#22C06B" text-anchor="end">✓ Pass</text>
+                <rect x="18" y="90" width="140" height="22" rx="4" fill="#0D2640" stroke="#1A3A55" stroke-width="1"/>
+                <circle cx="32" cy="101" r="4" fill="#22C06B"/>
+                <text x="44" y="105" font-family="monospace" font-size="9" fill="#7A96B8">Doc Integrity</text>
+                <text x="140" y="105" font-family="monospace" font-size="9" fill="#22C06B" text-anchor="end">✓ Pass</text>
+                <rect x="18" y="120" width="140" height="22" rx="4" fill="#0D2640" stroke="#14A9A8" stroke-width="1" opacity="0.8"/>
+                <circle cx="32" cy="131" r="4" fill="#14A9A8"/>
+                <text x="44" y="135" font-family="monospace" font-size="9" fill="#7A96B8">Logic Complexity</text>
+                <text x="140" y="135" font-family="monospace" font-size="9" fill="#14A9A8" text-anchor="end">High</text>
+                <rect x="18" y="150" width="140" height="22" rx="4" fill="#0D2640" stroke="#1A3A55" stroke-width="1"/>
+                <circle cx="32" cy="161" r="4" fill="#22C06B"/>
+                <text x="44" y="165" font-family="monospace" font-size="9" fill="#7A96B8">Hash Verified</text>
+                <text x="140" y="165" font-family="monospace" font-size="9" fill="#22C06B" text-anchor="end">SHA-256 ✓</text>
+                <!-- Right column: stats -->
+                <rect x="322" y="60" width="140" height="48" rx="4" fill="#121212" stroke="#D4A017" stroke-width="1.2"/>
+                <rect x="322" y="60" width="4" height="48" rx="2" fill="#D4A017"/>
+                <text x="336" y="78" font-family="monospace" font-size="9" fill="#7A96B8">LLM EVAL ENGINE</text>
+                <text x="336" y="94" font-family="monospace" font-size="11" font-weight="700" fill="#D4A017">Claude 3.5</text>
+                <text x="336" y="106" font-family="monospace" font-size="8" fill="#4A6580">Structured reasoning</text>
+                <rect x="322" y="118" width="140" height="48" rx="4" fill="#081520" stroke="#14A9A8" stroke-width="1.2"/>
+                <rect x="322" y="118" width="4" height="48" rx="2" fill="#14A9A8"/>
+                <text x="336" y="136" font-family="monospace" font-size="9" fill="#7A96B8">PRIVACY MODE</text>
+                <text x="336" y="152" font-family="monospace" font-size="11" font-weight="700" fill="#14A9A8">Zero Upload</text>
+                <text x="336" y="164" font-family="monospace" font-size="8" fill="#4A6580">Local hash only</text>
+                <rect x="322" y="176" width="140" height="48" rx="4" fill="#080815" stroke="#a78bfa" stroke-width="1.2"/>
+                <rect x="322" y="176" width="4" height="48" rx="2" fill="#a78bfa"/>
+                <text x="336" y="194" font-family="monospace" font-size="9" fill="#7A96B8">RECRUITER VIEW</text>
+                <text x="336" y="210" font-family="monospace" font-size="11" font-weight="700" fill="#a78bfa">PDF Report</text>
+                <text x="336" y="222" font-family="monospace" font-size="8" fill="#4A6580">Shareable audit log</text>
+                <!-- Bottom label -->
+                <rect x="0" y="256" width="480" height="24" fill="#060E18" opacity="0.9"/>
+                <rect x="0" y="256" width="480" height="1.5" fill="#14A9A8" opacity="0.3"/>
+                <text x="240" y="272" text-anchor="middle" font-family="monospace" font-size="9" fill="#4A6580" letter-spacing="1">DEVTRUSTPROTOCOL · AI-POWERED PROJECT AUDIT ENGINE</text>
+              </svg>
+            </div>
+            <div class="slide-body">
+              <h3 class="slide-title" style="color:#14A9A8">DevTrustProtocol</h3>
+              <p class="slide-desc">A high-fidelity project evaluation engine for technical recruiters. Uses LLMs and SHA-256 hashing to assign a Trust Score by auditing code originality, documentation integrity, and logic complexity.</p>
+              <div class="slide-tags">
+                <span class="slide-tag" style="color:#14A9A8;border-color:#14A9A8">Python / Streamlit</span>
+                <span class="slide-tag" style="color:#14A9A8;border-color:#14A9A8">LLM Evaluation</span>
+                <span class="slide-tag" style="color:#14A9A8;border-color:#14A9A8">SHA-256 Hashing</span>
+              </div>
+              <div class="slide-stats">
+                <span class="slide-stat">92% Accuracy</span>
+                <span class="slide-stat">Privacy-First</span>
+                <span class="slide-stat">Integrity Hashing</span>
+              </div>
+              <a href="#projects" class="slide-cta-btn">View Full Project &#8595;</a>
+            </div>
+          </div>
+
+          <!-- ── SLIDE 5: Data Tidy ── -->
+          <div class="slide-item slide-item--highlight" data-slide="4">
+            <div class="slide-glow" style="background:radial-gradient(circle,rgba(251,146,60,0.12),transparent 70%)"></div>
+            <div class="slide-badge" style="background:#FB923C;color:#fff">&#9888; Under Development</div>
+            <div class="slide-img-col">
+              <!-- Generated SVG image for Data Tidy -->
+              <svg viewBox="0 0 480 280" xmlns="http://www.w3.org/2000/svg" class="slide-img" style="background:#0A0A06;border-radius:8px">
+                <defs>
+                  <linearGradient id="dtidyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#0A1000"/>
+                    <stop offset="100%" style="stop-color:#120800"/>
+                  </linearGradient>
+                  <radialGradient id="dtidyGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" style="stop-color:#FB923C;stop-opacity:0.15"/>
+                    <stop offset="100%" style="stop-color:#FB923C;stop-opacity:0"/>
+                  </radialGradient>
+                  <filter id="dtidyBlur">
+                    <feGaussianBlur stdDeviation="3" result="blur"/>
+                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                  </filter>
+                </defs>
+                <rect width="480" height="280" fill="url(#dtidyGrad)"/>
+                <g opacity="0.04" stroke="#FB923C" stroke-width="0.5">
+                  <line x1="0" y1="40" x2="480" y2="40"/><line x1="0" y1="80" x2="480" y2="80"/>
+                  <line x1="0" y1="120" x2="480" y2="120"/><line x1="0" y1="160" x2="480" y2="160"/>
+                  <line x1="0" y1="200" x2="480" y2="200"/><line x1="0" y1="240" x2="480" y2="240"/>
+                  <line x1="60" y1="0" x2="60" y2="280"/><line x1="120" y1="0" x2="120" y2="280"/>
+                  <line x1="180" y1="0" x2="180" y2="280"/><line x1="240" y1="0" x2="240" y2="280"/>
+                  <line x1="300" y1="0" x2="300" y2="280"/><line x1="360" y1="0" x2="360" y2="280"/>
+                  <line x1="420" y1="0" x2="420" y2="280"/>
+                </g>
+                <ellipse cx="240" cy="140" rx="180" ry="120" fill="url(#dtidyGlow)"/>
+                <!-- Raw data table (messy) -->
+                <rect x="18" y="45" width="185" height="170" rx="6" fill="#0D1A00" stroke="#2A3A10" stroke-width="1.5"/>
+                <rect x="18" y="45" width="185" height="22" rx="4" fill="#1A2800" stroke="#2A3A10" stroke-width="1"/>
+                <text x="30" y="60" font-family="monospace" font-size="9" fill="#4A6530" font-weight="700">RAW DATA (MESSY)</text>
+                <!-- Table rows messy -->
+                <rect x="26" y="72" width="169" height="16" rx="2" fill="#120D00" stroke="#2A2010" stroke-width="0.5"/>
+                <text x="32" y="83" font-family="monospace" font-size="8" fill="#6A5030">Name</text>
+                <text x="80" y="83" font-family="monospace" font-size="8" fill="#6A5030">Age</text>
+                <text x="115" y="83" font-family="monospace" font-size="8" fill="#6A5030">Salary</text>
+                <text x="158" y="83" font-family="monospace" font-size="8" fill="#6A5030">Dept</text>
+                <rect x="26" y="92" width="169" height="16" rx="2" fill="#0D0800"/>
+                <text x="32" y="103" font-family="monospace" font-size="8" fill="#8A7050">Alice</text>
+                <text x="80" y="103" font-family="monospace" font-size="8" fill="#C07030">??</text>
+                <text x="115" y="103" font-family="monospace" font-size="8" fill="#8A7050">45000</text>
+                <text x="158" y="103" font-family="monospace" font-size="8" fill="#8A7050">HR</text>
+                <rect x="26" y="112" width="169" height="16" rx="2" fill="#0D0800"/>
+                <text x="32" y="123" font-family="monospace" font-size="8" fill="#C07030">NULL</text>
+                <text x="80" y="123" font-family="monospace" font-size="8" fill="#8A7050">29</text>
+                <text x="115" y="123" font-family="monospace" font-size="8" fill="#C07030">-9999</text>
+                <text x="158" y="123" font-family="monospace" font-size="8" fill="#8A7050">ENG</text>
+                <rect x="26" y="132" width="169" height="16" rx="2" fill="#0D0800"/>
+                <text x="32" y="143" font-family="monospace" font-size="8" fill="#8A7050">Carol</text>
+                <text x="80" y="143" font-family="monospace" font-size="8" fill="#8A7050">34</text>
+                <text x="115" y="143" font-family="monospace" font-size="8" fill="#C07030">N/A</text>
+                <text x="158" y="143" font-family="monospace" font-size="8" fill="#C07030">??</text>
+                <rect x="26" y="152" width="169" height="16" rx="2" fill="#0D0800"/>
+                <text x="32" y="163" font-family="monospace" font-size="8" fill="#8A7050">Dave</text>
+                <text x="80" y="163" font-family="monospace" font-size="8" fill="#8A7050">41</text>
+                <text x="115" y="163" font-family="monospace" font-size="8" fill="#8A7050">68000</text>
+                <text x="158" y="163" font-family="monospace" font-size="8" fill="#C07030">ENGN</text>
+                <rect x="26" y="172" width="169" height="16" rx="2" fill="#0D0800"/>
+                <text x="32" y="183" font-family="monospace" font-size="8" fill="#C07030">alice</text>
+                <text x="80" y="183" font-family="monospace" font-size="8" fill="#8A7050">28</text>
+                <text x="115" y="183" font-family="monospace" font-size="8" fill="#8A7050">45000</text>
+                <text x="158" y="183" font-family="monospace" font-size="8" fill="#8A7050">HR</text>
+                <text x="110" y="208" text-anchor="middle" font-family="monospace" font-size="8" fill="#C07030">⚠ 4 issues detected</text>
+                <!-- Arrow in center -->
+                <g filter="url(#dtidyBlur)">
+                  <line x1="210" y1="140" x2="270" y2="140" stroke="#FB923C" stroke-width="2.5" stroke-dasharray="none"/>
+                  <polygon points="264,134 274,140 264,146" fill="#FB923C"/>
+                </g>
+                <text x="240" y="128" text-anchor="middle" font-family="monospace" font-size="8" fill="#FB923C">AUTO-CLEAN</text>
+                <!-- Cleaned data table -->
+                <rect x="277" y="45" width="185" height="170" rx="6" fill="#001A08" stroke="#104020" stroke-width="1.5"/>
+                <rect x="277" y="45" width="185" height="22" rx="4" fill="#002810" stroke="#104020" stroke-width="1"/>
+                <text x="289" y="60" font-family="monospace" font-size="9" fill="#22C06B" font-weight="700">CLEAN DATA ✓</text>
+                <rect x="285" y="72" width="169" height="16" rx="2" fill="#001208" stroke="#104020" stroke-width="0.5"/>
+                <text x="291" y="83" font-family="monospace" font-size="8" fill="#4A8060">Name</text>
+                <text x="339" y="83" font-family="monospace" font-size="8" fill="#4A8060">Age</text>
+                <text x="374" y="83" font-family="monospace" font-size="8" fill="#4A8060">Salary</text>
+                <text x="417" y="83" font-family="monospace" font-size="8" fill="#4A8060">Dept</text>
+                <rect x="285" y="92" width="169" height="16" rx="2" fill="#001208"/>
+                <text x="291" y="103" font-family="monospace" font-size="8" fill="#22C06B">Alice</text>
+                <text x="339" y="103" font-family="monospace" font-size="8" fill="#6EE7A0">28</text>
+                <text x="374" y="103" font-family="monospace" font-size="8" fill="#22C06B">45000</text>
+                <text x="417" y="103" font-family="monospace" font-size="8" fill="#22C06B">HR</text>
+                <rect x="285" y="112" width="169" height="16" rx="2" fill="#001208"/>
+                <text x="291" y="123" font-family="monospace" font-size="8" fill="#22C06B">Bob</text>
+                <text x="339" y="123" font-family="monospace" font-size="8" fill="#22C06B">29</text>
+                <text x="374" y="123" font-family="monospace" font-size="8" fill="#6EE7A0">52000</text>
+                <text x="417" y="123" font-family="monospace" font-size="8" fill="#22C06B">ENG</text>
+                <rect x="285" y="132" width="169" height="16" rx="2" fill="#001208"/>
+                <text x="291" y="143" font-family="monospace" font-size="8" fill="#22C06B">Carol</text>
+                <text x="339" y="143" font-family="monospace" font-size="8" fill="#22C06B">34</text>
+                <text x="374" y="143" font-family="monospace" font-size="8" fill="#6EE7A0">58000</text>
+                <text x="417" y="143" font-family="monospace" font-size="8" fill="#22C06B">FIN</text>
+                <rect x="285" y="152" width="169" height="16" rx="2" fill="#001208"/>
+                <text x="291" y="163" font-family="monospace" font-size="8" fill="#22C06B">Dave</text>
+                <text x="339" y="163" font-family="monospace" font-size="8" fill="#22C06B">41</text>
+                <text x="374" y="163" font-family="monospace" font-size="8" fill="#22C06B">68000</text>
+                <text x="417" y="163" font-family="monospace" font-size="8" fill="#22C06B">ENG</text>
+                <text x="369" y="208" text-anchor="middle" font-family="monospace" font-size="8" fill="#22C06B">✓ 0 issues · validated</text>
+                <!-- Bottom bar -->
+                <rect x="0" y="256" width="480" height="24" fill="#060A00" opacity="0.95"/>
+                <rect x="0" y="256" width="480" height="1.5" fill="#FB923C" opacity="0.3"/>
+                <text x="240" y="272" text-anchor="middle" font-family="monospace" font-size="9" fill="#4A5020" letter-spacing="1">DATA TIDY · AUTOMATED ETL CLEANING ENGINE · BETA</text>
+              </svg>
+            </div>
+            <div class="slide-body">
+              <h3 class="slide-title" style="color:#FB923C">Data Tidy <span style="font-size:0.7em;background:rgba(251,146,60,0.15);border:1px solid rgba(251,146,60,0.4);padding:2px 8px;border-radius:20px;vertical-align:middle">Under Dev</span></h3>
+              <p class="slide-desc">An automated data cleaning and transformation utility designed to eliminate "Data Janitor" work. Pandas-driven logic identifies and fixes anomalies in industrial datasets automatically.</p>
+              <div class="slide-tags">
+                <span class="slide-tag" style="color:#FB923C;border-color:#FB923C">Pandas</span>
+                <span class="slide-tag" style="color:#FB923C;border-color:#FB923C">Data Wrangling</span>
+                <span class="slide-tag" style="color:#FB923C;border-color:#FB923C">Python</span>
+              </div>
+              <div class="slide-stats">
+                <span class="slide-stat">Beta Phase</span>
+                <span class="slide-stat">Automated ETL</span>
+                <span class="slide-stat">Validation Suite</span>
+              </div>
+              <span class="slide-cta-btn" style="background:rgba(251,146,60,0.08);border-color:rgba(251,146,60,0.3);color:#FB923C;cursor:default">&#9881; On-Boarding &amp; Testing...</span>
+            </div>
+          </div>
+
+        </div><!-- /slider-outer -->
+
+        <!-- Controls -->
+        <div class="slider-controls">
+          <button class="btn btn-secondary" id="slidePrev">&#10094; Prev</button>
+          <div class="slider-dots" id="sliderDots">
+            <button class="slider-dot active" data-idx="0"></button>
+            <button class="slider-dot" data-idx="1"></button>
+            <button class="slider-dot" data-idx="2"></button>
+            <button class="slider-dot" data-idx="3"></button>
+            <button class="slider-dot" data-idx="4"></button>
+          </div>
+          <button class="btn btn-secondary" id="slideNext">Next &#10095;</button>
+        </div>
+
+      </div><!-- /banner-container -->
+    </div><!-- /container -->
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills-section">
+    <div class="section-bg-effects">
+      <div class="section-glow section-glow-1"></div>
+      <div class="section-glow section-glow-2"></div>
+    </div>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Technical Expertise</span>
+        <h2 class="section-title">My <span class="gradient-text">Skills</span></h2>
+        <p class="section-description">Tools and technologies I work with to analyze and visualize data</p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon-wrapper">
+            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
+          </div>
+          <h3 class="skill-name">Excel</h3>
+          <p class="skill-description">Advanced formulas, Pivot Tables, Data Analysis</p>
+          <div class="skill-bar"><div class="skill-bar-fill" style="--fill-width: 90%"></div></div>
+          <span class="skill-level">Advanced</span>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon-wrapper">
+            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          </div>
+          <h3 class="skill-name">SQL</h3>
+          <p class="skill-description">Complex queries, Database design, Optimization</p>
+          <div class="skill-bar"><div class="skill-bar-fill" style="--fill-width: 85%"></div></div>
+          <span class="skill-level">Advanced</span>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon-wrapper">
+            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h3 class="skill-name">Python</h3>
+          <p class="skill-description">Pandas, NumPy, Data manipulation</p>
+          <div class="skill-bar"><div class="skill-bar-fill" style="--fill-width: 80%"></div></div>
+          <span class="skill-level">Intermediate</span>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon-wrapper">
+            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </div>
+          <h3 class="skill-name">Power BI</h3>
+          <p class="skill-description">Interactive dashboards, DAX, Data modeling</p>
+          <div class="skill-bar"><div class="skill-bar-fill" style="--fill-width: 85%"></div></div>
+          <span class="skill-level">Advanced</span>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon-wrapper">
+            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          </div>
+          <h3 class="skill-name">HTML/CSS</h3>
+          <p class="skill-description">Responsive design, Modern layouts</p>
+          <div class="skill-bar"><div class="skill-bar-fill" style="--fill-width: 75%"></div></div>
+          <span class="skill-level">Intermediate</span>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon-wrapper">
+            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
+          </div>
+          <h3 class="skill-name">Data Visualization</h3>
+          <p class="skill-description">Charts, Graphs, Storytelling with data</p>
+          <div class="skill-bar"><div class="skill-bar-fill" style="--fill-width: 88%"></div></div>
+          <span class="skill-level">Advanced</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects-section">
+    <div class="grid-pattern"></div>
+    <div class="section-bg-effects">
+      <div class="section-glow section-glow-1"></div>
+      <div class="section-glow section-glow-2"></div>
+    </div>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Featured Work</span>
+        <h2 class="section-title">My <span class="gradient-text">Projects</span></h2>
+        <p class="section-description">Real-world data projects showcasing end-to-end analytics workflows</p>
+      </div>
+
+      <!-- ══ PROJECT 1: Web Scraping ══ -->
+      <div class="project-card">
+        <div class="project-image-wrapper">
+          <img src="assets/images/dataimage.png" alt="Data Analytics Dashboard showing charts, graphs and KPI metrics" class="project-image"/>
+          <div class="project-image-overlay"></div>
+          <div class="project-badges">
+            <span class="project-badge badge-primary">Featured Project</span>
+            <span class="project-badge badge-accent">Web Scraping &amp; Analysis</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Web Scraping &amp; Data Analysis Pipeline</h3>
+
+          <!-- Problem Statement -->
+          <div class="project-problem-solution">
+            <div class="ps-block ps-problem">
+              <div class="ps-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                Problem Statement
+              </div>
+              <p>Businesses spend countless hours manually gathering competitor pricing, market trends, and product data from various websites. This manual process is slow, error-prone, and impossible to scale — leaving decision-makers working with stale data and missing critical market shifts.</p>
+            </div>
+            <div class="ps-block ps-solution">
+              <div class="ps-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg>
+                Solution
+              </div>
+              <p>Built a fully automated end-to-end data pipeline using Python (BeautifulSoup/Requests) to scrape 500+ data points, process and clean them in Excel, and deliver interactive Power BI dashboards — reducing manual data collection time by 100% and providing always-fresh insights.</p>
+            </div>
+          </div>
+
+          <p class="project-description">Built an end-to-end data pipeline that scrapes web data using Python, processes and cleans it in Excel, and creates interactive visualizations in Power BI to derive actionable business insights.</p>
+          <div class="tech-stack">
+            <div class="tech-tag tech-primary"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg><span>Python</span></div>
+            <div class="tech-tag tech-primary"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg><span>Excel</span></div>
+            <div class="tech-tag tech-accent"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg><span>Power BI</span></div>
+          </div>
+          <div class="project-stats">
+            <div class="stat-item"><span class="stat-value gradient-text">500+</span><span class="stat-label">Data Points Collected</span></div>
+            <div class="stat-item"><span class="stat-value gradient-text">3</span><span class="stat-label">Visualization Dashboards</span></div>
+            <div class="stat-item"><span class="stat-value gradient-text">100%</span><span class="stat-label">Automated Pipeline</span></div>
+          </div>
+          <div class="project-workflow">
+            <h4 class="workflow-title">Project Workflow</h4>
+            <div class="workflow-steps">
+              <span class="workflow-step">Web Scraping</span><span class="workflow-arrow">→</span>
+              <span class="workflow-step">Data Cleaning</span><span class="workflow-arrow">→</span>
+              <span class="workflow-step">Analysis</span><span class="workflow-arrow">→</span>
+              <span class="workflow-step">Visualization</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ PROJECT 2: HR Analytics ══ -->
+      <div class="project-card">
+        <div class="project-image-wrapper">
+          <img src="assets/images/imagedata.png" alt="HR Analytics Dashboard showing employee statistics, performance charts and metrics" class="project-image"/>
+          <div class="project-image-overlay"></div>
+          <div class="project-badges">
+            <span class="project-badge badge-accent">Featured Project</span>
+            <span class="project-badge badge-primary">HR Analytics</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">HR Analytics Dashboard</h3>
+
+          <!-- Problem Statement -->
+          <div class="project-problem-solution">
+            <div class="ps-block ps-problem">
+              <div class="ps-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                Problem Statement
+              </div>
+              <p>HR managers in many organisations lack a unified view of workforce performance, attendance, and salary distribution. Data is siloed across spreadsheets, making it nearly impossible to identify high performers, spot attendance anomalies, or make data-driven hiring and promotion decisions in real time.</p>
+            </div>
+            <div class="ps-block ps-solution">
+              <div class="ps-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg>
+                Solution
+              </div>
+              <p>Designed and built a comprehensive HR Analytics Dashboard using a synthetic 60-employee dataset. Delivered 4 real-time KPI cards, 6 interactive charts (bar, scatter, pie, area), and a ranked top-performers table — giving HR teams instant, visual access to workforce insights without any manual data extraction.</p>
+            </div>
+          </div>
+
+          <p class="project-description">Built a complete HR Analytics Dashboard with 60-employee synthetic dataset featuring realistic data including departments, roles, salaries, performance scores, and attendance metrics for actionable workforce insights.</p>
+          <div class="tech-stack">
+            <div class="tech-tag tech-primary"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg><span>Python</span></div>
+            <div class="tech-tag tech-accent"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg><span>Excel</span></div>
+            <div class="tech-tag tech-primary"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg><span>Power BI</span></div>
+          </div>
+          <div class="project-features">
+            <div class="feature-item"><span class="feature-bullet">•</span><span>4 KPI stat cards — Total employees, avg performance, attendance, salary</span></div>
+            <div class="feature-item"><span class="feature-bullet">•</span><span>Department performance bar charts &amp; attendance scatter plot</span></div>
+            <div class="feature-item"><span class="feature-bullet">•</span><span>Performance distribution pie chart &amp; tenure area chart</span></div>
+            <div class="feature-item"><span class="feature-bullet">•</span><span>Top performers table with rankings and status badges</span></div>
+          </div>
+          <div class="project-stats">
+            <div class="stat-item"><span class="stat-value gradient-text">60+</span><span class="stat-label">Employee Records</span></div>
+            <div class="stat-item"><span class="stat-value gradient-text">6</span><span class="stat-label">Interactive Charts</span></div>
+            <div class="stat-item"><span class="stat-value gradient-text">4</span><span class="stat-label">KPI Dashboards</span></div>
+          </div>
+          <div class="project-workflow">
+            <h4 class="workflow-title">Dashboard Components</h4>
+            <div class="workflow-steps">
+              <span class="workflow-step">KPI Cards</span><span class="workflow-arrow accent">→</span>
+              <span class="workflow-step">Bar Charts</span><span class="workflow-arrow accent">→</span>
+              <span class="workflow-step">Scatter Plot</span><span class="workflow-arrow accent">→</span>
+              <span class="workflow-step">Pie Chart</span><span class="workflow-arrow accent">→</span>
+              <span class="workflow-step">Data Table</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ PROJECT 3: VisoryBI ══ -->
+      <div class="project-card">
+        <div class="project-image-wrapper">
+          <img src="assets/images/visorybi-logo.png" alt="VisoryBI Business Intelligence Dashboard" class="project-image"/>
+          <div class="project-image-overlay"></div>
+          <div class="project-badges">
+            <span class="project-badge badge-primary">Featured Project</span>
+            <span class="project-badge badge-accent">Business Intelligence &amp; Analytics</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">VisoryBI — Offline &amp; Template-Based Business Intelligence Platform</h3>
+          <p class="project-description">Developed a privacy-focused offline business intelligence analytics platform that enables users to upload datasets, build interactive dashboards using blank or pre-defined templates, perform cross-filter analysis, and generate statistical insights without relying on cloud-based services.</p>
+          <div class="tech-stack">
+            <div class="tech-tag tech-primary"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg><span>React / JavaScript</span></div>
+            <div class="tech-tag tech-primary"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg><span>IndexedDB Storage</span></div>
+            <div class="tech-tag tech-accent"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg><span>Chart.js / Visualization</span></div>
+          </div>
+          <div class="project-stats">
+            <div class="stat-item"><span class="stat-value gradient-text">1000+</span><span class="stat-label">Dataset Rows Supported</span></div>
+            <div class="stat-item"><span class="stat-value gradient-text">15+</span><span class="stat-label">Visualization Types</span></div>
+            <div class="stat-item"><span class="stat-value gradient-text">18+</span><span class="stat-label">Dashboard Templates</span></div>
+            <div class="stat-item"><span class="stat-value gradient-text">100%</span><span class="stat-label">Offline Privacy</span></div>
+          </div>
+          <div class="project-workflow">
+            <h4 class="workflow-title">System Workflow</h4>
+            <div class="workflow-steps">
+              <span class="workflow-step">Dataset Upload</span><span class="workflow-arrow">→</span>
+              <span class="workflow-step">Local Processing</span><span class="workflow-arrow">→</span>
+              <span class="workflow-step">Dashboard Analytics</span><span class="workflow-arrow">→</span>
+              <span class="workflow-step">Insight &amp; Export</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ PROJECT 4: DevTrustProtocol ══ -->
+      <div class="project-card project-card--devtrust">
+        <div class="project-image-wrapper">
+          <svg viewBox="0 0 900 340" xmlns="http://www.w3.org/2000/svg" class="project-image" style="background:#060E18">
+            <defs>
+              <linearGradient id="dtpBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#060E18"/>
+                <stop offset="100%" style="stop-color:#030810"/>
+              </linearGradient>
+              <radialGradient id="dtpGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" style="stop-color:#14A9A8;stop-opacity:0.18"/>
+                <stop offset="100%" style="stop-color:#14A9A8;stop-opacity:0"/>
+              </radialGradient>
+              <filter id="dtpBlur"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <rect width="900" height="340" fill="url(#dtpBg)"/>
+            <g opacity="0.03" stroke="#14A9A8" stroke-width="0.5">
+              <line x1="0" y1="50" x2="900" y2="50"/><line x1="0" y1="100" x2="900" y2="100"/>
+              <line x1="0" y1="150" x2="900" y2="150"/><line x1="0" y1="200" x2="900" y2="200"/>
+              <line x1="0" y1="250" x2="900" y2="250"/><line x1="0" y1="300" x2="900" y2="300"/>
+              <line x1="100" y1="0" x2="100" y2="340"/><line x1="200" y1="0" x2="200" y2="340"/>
+              <line x1="300" y1="0" x2="300" y2="340"/><line x1="400" y1="0" x2="400" y2="340"/>
+              <line x1="500" y1="0" x2="500" y2="340"/><line x1="600" y1="0" x2="600" y2="340"/>
+              <line x1="700" y1="0" x2="700" y2="340"/><line x1="800" y1="0" x2="800" y2="340"/>
+            </g>
+            <ellipse cx="450" cy="170" rx="300" ry="200" fill="url(#dtpGlow)"/>
+            <!-- Title bar -->
+            <rect x="0" y="0" width="900" height="36" fill="#030810" opacity="0.95"/>
+            <rect x="0" y="34" width="900" height="1.5" fill="#14A9A8" opacity="0.4"/>
+            <circle cx="20" cy="18" r="7" fill="none" stroke="#14A9A8" stroke-width="1.5"/>
+            <circle cx="20" cy="18" r="2.5" fill="#14A9A8"/>
+            <text x="34" y="23" font-family="monospace" font-size="11" font-weight="700" fill="#14A9A8" letter-spacing="2">DEVTRUSTPROTOCOL</text>
+            <text x="200" y="23" font-family="monospace" font-size="9" fill="#4A6580" letter-spacing="1"> · AI-POWERED PROJECT AUDIT ENGINE</text>
+            <text x="885" y="23" font-family="monospace" font-size="9" fill="#4A6580" text-anchor="end">v1.0 · RECRUITER EDITION</text>
+            <!-- Central shield -->
+            <path d="M450 65 L520 98 L520 165 Q520 225 450 255 Q380 225 380 165 L380 98 Z" fill="none" stroke="#14A9A8" stroke-width="2.5" opacity="0.9" filter="url(#dtpBlur)"/>
+            <path d="M450 80 L508 110 L508 165 Q508 215 450 240 Q392 215 392 165 L392 110 Z" fill="hsla(180,78%,5%,0.8)" stroke="#14A9A8" stroke-width="1.5" opacity="0.85"/>
+            <polyline points="428,162 442,178 472,145" fill="none" stroke="#14A9A8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#dtpBlur)"/>
+            <!-- Outer ring -->
+            <circle cx="450" cy="165" r="100" fill="none" stroke="#14A9A8" stroke-width="1" stroke-dasharray="5 4" opacity="0.18"/>
+            <!-- Score arcs -->
+            <circle cx="450" cy="165" r="118" fill="none" stroke="#1E3A52" stroke-width="7"/>
+            <circle cx="450" cy="165" r="118" fill="none" stroke="#14A9A8" stroke-width="7" stroke-dasharray="681 740" stroke-dashoffset="0" stroke-linecap="round" opacity="0.85" filter="url(#dtpBlur)"/>
+            <!-- Left audit panel -->
+            <rect x="28" y="54" width="310" height="200" rx="8" fill="hsla(222,47%,5%,0.8)" stroke="#1E3A52" stroke-width="1.5"/>
+            <rect x="28" y="54" width="310" height="28" rx="6" fill="#0D1A28" stroke="#1E3A52" stroke-width="1"/>
+            <text x="46" y="72" font-family="monospace" font-size="10" font-weight="700" fill="#7A96B8" letter-spacing="1">AUDIT CHECKLIST</text>
+            <!-- Audit rows -->
+            <rect x="38" y="88" width="290" height="24" rx="3" fill="#0D2640" stroke="#1A3A55" stroke-width="0.8"/>
+            <circle cx="56" cy="100" r="5" fill="#22C06B" filter="url(#dtpBlur)"/>
+            <text x="70" y="104" font-family="monospace" font-size="10" fill="#A0B8C8">Code Originality Analysis</text>
+            <text x="318" y="104" font-family="monospace" font-size="9" fill="#22C06B" text-anchor="end">PASS ✓</text>
+            <rect x="38" y="118" width="290" height="24" rx="3" fill="#0D2640" stroke="#1A3A55" stroke-width="0.8"/>
+            <circle cx="56" cy="130" r="5" fill="#22C06B" filter="url(#dtpBlur)"/>
+            <text x="70" y="134" font-family="monospace" font-size="10" fill="#A0B8C8">Documentation Integrity</text>
+            <text x="318" y="134" font-family="monospace" font-size="9" fill="#22C06B" text-anchor="end">PASS ✓</text>
+            <rect x="38" y="148" width="290" height="24" rx="3" fill="#122030" stroke="#14A9A8" stroke-width="0.8" opacity="0.85"/>
+            <circle cx="56" cy="160" r="5" fill="#14A9A8" filter="url(#dtpBlur)"/>
+            <text x="70" y="164" font-family="monospace" font-size="10" fill="#A0B8C8">Logic Complexity Score</text>
+            <text x="318" y="164" font-family="monospace" font-size="9" fill="#14A9A8" text-anchor="end">HIGH ↑</text>
+            <rect x="38" y="178" width="290" height="24" rx="3" fill="#0D2640" stroke="#1A3A55" stroke-width="0.8"/>
+            <circle cx="56" cy="190" r="5" fill="#22C06B" filter="url(#dtpBlur)"/>
+            <text x="70" y="194" font-family="monospace" font-size="10" fill="#A0B8C8">SHA-256 Hash Verification</text>
+            <text x="318" y="194" font-family="monospace" font-size="9" fill="#22C06B" text-anchor="end">VERIFIED ✓</text>
+            <rect x="38" y="208" width="290" height="24" rx="3" fill="#0D2640" stroke="#1A3A55" stroke-width="0.8"/>
+            <circle cx="56" cy="220" r="5" fill="#D4A017" filter="url(#dtpBlur)"/>
+            <text x="70" y="224" font-family="monospace" font-size="10" fill="#A0B8C8">Plagiarism Detection</text>
+            <text x="318" y="224" font-family="monospace" font-size="9" fill="#D4A017" text-anchor="end">CLEAN ✓</text>
+            <!-- Right output panel -->
+            <rect x="562" y="54" width="310" height="200" rx="8" fill="hsla(222,47%,5%,0.8)" stroke="#1E3A52" stroke-width="1.5"/>
+            <rect x="562" y="54" width="310" height="28" rx="6" fill="#0D1A28" stroke="#1E3A52" stroke-width="1"/>
+            <text x="580" y="72" font-family="monospace" font-size="10" font-weight="700" fill="#7A96B8" letter-spacing="1">TRUST REPORT OUTPUT</text>
+            <!-- Score display -->
+            <rect x="572" y="88" width="290" height="50" rx="4" fill="#0A1E2E" stroke="#14A9A8" stroke-width="1.5"/>
+            <text x="588" y="108" font-family="monospace" font-size="10" fill="#7A96B8">OVERALL TRUST SCORE</text>
+            <text x="838" y="126" font-family="monospace" font-size="28" font-weight="700" fill="#14A9A8" text-anchor="end" filter="url(#dtpBlur)">92%</text>
+            <!-- Output rows -->
+            <rect x="572" y="146" width="136" height="44" rx="4" fill="#121212" stroke="#D4A017" stroke-width="1.2"/>
+            <rect x="572" y="146" width="4" height="44" rx="2" fill="#D4A017"/>
+            <text x="584" y="162" font-family="monospace" font-size="8" fill="#7A96B8">LLM ENGINE</text>
+            <text x="584" y="180" font-family="monospace" font-size="10" font-weight="700" fill="#D4A017">Claude 3.5</text>
+            <rect x="726" y="146" width="136" height="44" rx="4" fill="#081520" stroke="#14A9A8" stroke-width="1.2"/>
+            <rect x="726" y="146" width="4" height="44" rx="2" fill="#14A9A8"/>
+            <text x="738" y="162" font-family="monospace" font-size="8" fill="#7A96B8">PRIVACY MODE</text>
+            <text x="738" y="180" font-family="monospace" font-size="10" font-weight="700" fill="#14A9A8">Zero Upload</text>
+            <rect x="572" y="198" width="136" height="44" rx="4" fill="#080815" stroke="#a78bfa" stroke-width="1.2"/>
+            <rect x="572" y="198" width="4" height="44" rx="2" fill="#a78bfa"/>
+            <text x="584" y="214" font-family="monospace" font-size="8" fill="#7A96B8">REPORT FORMAT</text>
+            <text x="584" y="232" font-family="monospace" font-size="10" font-weight="700" fill="#a78bfa">PDF Audit Log</text>
+            <rect x="726" y="198" width="136" height="44" rx="4" fill="#0A1800" stroke="#22C06B" stroke-width="1.2"/>
+            <rect x="726" y="198" width="4" height="44" rx="2" fill="#22C06B"/>
+            <text x="738" y="214" font-family="monospace" font-size="8" fill="#7A96B8">ACCURACY</text>
+            <text x="738" y="232" font-family="monospace" font-size="10" font-weight="700" fill="#22C06B">92% Verified</text>
+            <!-- Bottom KPI bar -->
+            <rect x="0" y="300" width="900" height="40" fill="#040C16" opacity="0.95"/>
+            <rect x="0" y="300" width="900" height="1.5" fill="#14A9A8" opacity="0.3"/>
+            <text x="112" y="322" text-anchor="middle" font-family="monospace" font-size="9" fill="#7A96B8">AUDIT ENGINE</text>
+            <text x="112" y="334" text-anchor="middle" font-family="monospace" font-size="9" fill="#E8EEF7" font-weight="700">LLM + SHA-256</text>
+            <line x1="220" y1="305" x2="220" y2="336" stroke="#1E3A52" stroke-width="1"/>
+            <text x="330" y="322" text-anchor="middle" font-family="monospace" font-size="9" fill="#7A96B8">RECRUITER VIEW</text>
+            <text x="330" y="334" text-anchor="middle" font-family="monospace" font-size="9" fill="#22C06B" font-weight="700">Shareable Report</text>
+            <line x1="440" y1="305" x2="440" y2="336" stroke="#1E3A52" stroke-width="1"/>
+            <text x="570" y="322" text-anchor="middle" font-family="monospace" font-size="9" fill="#7A96B8">PRIVACY</text>
+            <text x="570" y="334" text-anchor="middle" font-family="monospace" font-size="9" fill="#14A9A8" font-weight="700">100% Local</text>
+            <line x1="680" y1="305" x2="680" y2="336" stroke="#1E3A52" stroke-width="1"/>
+            <text x="790" y="322" text-anchor="middle" font-family="monospace" font-size="9" fill="#7A96B8">PLATFORM</text>
+            <text x="790" y="334" text-anchor="middle" font-family="monospace" font-size="9" fill="#a78bfa" font-weight="700">Streamlit App</text>
+          </svg>
+          <div class="project-image-overlay"></div>
+          <div class="project-badges">
+            <span class="project-badge badge-primary">Featured Project</span>
+            <span class="project-badge badge-teal">AI Validation Engine</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">DevTrustProtocol — AI-Powered Project Audit Engine</h3>
+          <p class="project-description">A high-fidelity project evaluation engine designed for technical recruiters. Using LLMs and SHA-256 hashing algorithms, it assigns a "Trust Score" to engineering projects by auditing code originality, documentation integrity, and logic complexity — giving recruiters verifiable, data-driven confidence in candidate work.</p>
+          <div class="tech-stack">
+            <div class="tech-tag tech-primary"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg><span>Python / Streamlit</span></div>
+            <div class="tech-tag tech-accent"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg><span>LLM Evaluation</span></div>
+            <div class="tech-tag tech-teal"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span>SHA-256 Hashing</span></div>
+            <div class="tech-tag tech-primary"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg><span>Recruiter Insights</span></div>
+          </div>
+          <div class="project-features">
+            <div class="feature-item"><span class="feature-bullet">•</span><span>LLM-powered code originality and documentation integrity analysis</span></div>
+            <div class="feature-item"><span class="feature-bullet">•</span><span>SHA-256 hashing for tamper-proof project fingerprinting</span></div>
+            <div class="feature-item"><span class="feature-bullet">•</span><span>Privacy-first: zero file upload — all processing local</span></div>
+            <div class="feature-item"><span class="feature-bullet">•</span><span>Generates shareable PDF audit reports for recruiters</span></div>
+          </div>
+          <div class="project-stats">
+            <div class="stat-item"><span class="stat-value gradient-text">92%</span><span class="stat-label">Audit Accuracy</span></div>
+            <div class="stat-item"><span class="stat-value gradient-text">100%</span><span class="stat-label">Privacy-First</span></div>
+            <div class="stat-item"><span class="stat-value gradient-text">SHA-256</span><span class="stat-label">Integrity Hashing</span></div>
+            <div class="stat-item"><span class="stat-value gradient-text">PDF</span><span class="stat-label">Audit Reports</span></div>
+          </div>
+          <div class="project-workflow">
+            <h4 class="workflow-title">Audit Workflow</h4>
+            <div class="workflow-steps">
+              <span class="workflow-step">Project Input</span><span class="workflow-arrow">→</span>
+              <span class="workflow-step">Hash Fingerprint</span><span class="workflow-arrow">→</span>
+              <span class="workflow-step">LLM Analysis</span><span class="workflow-arrow">→</span>
+              <span class="workflow-step">Trust Score</span><span class="workflow-arrow">→</span>
+              <span class="workflow-step">PDF Report</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ PROJECT 5: Data Tidy ══ -->
+      <div class="project-card project-card--datatidy">
+        <div class="project-image-wrapper">
+          <svg viewBox="0 0 900 340" xmlns="http://www.w3.org/2000/svg" class="project-image" style="background:#060A00">
+            <defs>
+              <linearGradient id="dtBg2" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#060A00"/>
+                <stop offset="100%" style="stop-color:#0A0500"/>
+              </linearGradient>
+              <radialGradient id="dtGlow2" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" style="stop-color:#FB923C;stop-opacity:0.15"/>
+                <stop offset="100%" style="stop-color:#FB923C;stop-opacity:0"/>
+              </radialGradient>
+              <filter id="dtBlur2"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <rect width="900" height="340" fill="url(#dtBg2)"/>
+            <g opacity="0.03" stroke="#FB923C" stroke-width="0.5">
+              <line x1="0" y1="50" x2="900" y2="50"/><line x1="0" y1="100" x2="900" y2="100"/>
+              <line x1="0" y1="150" x2="900" y2="150"/><line x1="0" y1="200" x2="900" y2="200"/>
+              <line x1="0" y1="250" x2="900" y2="250"/><line x1="0" y1="300" x2="900" y2="300"/>
+              <line x1="100" y1="0" x2="100" y2="340"/><line x1="200" y1="0" x2="200" y2="340"/>
+              <line x1="300" y1="0" x2="300" y2="340"/><line x1="400" y1="0" x2="400" y2="340"/>
+              <line x1="500" y1="0" x2="500" y2="340"/><line x1="600" y1="0" x2="600" y2="340"/>
+              <line x1="700" y1="0" x2="700" y2="340"/><line x1="800" y1="0" x2="800" y2="340"/>
+            </g>
+            <ellipse cx="450" cy="170" rx="300" ry="180" fill="url(#dtGlow2)"/>
+            <!-- Title bar -->
+            <rect x="0" y="0" width="900" height="36" fill="#040600" opacity="0.95"/>
+            <rect x="0" y="34" width="900" height="1.5" fill="#FB923C" opacity="0.4"/>
+            <circle cx="20" cy="18" r="7" fill="none" stroke="#FB923C" stroke-width="1.5"/>
+            <text x="22" y="22" font-family="monospace" font-size="9" fill="#FB923C" text-anchor="middle">⚙</text>
+            <text x="34" y="23" font-family="monospace" font-size="11" font-weight="700" fill="#FB923C" letter-spacing="2">DATA TIDY</text>
+            <text x="125" y="23" font-family="monospace" font-size="9" fill="#4A5020" letter-spacing="1"> · AUTOMATED DATA CLEANING ENGINE</text>
+            <rect x="650" y="6" width="230" height="22" rx="4" fill="rgba(251,146,60,0.1)" stroke="rgba(251,146,60,0.4)" stroke-width="1"/>
+            <text x="765" y="21" font-family="monospace" font-size="9" fill="#FB923C" text-anchor="middle" font-weight="700">⚠ BETA · UNDER DEVELOPMENT</text>
+            <!-- Raw messy table left -->
+            <rect x="28" y="54" width="360" height="220" rx="8" fill="#0D1000" stroke="#2A2800" stroke-width="1.5"/>
+            <rect x="28" y="54" width="360" height="28" rx="6" fill="#1A1800" stroke="#2A2800" stroke-width="1"/>
+            <text x="46" y="72" font-family="monospace" font-size="10" font-weight="700" fill="#C07030" letter-spacing="1">INPUT: RAW DATA (MESSY)</text>
+            <!-- Header row -->
+            <rect x="38" y="88" width="340" height="20" rx="2" fill="#120E00" stroke="#2A2000" stroke-width="0.8"/>
+            <text x="52" y="102" font-family="monospace" font-size="9" fill="#5A4A20">Name</text>
+            <text x="130" y="102" font-family="monospace" font-size="9" fill="#5A4A20">Age</text>
+            <text x="185" y="102" font-family="monospace" font-size="9" fill="#5A4A20">Salary</text>
+            <text x="260" y="102" font-family="monospace" font-size="9" fill="#5A4A20">Dept</text>
+            <text x="325" y="102" font-family="monospace" font-size="9" fill="#5A4A20">Score</text>
+            <!-- Data rows with errors highlighted -->
+            <rect x="38" y="112" width="340" height="18" rx="2" fill="#0D0800"/>
+            <text x="52" y="124" font-family="monospace" font-size="9" fill="#8A7050">Alice</text>
+            <text x="130" y="124" font-family="monospace" font-size="9" fill="#C06020">NULL</text>
+            <text x="185" y="124" font-family="monospace" font-size="9" fill="#8A7050">45000</text>
+            <text x="260" y="124" font-family="monospace" font-size="9" fill="#8A7050">HR</text>
+            <text x="325" y="124" font-family="monospace" font-size="9" fill="#8A7050">88</text>
+            <rect x="38" y="134" width="340" height="18" rx="2" fill="#180800" stroke="#C06020" stroke-width="0.5"/>
+            <text x="52" y="146" font-family="monospace" font-size="9" fill="#C06020">ALICE</text>
+            <text x="130" y="146" font-family="monospace" font-size="9" fill="#8A7050">28</text>
+            <text x="185" y="146" font-family="monospace" font-size="9" fill="#8A7050">45000</text>
+            <text x="260" y="146" font-family="monospace" font-size="9" fill="#8A7050">HR</text>
+            <text x="325" y="146" font-family="monospace" font-size="9" fill="#C06020">??</text>
+            <rect x="38" y="156" width="340" height="18" rx="2" fill="#0D0800"/>
+            <text x="52" y="168" font-family="monospace" font-size="9" fill="#8A7050">Carol</text>
+            <text x="130" y="168" font-family="monospace" font-size="9" fill="#8A7050">34</text>
+            <text x="185" y="168" font-family="monospace" font-size="9" fill="#C06020">-9999</text>
+            <text x="260" y="168" font-family="monospace" font-size="9" fill="#C06020">FINANCE</text>
+            <text x="325" y="168" font-family="monospace" font-size="9" fill="#8A7050">92</text>
+            <rect x="38" y="178" width="340" height="18" rx="2" fill="#0D0800"/>
+            <text x="52" y="190" font-family="monospace" font-size="9" fill="#8A7050">Dave</text>
+            <text x="130" y="190" font-family="monospace" font-size="9" fill="#8A7050">41</text>
+            <text x="185" y="190" font-family="monospace" font-size="9" fill="#8A7050">68000</text>
+            <text x="260" y="190" font-family="monospace" font-size="9" fill="#C06020">ENGN</text>
+            <text x="325" y="190" font-family="monospace" font-size="9" fill="#8A7050">79</text>
+            <rect x="38" y="200" width="340" height="18" rx="2" fill="#0D0800"/>
+            <text x="52" y="212" font-family="monospace" font-size="9" fill="#8A7050">Eve</text>
+            <text x="130" y="212" font-family="monospace" font-size="9" fill="#8A7050">26</text>
+            <text x="185" y="212" font-family="monospace" font-size="9" fill="#C06020">N/A</text>
+            <text x="260" y="212" font-family="monospace" font-size="9" fill="#8A7050">HR</text>
+            <text x="325" y="212" font-family="monospace" font-size="9" fill="#8A7050">95</text>
+            <!-- Error summary -->
+            <rect x="38" y="230" width="340" height="30" rx="4" fill="#1A0800" stroke="#C06020" stroke-width="1"/>
+            <text x="208" y="246" font-family="monospace" font-size="9" fill="#C06020" text-anchor="middle">⚠ 5 issues: 2 nulls · 1 duplicate · 1 outlier · 1 inconsistent label</text>
+            <!-- Arrow -->
+            <g filter="url(#dtBlur2)">
+              <line x1="398" y1="170" x2="498" y2="170" stroke="#FB923C" stroke-width="3"/>
+              <polygon points="490,163 502,170 490,177" fill="#FB923C"/>
+            </g>
+            <text x="450" y="155" text-anchor="middle" font-family="monospace" font-size="9" fill="#FB923C">AUTO-CLEAN</text>
+            <text x="450" y="143" text-anchor="middle" font-family="monospace" font-size="8" fill="#6A4010">Pandas Engine</text>
+            <!-- Clean output table right -->
+            <rect x="512" y="54" width="360" height="220" rx="8" fill="#001200" stroke="#104020" stroke-width="1.5"/>
+            <rect x="512" y="54" width="360" height="28" rx="6" fill="#002810" stroke="#104020" stroke-width="1"/>
+            <text x="530" y="72" font-family="monospace" font-size="10" font-weight="700" fill="#22C06B" letter-spacing="1">OUTPUT: CLEAN DATA ✓</text>
+            <!-- Header -->
+            <rect x="522" y="88" width="340" height="20" rx="2" fill="#001008" stroke="#104020" stroke-width="0.8"/>
+            <text x="536" y="102" font-family="monospace" font-size="9" fill="#3A7050">Name</text>
+            <text x="614" y="102" font-family="monospace" font-size="9" fill="#3A7050">Age</text>
+            <text x="669" y="102" font-family="monospace" font-size="9" fill="#3A7050">Salary</text>
+            <text x="744" y="102" font-family="monospace" font-size="9" fill="#3A7050">Dept</text>
+            <text x="809" y="102" font-family="monospace" font-size="9" fill="#3A7050">Score</text>
+            <!-- Clean rows -->
+            <rect x="522" y="112" width="340" height="18" rx="2" fill="#001008"/>
+            <text x="536" y="124" font-family="monospace" font-size="9" fill="#22C06B">Alice</text>
+            <text x="614" y="124" font-family="monospace" font-size="9" fill="#6EE7A0">28</text>
+            <text x="669" y="124" font-family="monospace" font-size="9" fill="#22C06B">45000</text>
+            <text x="744" y="124" font-family="monospace" font-size="9" fill="#22C06B">HR</text>
+            <text x="809" y="124" font-family="monospace" font-size="9" fill="#22C06B">88</text>
+            <rect x="522" y="134" width="340" height="18" rx="2" fill="#001008"/>
+            <text x="536" y="146" font-family="monospace" font-size="9" fill="#22C06B">Carol</text>
+            <text x="614" y="146" font-family="monospace" font-size="9" fill="#22C06B">34</text>
+            <text x="669" y="146" font-family="monospace" font-size="9" fill="#6EE7A0">58000</text>
+            <text x="744" y="146" font-family="monospace" font-size="9" fill="#22C06B">FIN</text>
+            <text x="809" y="146" font-family="monospace" font-size="9" fill="#22C06B">92</text>
+            <rect x="522" y="156" width="340" height="18" rx="2" fill="#001008"/>
+            <text x="536" y="168" font-family="monospace" font-size="9" fill="#22C06B">Dave</text>
+            <text x="614" y="168" font-family="monospace" font-size="9" fill="#22C06B">41</text>
+            <text x="669" y="168" font-family="monospace" font-size="9" fill="#22C06B">68000</text>
+            <text x="744" y="168" font-family="monospace" font-size="9" fill="#22C06B">ENG</text>
+            <text x="809" y="168" font-family="monospace" font-size="9" fill="#22C06B">79</text>
+            <rect x="522" y="178" width="340" height="18" rx="2" fill="#001008"/>
+            <text x="536" y="190" font-family="monospace" font-size="9" fill="#22C06B">Eve</text>
+            <text x="614" y="190" font-family="monospace" font-size="9" fill="#22C06B">26</text>
+            <text x="669" y="190" font-family="monospace" font-size="9" fill="#6EE7A0">52000</text>
+            <text x="744" y="190" font-family="monospace" font-size="9" fill="#22C06B">HR</text>
+            <text x="809" y="190" font-family="monospace" font-size="9" fill="#22C06B">95</text>
+            <!-- Success summary -->
+            <rect x="522" y="230" width="340" height="30" rx="4" fill="#002810" stroke="#22C06B" stroke-width="1"/>
+            <text x="692" y="246" font-family="monospace" font-size="9" fill="#22C06B" text-anchor="middle">✓ 0 issues · deduped · nulls imputed · labels normalised</text>
+            <!-- Bottom KPI strip -->
+            <rect x="0" y="300" width="900" height="40" fill="#040600" opacity="0.95"/>
+            <rect x="0" y="300" width="900" height="1.5" fill="#FB923C" opacity="0.3"/>
+            <text x="112" y="322" text-anchor="middle" font-family="monospace" font-size="9" fill="#7A8030">CLEANING ENGINE</text>
+            <text x="112" y="334" text-anchor="middle" font-family="monospace" font-size="9" fill="#FB923C" font-weight="700">Pandas + NumPy</text>
+            <line x1="224" y1="305" x2="224" y2="336" stroke="#1A2010" stroke-width="1"/>
+            <text x="330" y="322" text-anchor="middle" font-family="monospace" font-size="9" fill="#7A8030">ANOMALY TYPES</text>
+            <text x="330" y="334" text-anchor="middle" font-family="monospace" font-size="9" fill="#22C06B" font-weight="700">Nulls · Dupes · Outliers</text>
+            <line x1="450" y1="305" x2="450" y2="336" stroke="#1A2010" stroke-width="1"/>
+            <text x="570" y="322" text-anchor="middle" font-family="monospace" font-size="9" fill="#7A8030">STATUS</text>
+            <text x="570" y="334" text-anchor="middle" font-family="monospace" font-size="9" fill="#FB923C" font-weight="700">Beta · On-Boarding</text>
+            <line x1="680" y1="305" x2="680" y2="336" stroke="#1A2010" stroke-width="1"/>
+            <text x="790" y="322" text-anchor="middle" font-family="monospace" font-size="9" fill="#7A8030">TARGET</text>
+            <text x="790" y="334" text-anchor="middle" font-family="monospace" font-size="9" fill="#22C06B" font-weight="700">Industrial Datasets</text>
+          </svg>
+          <div class="project-image-overlay"></div>
+          <div class="project-badges">
+            <span class="project-badge badge-dev">&#9888; Under Development</span>
+            <span class="project-badge badge-accent">Automated ETL</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <div class="under-dev-banner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            This project is currently <strong>under active development</strong> — on-boarding &amp; testing phase
+          </div>
+          <h3 class="project-title">Data Tidy — Automated Data Cleaning Engine</h3>
+          <p class="project-description">An automated data cleaning and transformation utility designed to eliminate repetitive "Data Janitor" work. Leverages Pandas-driven logic to identify and fix anomalies — null values, duplicates, outliers, and inconsistent labels — in industrial datasets automatically, with a full validation report on output.</p>
+          <div class="tech-stack">
+            <div class="tech-tag tech-primary"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg><span>Python</span></div>
+            <div class="tech-tag tech-accent"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg><span>Pandas / NumPy</span></div>
+            <div class="tech-tag tech-primary"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg><span>Data Wrangling</span></div>
+            <div class="tech-tag tech-accent"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg><span>ETL Pipeline</span></div>
+          </div>
+          <div class="project-features">
+            <div class="feature-item"><span class="feature-bullet">•</span><span>Auto-detection of null values, duplicates, outliers and label inconsistencies</span></div>
+            <div class="feature-item"><span class="feature-bullet">•</span><span>Pandas-driven intelligent imputation and normalisation engine</span></div>
+            <div class="feature-item"><span class="feature-bullet">•</span><span>Full before/after validation report with issue breakdown</span></div>
+            <div class="feature-item"><span class="feature-bullet">•</span><span>Designed for industrial-scale datasets with minimal configuration</span></div>
+          </div>
+          <div class="project-stats">
+            <div class="stat-item"><span class="stat-value" style="color:#FB923C">Beta</span><span class="stat-label">Current Phase</span></div>
+            <div class="stat-item"><span class="stat-value gradient-text">Auto</span><span class="stat-label">ETL Cleaning</span></div>
+            <div class="stat-item"><span class="stat-value gradient-text">4+</span><span class="stat-label">Anomaly Types</span></div>
+          </div>
+          <div class="project-workflow">
+            <h4 class="workflow-title">Cleaning Pipeline</h4>
+            <div class="workflow-steps">
+              <span class="workflow-step">Raw Input</span><span class="workflow-arrow">→</span>
+              <span class="workflow-step">Anomaly Detection</span><span class="workflow-arrow">→</span>
+              <span class="workflow-step">Auto-Fix</span><span class="workflow-arrow">→</span>
+              <span class="workflow-step">Validation</span><span class="workflow-arrow">→</span>
+              <span class="workflow-step">Clean Output</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="projects-footer">
+        <p>More projects coming soon...</p>
+        <div class="projects-status">
+          <span class="status-dot"></span>
+          <span>Currently working on new data projects</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="section-bg-effects">
+      <div class="section-glow section-glow-1"></div>
+      <div class="section-glow section-glow-2"></div>
+    </div>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Get In Touch</span>
+        <h2 class="section-title">Let's <span class="gradient-text">Connect</span></h2>
+        <p class="section-description">I'm actively seeking data analyst opportunities. Feel free to reach out!</p>
+      </div>
+      <div class="contact-grid">
+        <a href="mailto:hashimcomcod@gmail.com?subject=Hello Mohamed" class="contact-card">
+          <div class="contact-icon-wrapper"><svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <h3 class="contact-title">Email</h3>
+          <p class="contact-value">hashimcomcod@gmail.com</p>
+        </a>
+        <a href="tel:+919944404775" class="contact-card">
+          <div class="contact-icon-wrapper"><svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <h3 class="contact-title">Phone</h3>
+          <p class="contact-value">+91 99444 04775</p>
+        </a>
+        <a href="https://www.linkedin.com/in/mohamed-hashim-19bb74337/" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <div class="contact-icon-wrapper"><svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+          <h3 class="contact-title">LinkedIn</h3>
+          <p class="contact-value">Connect with me</p>
+        </a>
+        <a href="https://github.com/hashimviper?tab=repositories" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <div class="contact-icon-wrapper"><svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></div>
+          <h3 class="contact-title">GitHub</h3>
+          <p class="contact-value">View my code</p>
+        </a>
+      </div>
+      <div class="resume-section">
+        <a href="assets/Mohamed Hashim Data Analyst.docx" download class="btn btn-primary btn-large">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span>Download Resume</span>
+        </a>
+      </div>
+      <p class="footer-text">Built with passion by Mohamed Hashim</p>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
