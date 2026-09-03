@@ -19,8 +19,10 @@
       </a>
       <div class="nav-links desktop-nav">
         <a href="#hero" class="nav-link">Home</a>
+        <a href="#experience" class="nav-link">Experience</a>
         <a href="#skills" class="nav-link">Skills</a>
         <a href="#projects" class="nav-link">Projects</a>
+        <a href="#certifications" class="nav-link">Certifications</a>
         <a href="#contact" class="nav-link">Contact</a>
       </div>
       <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
@@ -31,8 +33,10 @@
     </div>
     <div id="mobile-nav" class="mobile-nav" aria-hidden="true">
       <a href="#hero" class="mobile-nav-link">Home</a>
+      <a href="#experience" class="mobile-nav-link">Experience</a>
       <a href="#skills" class="mobile-nav-link">Skills</a>
       <a href="#projects" class="mobile-nav-link">Projects</a>
+      <a href="#certifications" class="mobile-nav-link">Certifications</a>
       <a href="#contact" class="mobile-nav-link">Contact</a>
     </div>
   </nav>
@@ -48,16 +52,20 @@
       <div class="hero-content">
         <div class="hero-badge animate-fade-up">
           <span class="status-dot"></span>
-          <span>Available for opportunities</span>
+          <span>Data Analyst @ SDL Creative Groups &middot; Open to new opportunities</span>
         </div>
         <h1 class="hero-title animate-fade-up delay-100">
           Hi, I'm <span class="gradient-text">Mohamed Hashim</span>
         </h1>
         <p class="hero-subtitle animate-fade-up delay-200">
-          Aspiring Data Analyst with a foundation in Excel, SQL, Python, and Power BI.
-          Passionate about transforming raw data into actionable insights.
+          Data Analyst building <span class="hero-highlight">Power BI dashboards</span>, SQL-driven analysis and automated reporting pipelines for client delivery in Abu Dhabi.
+          I turn raw, messy data into decisions people actually act on.
         </p>
         <div class="hero-education animate-fade-up delay-300">
+          <div class="education-item">
+            <span class="education-icon">💼</span>
+            <span>Data Analyst @ SDL Creative Groups, UAE</span>
+          </div>
           <div class="education-item">
             <span class="education-icon">🎓</span>
             <span>B.Tech AI&amp;DS @ MIET Engineering College Trichy</span>
@@ -74,13 +82,18 @@
           </a>
           <a href="#contact" class="btn btn-secondary"><span>Get In Touch</span></a>
         </div>
+        <div class="hero-stats-row animate-fade-up delay-450" id="hero-stats">
+          <div class="hero-stat"><span class="hero-stat-value" data-count="9994">0</span><span class="hero-stat-label">Orders Analysed</span></div>
+          <div class="hero-stat"><span class="hero-stat-value" data-count="6">0</span><span class="hero-stat-label">Live Dashboards Shipped</span></div>
+          <div class="hero-stat"><span class="hero-stat-value" data-count="3" data-suffix="+">0</span><span class="hero-stat-label">Live Deployed Web Apps</span></div>
+        </div>
         <div class="hero-certs animate-fade-up delay-500">
-          <span class="certs-label">Completed Courses:</span>
+          <span class="certs-label">Core Toolkit:</span>
           <div class="certs-list">
+            <span class="cert-tag">Power BI &amp; DAX</span>
             <span class="cert-tag">SQL</span>
             <span class="cert-tag">Python</span>
-            <span class="cert-tag">Data Analytics</span>
-            <span class="cert-tag">Excel</span>
+            <span class="cert-tag">n8n Automation</span>
           </div>
         </div>
         <div class="scroll-indicator animate-fade-in delay-500" id="hero-scroll-indicator">
@@ -97,8 +110,32 @@
       <div class="banner-container">
         <div class="slider-outer">
 
+          <!-- ── SLIDE 0: Retail Sales Capstone ── -->
+          <div class="slide-item active slide-item--highlight" data-slide="0">
+            <div class="slide-glow" style="background:radial-gradient(circle,rgba(41,217,184,0.18),transparent 70%)"></div>
+            <div class="slide-badge" style="background:#29d9b8;color:#0a1628">⭐ Capstone &middot; Retail Sales Analysis</div>
+            <div class="slide-img-col">
+              <img src="assets/images/dataimage.png" alt="Retail Sales Performance Analysis" class="slide-img" onerror="this.style.display='none'"/>
+            </div>
+            <div class="slide-body">
+              <h3 class="slide-title" style="color:#29d9b8">Retail Sales Performance Analysis</h3>
+              <p class="slide-desc">9,994 retail orders analysed end-to-end with SQL, Python and a 3-page Power BI dashboard — pinpointing a $21,900 loss hiding in one product-region combination.</p>
+              <div class="slide-tags">
+                <span class="slide-tag" style="color:#29d9b8;border-color:#29d9b8">SQL</span>
+                <span class="slide-tag" style="color:#29d9b8;border-color:#29d9b8">Python</span>
+                <span class="slide-tag" style="color:#29d9b8;border-color:#29d9b8">Power BI / DAX</span>
+              </div>
+              <div class="slide-stats">
+                <span class="slide-stat">9,994 Orders</span>
+                <span class="slide-stat">-77% Margin (&gt;40% Disc.)</span>
+                <span class="slide-stat">$21.9K Loss Found</span>
+              </div>
+              <a href="#projects" class="slide-cta-btn">View Full Project &#8595;</a>
+            </div>
+          </div>
+
           <!-- ── SLIDE 1: Web Scraping ── -->
-          <div class="slide-item active" data-slide="0">
+          <div class="slide-item" data-slide="1">
             <div class="slide-badge" style="background:#29d9b8;color:#0a1628">Web Scraping &amp; Analysis</div>
             <div class="slide-img-col">
               <img src="assets/images/dataimage.png" alt="Web Scraping Project" class="slide-img" onerror="this.style.display='none'"/>
@@ -121,7 +158,7 @@
           </div>
 
           <!-- ── SLIDE 2: HR Analytics ── -->
-          <div class="slide-item" data-slide="1">
+          <div class="slide-item" data-slide="2">
             <div class="slide-badge" style="background:#a78bfa;color:#0a1628">HR Analytics</div>
             <div class="slide-img-col">
               <img src="assets/images/imagedata.png" alt="HR Analytics Dashboard" class="slide-img" onerror="this.style.display='none'"/>
@@ -144,7 +181,7 @@
           </div>
 
           <!-- ── SLIDE 3: VisoryBI ── -->
-          <div class="slide-item" data-slide="2">
+          <div class="slide-item" data-slide="3">
             <div class="slide-badge" style="background:#a78bfa;color:#0a1628">Business Intelligence</div>
             <div class="slide-img-col">
               <img src="assets/images/visorybi-logo.png" alt="VisoryBI Platform" class="slide-img" onerror="this.style.display='none'"/>
@@ -167,7 +204,7 @@
           </div>
 
           <!-- ── SLIDE 4: DevTrustProtocol ── -->
-          <div class="slide-item slide-item--highlight" data-slide="3">
+          <div class="slide-item slide-item--highlight" data-slide="4">
             <div class="slide-glow" style="background:radial-gradient(circle,rgba(20,169,168,0.15),transparent 70%)"></div>
             <div class="slide-badge" style="background:#14A9A8;color:#fff">DevTrustProtocol &middot; AI Validation Engine</div>
             <div class="slide-img-col">
@@ -270,7 +307,7 @@
           </div>
 
           <!-- ── SLIDE 5: Data Tidy ── -->
-          <div class="slide-item slide-item--highlight" data-slide="4">
+          <div class="slide-item slide-item--highlight" data-slide="5">
             <div class="slide-glow" style="background:radial-gradient(circle,rgba(251,146,60,0.12),transparent 70%)"></div>
             <div class="slide-badge" style="background:#FB923C;color:#fff">&#9888; Under Development</div>
             <div class="slide-img-col">
@@ -407,12 +444,80 @@
             <button class="slider-dot" data-idx="2"></button>
             <button class="slider-dot" data-idx="3"></button>
             <button class="slider-dot" data-idx="4"></button>
+            <button class="slider-dot" data-idx="5"></button>
           </div>
           <button class="btn btn-secondary" id="slideNext">Next &#10095;</button>
         </div>
 
       </div><!-- /banner-container -->
     </div><!-- /container -->
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="experience-section">
+    <div class="section-bg-effects">
+      <div class="section-glow section-glow-1"></div>
+      <div class="section-glow section-glow-2"></div>
+    </div>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Career Journey</span>
+        <h2 class="section-title">Work <span class="gradient-text">Experience</span></h2>
+        <p class="section-description">From front-end internship to full-time data analyst delivering live client dashboards</p>
+      </div>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-marker timeline-marker--current"></div>
+          <div class="timeline-card timeline-card--current">
+            <div class="timeline-card-header">
+              <div>
+                <h3 class="timeline-role">Data Analyst</h3>
+                <p class="timeline-company">SDL Creative Groups <span class="timeline-location">&middot; UAE, Client Delivery</span></p>
+              </div>
+              <span class="timeline-date">Apr 2026 – Present</span>
+            </div>
+            <p class="timeline-promo"><span class="promo-icon">↗</span> Joined as Data Analyst Intern (Mar 2026) — converted to full-time within one month based on performance</p>
+            <ul class="timeline-points">
+              <li>Built interactive <strong>Power BI dashboards</strong> from client datasets, delivering KPI tracking and drill-through reporting across HR analytics, sentiment analysis and e-commerce research engagements</li>
+              <li>Led a departmental performance-scoring framework (completion rate, on-time delivery, success outcomes) that directly informed pay-raise decisions for the annual review cycle</li>
+              <li>Ran client sentiment analysis on customer reviews in Python, surfacing insights that shaped product direction and business strategy</li>
+              <li>Designed and deployed <strong>n8n automation workflows</strong> to streamline recurring data processing and integrate tools across the delivery pipeline</li>
+            </ul>
+            <div class="timeline-tools">
+              <span class="timeline-tool">Power BI</span>
+              <span class="timeline-tool">Python</span>
+              <span class="timeline-tool">SQL</span>
+              <span class="timeline-tool">Excel</span>
+              <span class="timeline-tool">n8n</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-card">
+            <div class="timeline-card-header">
+              <div>
+                <h3 class="timeline-role">Web Development Intern</h3>
+                <p class="timeline-company">E-Soft IT Solutions</p>
+              </div>
+              <span class="timeline-date">2024</span>
+            </div>
+            <ul class="timeline-points">
+              <li>Developed and tested responsive web pages using HTML and CSS within Agile-style sprint cycles</li>
+              <li>Collaborated with a small development team to translate design requirements into functional, tested front-end code</li>
+            </ul>
+            <div class="timeline-tools">
+              <span class="timeline-tool">HTML</span>
+              <span class="timeline-tool">CSS</span>
+              <span class="timeline-tool">Agile</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </section>
 
   <!-- Skills Section -->
@@ -430,11 +535,11 @@
       <div class="skills-grid">
         <div class="skill-card">
           <div class="skill-icon-wrapper">
-            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
+            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
           </div>
-          <h3 class="skill-name">Excel</h3>
-          <p class="skill-description">Advanced formulas, Pivot Tables, Data Analysis</p>
-          <div class="skill-bar"><div class="skill-bar-fill" style="--fill-width: 90%"></div></div>
+          <h3 class="skill-name">Power BI</h3>
+          <p class="skill-description">DAX measures, drill-through, data modelling, KPI dashboards</p>
+          <div class="skill-bar"><div class="skill-bar-fill" style="--fill-width: 92%"></div></div>
           <span class="skill-level">Advanced</span>
         </div>
         <div class="skill-card">
@@ -442,8 +547,8 @@
             <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
           </div>
           <h3 class="skill-name">SQL</h3>
-          <p class="skill-description">Complex queries, Database design, Optimization</p>
-          <div class="skill-bar"><div class="skill-bar-fill" style="--fill-width: 85%"></div></div>
+          <p class="skill-description">Joins, CTEs, window functions, query optimization</p>
+          <div class="skill-bar"><div class="skill-bar-fill" style="--fill-width: 88%"></div></div>
           <span class="skill-level">Advanced</span>
         </div>
         <div class="skill-card">
@@ -451,34 +556,34 @@
             <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
           </div>
           <h3 class="skill-name">Python</h3>
-          <p class="skill-description">Pandas, NumPy, Data manipulation</p>
-          <div class="skill-bar"><div class="skill-bar-fill" style="--fill-width: 80%"></div></div>
-          <span class="skill-level">Intermediate</span>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon-wrapper">
-            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-          </div>
-          <h3 class="skill-name">Power BI</h3>
-          <p class="skill-description">Interactive dashboards, DAX, Data modeling</p>
+          <p class="skill-description">Pandas, NumPy, Matplotlib, Seaborn, statistical analysis</p>
           <div class="skill-bar"><div class="skill-bar-fill" style="--fill-width: 85%"></div></div>
           <span class="skill-level">Advanced</span>
         </div>
         <div class="skill-card">
           <div class="skill-icon-wrapper">
-            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
           </div>
-          <h3 class="skill-name">HTML/CSS</h3>
-          <p class="skill-description">Responsive design, Modern layouts</p>
-          <div class="skill-bar"><div class="skill-bar-fill" style="--fill-width: 75%"></div></div>
+          <h3 class="skill-name">Excel</h3>
+          <p class="skill-description">Pivot tables, VLOOKUP, advanced formulas</p>
+          <div class="skill-bar"><div class="skill-bar-fill" style="--fill-width: 85%"></div></div>
+          <span class="skill-level">Advanced</span>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon-wrapper">
+            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+          </div>
+          <h3 class="skill-name">n8n Automation</h3>
+          <p class="skill-description">Workflow automation for recurring data-processing tasks</p>
+          <div class="skill-bar"><div class="skill-bar-fill" style="--fill-width: 78%"></div></div>
           <span class="skill-level">Intermediate</span>
         </div>
         <div class="skill-card">
           <div class="skill-icon-wrapper">
             <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
           </div>
-          <h3 class="skill-name">Data Visualization</h3>
-          <p class="skill-description">Charts, Graphs, Storytelling with data</p>
+          <h3 class="skill-name">Data Visualization &amp; EDA</h3>
+          <p class="skill-description">Performance scorecards, KPI reporting, storytelling with data</p>
           <div class="skill-bar"><div class="skill-bar-fill" style="--fill-width: 88%"></div></div>
           <span class="skill-level">Advanced</span>
         </div>
@@ -500,8 +605,144 @@
         <p class="section-description">Real-world data projects showcasing end-to-end analytics workflows</p>
       </div>
 
+      <div class="project-filters" id="projectFilters">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="sql">SQL</button>
+        <button class="filter-btn" data-filter="python">Python</button>
+        <button class="filter-btn" data-filter="powerbi">Power BI</button>
+        <button class="filter-btn" data-filter="webapp">Live Web App</button>
+        <button class="filter-btn" data-filter="dev">Under Dev</button>
+      </div>
+
+      <!-- ══ PROJECT 0: Retail Sales Performance Analysis (Capstone) ══ -->
+      <div class="project-card project-card--capstone" data-tags="sql python powerbi">
+        <div class="project-image-wrapper">
+          <svg viewBox="0 0 900 340" xmlns="http://www.w3.org/2000/svg" class="project-image" style="background:#0B1420">
+            <defs>
+              <linearGradient id="rsBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#0E1A28"/>
+                <stop offset="100%" style="stop-color:#081019"/>
+              </linearGradient>
+              <radialGradient id="rsGlow" cx="50%" cy="0%" r="70%">
+                <stop offset="0%" style="stop-color:#29d9b8;stop-opacity:0.16"/>
+                <stop offset="100%" style="stop-color:#29d9b8;stop-opacity:0"/>
+              </radialGradient>
+            </defs>
+            <rect width="900" height="340" fill="url(#rsBg)"/>
+            <ellipse cx="450" cy="20" rx="420" ry="160" fill="url(#rsGlow)"/>
+            <rect x="0" y="0" width="900" height="34" fill="#060B12" opacity="0.9"/>
+            <text x="24" y="22" font-family="monospace" font-size="11" font-weight="700" fill="#29d9b8" letter-spacing="2">RETAIL SALES PERFORMANCE · FY DASHBOARD</text>
+            <text x="876" y="22" text-anchor="end" font-family="monospace" font-size="9" fill="#5A7080">9,994 ORDERS</text>
+            <!-- KPI cards -->
+            <g font-family="monospace">
+              <rect x="24" y="52" width="200" height="70" rx="8" fill="#0F1E2E" stroke="#1C3548" stroke-width="1"/>
+              <text x="38" y="74" font-size="9" fill="#7A96B0">TOTAL ORDERS</text>
+              <text x="38" y="102" font-size="22" font-weight="700" fill="#E8EEF7">9,994</text>
+              <rect x="236" y="52" width="200" height="70" rx="8" fill="#0F1E2E" stroke="#1C3548" stroke-width="1"/>
+              <text x="250" y="74" font-size="9" fill="#7A96B0">AVG MARGIN LOSS (&gt;40% DISC.)</text>
+              <text x="250" y="102" font-size="22" font-weight="700" fill="#FF7B7B">-77%</text>
+              <rect x="448" y="52" width="200" height="70" rx="8" fill="#0F1E2E" stroke="#1C3548" stroke-width="1"/>
+              <text x="462" y="74" font-size="9" fill="#7A96B0">WORST REGION LOSS</text>
+              <text x="462" y="102" font-size="22" font-weight="700" fill="#FF7B7B">$21.9K</text>
+              <rect x="660" y="52" width="216" height="70" rx="8" fill="#0F1E2E" stroke="#29d9b8" stroke-width="1" opacity="0.9"/>
+              <text x="674" y="74" font-size="9" fill="#7A96B0">SQL QUERIES BUILT</text>
+              <text x="674" y="102" font-size="22" font-weight="700" fill="#29d9b8">8</text>
+            </g>
+            <!-- Bar chart: discount vs margin -->
+            <g font-family="monospace">
+              <text x="24" y="150" font-size="9" fill="#7A96B0" letter-spacing="1">MARGIN % BY DISCOUNT BAND</text>
+              <line x1="24" y1="260" x2="450" y2="260" stroke="#1C3548" stroke-width="1"/>
+              <rect x="40"  y="180" width="46" height="80" rx="3" fill="#29d9b8"/>
+              <text x="63" y="272" text-anchor="middle" font-size="8" fill="#7A96B0">0-10%</text>
+              <rect x="110" y="205" width="46" height="55" rx="3" fill="#29d9b8" opacity="0.85"/>
+              <text x="133" y="272" text-anchor="middle" font-size="8" fill="#7A96B0">10-20%</text>
+              <rect x="180" y="222" width="46" height="38" rx="3" fill="#D4A017"/>
+              <text x="203" y="272" text-anchor="middle" font-size="8" fill="#7A96B0">20-30%</text>
+              <rect x="250" y="238" width="46" height="22" rx="3" fill="#D4A017" opacity="0.85"/>
+              <text x="273" y="272" text-anchor="middle" font-size="8" fill="#7A96B0">30-40%</text>
+              <rect x="320" y="260" width="46" height="34" rx="3" fill="#FF7B7B" transform="translate(0,-34)"/>
+              <text x="343" y="272" text-anchor="middle" font-size="8" fill="#FF7B7B">40%+</text>
+              <text x="343" y="248" text-anchor="middle" font-size="8" fill="#FF7B7B">-77%</text>
+            </g>
+            <!-- Regional loss table -->
+            <g font-family="monospace">
+              <rect x="480" y="140" width="396" height="150" rx="8" fill="#0F1E2E" stroke="#1C3548" stroke-width="1"/>
+              <text x="498" y="162" font-size="9" font-weight="700" fill="#7A96B0" letter-spacing="1">TOP LOSS-MAKING PRODUCT · REGION</text>
+              <rect x="498" y="174" width="360" height="24" rx="3" fill="#150E14" stroke="#3A2030" stroke-width="0.8"/>
+              <text x="510" y="190" font-size="9" fill="#E8EEF7">Tables &middot; Central</text>
+              <text x="846" y="190" text-anchor="end" font-size="9" fill="#FF7B7B">-$21,900</text>
+              <rect x="498" y="202" width="360" height="24" rx="3" fill="#0F1E2E" stroke="#1C3548" stroke-width="0.6"/>
+              <text x="510" y="218" font-size="9" fill="#A8BACA">Bookcases &middot; East</text>
+              <text x="846" y="218" text-anchor="end" font-size="9" fill="#D4A017">-$8,200</text>
+              <rect x="498" y="230" width="360" height="24" rx="3" fill="#0F1E2E" stroke="#1C3548" stroke-width="0.6"/>
+              <text x="510" y="246" font-size="9" fill="#A8BACA">Machines &middot; West</text>
+              <text x="846" y="246" text-anchor="end" font-size="9" fill="#D4A017">-$5,640</text>
+              <rect x="498" y="258" width="360" height="22" rx="3" fill="#0A1A0F" stroke="#1C4830" stroke-width="0.6"/>
+              <text x="510" y="273" font-size="8" fill="#22C06B">✓ 3-page Power BI dashboard · custom DAX measures</text>
+            </g>
+            <rect x="0" y="306" width="900" height="34" fill="#060B12" opacity="0.95"/>
+            <rect x="0" y="304" width="900" height="1.5" fill="#29d9b8" opacity="0.35"/>
+            <text x="450" y="327" text-anchor="middle" font-family="monospace" font-size="9" fill="#5A7080" letter-spacing="1">SQL · PYTHON (PANDAS/MATPLOTLIB/SEABORN) · POWER BI · DAX</text>
+          </svg>
+          <div class="project-image-overlay"></div>
+          <div class="project-badges">
+            <span class="project-badge badge-primary">⭐ Capstone Project</span>
+            <span class="project-badge badge-accent">Retail Analytics</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Retail Sales Performance Analysis — Independent Capstone</h3>
+
+          <div class="project-problem-solution">
+            <div class="ps-block ps-problem">
+              <div class="ps-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                Problem Statement
+              </div>
+              <p>Retail teams often run discount campaigns without knowing which discount bands, products, or regions are quietly destroying margin — decisions get made on gut feel rather than the numbers hidden inside thousands of order rows.</p>
+            </div>
+            <div class="ps-block ps-solution">
+              <div class="ps-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg>
+                Solution
+              </div>
+              <p>Analysed 9,994 retail orders end-to-end — SQL (joins, CTEs, window functions), Python EDA, and a 3-page Power BI dashboard with custom DAX measures — to pinpoint exactly where discounting was eroding profit and by how much.</p>
+            </div>
+          </div>
+
+          <p class="project-description">Identified that orders discounted above 40% lost 77% margin on average, and isolated a single product-region combination responsible for $21,900 in losses — translating raw transactional data into prioritised, actionable business recommendations.</p>
+          <div class="tech-stack">
+            <div class="tech-tag tech-primary"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg><span>SQL</span></div>
+            <div class="tech-tag tech-accent"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg><span>Python (Pandas/Matplotlib/Seaborn)</span></div>
+            <div class="tech-tag tech-primary"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg><span>Power BI / DAX</span></div>
+          </div>
+          <div class="project-features">
+            <div class="feature-item"><span class="feature-bullet">•</span><span>8 SQL queries covering joins, CTEs, and window functions for cohort &amp; margin analysis</span></div>
+            <div class="feature-item"><span class="feature-bullet">•</span><span>Full Python EDA and statistical analysis of discount-vs-margin relationships</span></div>
+            <div class="feature-item"><span class="feature-bullet">•</span><span>3-page interactive Power BI dashboard with custom DAX measures</span></div>
+            <div class="feature-item"><span class="feature-bullet">•</span><span>Complete project report: methodology, SQL, EDA, dashboard design, recommendations</span></div>
+          </div>
+          <div class="project-stats">
+            <div class="stat-item"><span class="stat-value gradient-text">9,994</span><span class="stat-label">Orders Analysed</span></div>
+            <div class="stat-item"><span class="stat-value" style="color:#FF7B7B">-77%</span><span class="stat-label">Margin Loss (&gt;40% Discount)</span></div>
+            <div class="stat-item"><span class="stat-value" style="color:#FF7B7B">$21.9K</span><span class="stat-label">Single Worst-Case Loss</span></div>
+            <div class="stat-item"><span class="stat-value gradient-text">8</span><span class="stat-label">SQL Queries</span></div>
+          </div>
+          <div class="project-workflow">
+            <h4 class="workflow-title">Analysis Pipeline</h4>
+            <div class="workflow-steps">
+              <span class="workflow-step">Data Cleaning</span><span class="workflow-arrow">→</span>
+              <span class="workflow-step">SQL Analysis</span><span class="workflow-arrow">→</span>
+              <span class="workflow-step">Python EDA</span><span class="workflow-arrow">→</span>
+              <span class="workflow-step">Power BI Dashboard</span><span class="workflow-arrow">→</span>
+              <span class="workflow-step">Business Recommendations</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- ══ PROJECT 1: Web Scraping ══ -->
-      <div class="project-card">
+      <div class="project-card" data-tags="python powerbi">
         <div class="project-image-wrapper">
           <img src="assets/images/dataimage.png" alt="Data Analytics Dashboard showing charts, graphs and KPI metrics" class="project-image"/>
           <div class="project-image-overlay"></div>
@@ -555,7 +796,7 @@
       </div>
 
       <!-- ══ PROJECT 2: HR Analytics ══ -->
-      <div class="project-card">
+      <div class="project-card" data-tags="python powerbi">
         <div class="project-image-wrapper">
           <img src="assets/images/imagedata.png" alt="HR Analytics Dashboard showing employee statistics, performance charts and metrics" class="project-image"/>
           <div class="project-image-overlay"></div>
@@ -616,7 +857,7 @@
       </div>
 
       <!-- ══ PROJECT 3: VisoryBI ══ -->
-      <div class="project-card">
+      <div class="project-card" data-tags="powerbi webapp python">
         <div class="project-image-wrapper">
           <img src="assets/images/visorybi-logo.png" alt="VisoryBI Business Intelligence Dashboard" class="project-image"/>
           <div class="project-image-overlay"></div>
@@ -652,7 +893,7 @@
       </div>
 
       <!-- ══ PROJECT 4: DevTrustProtocol ══ -->
-      <div class="project-card project-card--devtrust">
+      <div class="project-card project-card--devtrust" data-tags="python webapp">
         <div class="project-image-wrapper">
           <svg viewBox="0 0 900 340" xmlns="http://www.w3.org/2000/svg" class="project-image" style="background:#060E18">
             <defs>
@@ -800,7 +1041,7 @@
       </div>
 
       <!-- ══ PROJECT 5: Data Tidy ══ -->
-      <div class="project-card project-card--datatidy">
+      <div class="project-card project-card--datatidy" data-tags="python dev">
         <div class="project-image-wrapper">
           <svg viewBox="0 0 900 340" xmlns="http://www.w3.org/2000/svg" class="project-image" style="background:#060A00">
             <defs>
@@ -984,11 +1225,52 @@
       </div>
 
       <div class="projects-footer">
-        <p>More projects coming soon...</p>
+        <p>More projects shipping regularly from client work at SDL Creative Groups...</p>
         <div class="projects-status">
           <span class="status-dot"></span>
-          <span>Currently working on new data projects</span>
+          <span>Currently building dashboards for live client engagements</span>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section id="certifications" class="certifications-section">
+    <div class="section-bg-effects">
+      <div class="section-glow section-glow-1"></div>
+      <div class="section-glow section-glow-2"></div>
+    </div>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Continuous Learning</span>
+        <h2 class="section-title">Certifications &amp; <span class="gradient-text">Credentials</span></h2>
+        <p class="section-description">Formal validation to back up hands-on project experience</p>
+      </div>
+      <div class="certs-grid">
+        <div class="cert-card">
+          <div class="cert-card-icon">🏢</div>
+          <h3 class="cert-card-title">TCS Forge — Data Analyst Job Simulation</h3>
+          <p class="cert-card-issuer">Tata Consultancy Services</p>
+          <span class="cert-card-date">Jul 2025</span>
+        </div>
+        <div class="cert-card">
+          <div class="cert-card-icon">🐍</div>
+          <h3 class="cert-card-title">Python Certification</h3>
+          <p class="cert-card-issuer">Programming &amp; Data Analysis</p>
+          <span class="cert-card-date">Jun 2025</span>
+        </div>
+        <div class="cert-card">
+          <div class="cert-card-icon">🗄️</div>
+          <h3 class="cert-card-title">SQL Certification</h3>
+          <p class="cert-card-issuer">Database Querying &amp; Analysis</p>
+          <span class="cert-card-date">Dec 2024</span>
+        </div>
+      </div>
+      <div class="languages-row">
+        <span class="certs-label">Languages:</span>
+        <span class="cert-tag">English — Full Professional</span>
+        <span class="cert-tag">Tamil — Native</span>
+        <span class="cert-tag">Dutch — Beginner</span>
       </div>
     </div>
   </section>
@@ -1016,7 +1298,7 @@
           <h3 class="contact-title">Phone</h3>
           <p class="contact-value">+91 99444 04775</p>
         </a>
-        <a href="https://www.linkedin.com/in/mohamed-hashim-dataanalyst/" target="_blank" rel="noopener noreferrer" class="contact-card">
+        <a href="https://linkedin.com/in/mohamed-hashim-19bb74337" target="_blank" rel="noopener noreferrer" class="contact-card">
           <div class="contact-icon-wrapper"><svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
           <h3 class="contact-title">LinkedIn</h3>
           <p class="contact-value">Connect with me</p>
@@ -1028,7 +1310,7 @@
         </a>
       </div>
       <div class="resume-section">
-        <a href="assets/Mohamed Hashim - Data Analyst.docx" download class="btn btn-primary btn-large">
+        <a href="assets/Mohamed_Hashim_Data_Analyst_Resume.docx" download class="btn btn-primary btn-large">
           <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           <span>Download Resume</span>
         </a>
@@ -1036,6 +1318,10 @@
       <p class="footer-text">Built with passion by Mohamed Hashim</p>
     </div>
   </section>
+
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
 
   <script src="script.js"></script>
 </body>
