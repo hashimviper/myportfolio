@@ -45,7 +45,7 @@ var revealObs = new IntersectionObserver(function (entries) {
   });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.skill-card, .project-card, .contact-card, .finding-card').forEach(function (el) {
+document.querySelectorAll('.skill-card, .project-card, .contact-card, .finding-card, .timeline-card, .cert-card').forEach(function (el) {
   el.style.opacity = '0';
   el.style.transform = 'translateY(24px)';
   el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
@@ -142,7 +142,67 @@ function restartAuto() {
   startAuto();
 }
 
-/* ── 7. INIT ────────────────────────────────────────────── */
+/* ── 7. PROJECT FILTERS ─────────────────────────────────── */
+var filterBtns = document.querySelectorAll('.filter-btn');
+var projectCards = document.querySelectorAll('.project-card');
+
+filterBtns.forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    filterBtns.forEach(function (b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    var filter = btn.getAttribute('data-filter');
+
+    projectCards.forEach(function (card) {
+      var tags = (card.getAttribute('data-tags') || '').split(' ');
+      var show = filter === 'all' || tags.indexOf(filter) !== -1;
+      card.classList.toggle('filtered-out', !show);
+    });
+  });
+});
+
+/* ── 8. HERO STAT COUNT-UP ──────────────────────────────── */
+function animateCount(el) {
+  var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+  var suffix = el.getAttribute('data-suffix') || '';
+  var duration = 1400;
+  var start = null;
+
+  function step(ts) {
+    if (!start) start = ts;
+    var progress = Math.min((ts - start) / duration, 1);
+    var eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.floor(eased * target).toLocaleString() + suffix;
+    if (progress < 1) requestAnimationFrame(step);
+    else el.textContent = target.toLocaleString() + suffix;
+  }
+  requestAnimationFrame(step);
+}
+
+var heroStatsEl = document.getElementById('hero-stats');
+if (heroStatsEl) {
+  var statObs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) {
+        document.querySelectorAll('.hero-stat-value').forEach(animateCount);
+        statObs.unobserve(en.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  statObs.observe(heroStatsEl);
+}
+
+/* ── 9. BACK TO TOP ─────────────────────────────────────── */
+var backToTopBtn = document.getElementById('backToTop');
+if (backToTopBtn) {
+  window.addEventListener('scroll', function () {
+    backToTopBtn.classList.toggle('visible', window.scrollY > 500);
+  });
+  backToTopBtn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+/* ── 10. INIT ───────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', function () {
   initSlider();
 });
