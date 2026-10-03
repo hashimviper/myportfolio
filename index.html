@@ -1039,6 +1039,47 @@
           </div>
         </div>
       </div>
+      <!-- ══ PROJECT: ADNOC Midstream Mass-Balance Intelligence System ══ -->
+<div class="project-card project-card--capstone" data-tags="sql python powerbi">
+  <div class="project-image-wrapper">
+    <img src="assets/images/adnoc-midstream-cover.png" alt="Midstream oil and gas processing facility at dusk" class="project-image"/>
+    <div class="project-image-overlay"></div>
+    <div class="project-badges">
+      <span class="project-badge badge-primary">⭐ Flagship Project</span>
+      <span class="project-badge badge-accent">Midstream Energy Analytics</span>
+    </div>
+  </div>
+  <div class="project-content">
+    <h3 class="project-title">ADNOC Midstream Operations &amp; Mass-Balance Intelligence System</h3>
+
+    <div class="project-problem-solution">
+      <div class="ps-block ps-problem">
+        <div class="ps-label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Problem Statement
+        </div>
+        <p>In midstream operations, small differences between the volume entering and leaving a process can signal measurement faults, leakage or process loss. When batch telemetry is reviewed manually, these losses are found late, and operations teams cannot tell which batches need follow-up first.</p>
+      </div>
+      <div class="ps-block ps-solution">
+        <div class="ps-label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg>
+          Solution
+        </div>
+        <p>Built an end-to-end operations intelligence system analysing 500 telemetry batches in DuckDB. It reconciles inlet and outlet volumes per batch, flags batches that breach loss-tolerance thresholds, and presents the results in a custom-CSS-styled Power BI dashboard for operations stakeholders.</p>
+      </div>
+    </div>
+
+    <p class="project-description">DuckDB SQL queries execute in under 1ms, supporting near-instant operational reporting. Volumetric mass-balance reconciliation quantifies and traces volume loss across midstream flows, while rule-based anomaly detection enables real-time operational risk monitoring and prioritised follow-up.</p>
+
+    <div class="tech-stack">
+      <div class="tech-tag tech-primary"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg><span>DuckDB / SQL</span></div>
+      <div class="tech-tag tech-accent"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg><span>Python</span></div>
+      <div class="tech-tag tech-primary"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg><span>Power BI (DAX)</span></div>
+      <div class="tech-tag tech-accent"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg><span>Custom CSS &middot; Anomaly Detection</span></div>
+    </div>
+
+    <div class="project-features">
+      <div class="feature-item"><span class="feature-bullet">•</span><span>Volumetric mass-balance loss reconciliation comparing inlet and outlet volumes per
 
       <!-- ══ PROJECT 5: Data Tidy ══ -->
       <div class="project-card project-card--datatidy" data-tags="python dev">
